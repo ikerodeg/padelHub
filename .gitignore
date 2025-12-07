@@ -1,0 +1,15 @@
+# Node modules (por si usamos Node en backend o herramientas)
+node_modules/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+
+# Build / dist
+dist/
