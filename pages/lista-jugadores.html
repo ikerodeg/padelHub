@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Jugadores | PadelSamu</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Directorio de jugadores de PadelSamu. Encuentra compañeros y rivales.">
+  <meta name="keywords" content="padel, jugadores, directorio, perfil, drive, reves">
+  <meta name="author" content="ocp2k">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../src/css/normalize.css">
+  <link rel="stylesheet" href="../src/css/variables.css">
+
+  <!-- Componentes -->
+  <link rel="stylesheet" href="../src/css/components/baseLayout.css">
+  <link rel="stylesheet" href="../src/css/components/header.css">
+  <link rel="stylesheet" href="../src/css/components/pageHeader.css">
+  <link rel="stylesheet" href="../src/css/components/footer.css">
+  <link rel="stylesheet" href="../src/css/components/buttons.css">
+  <link rel="stylesheet" href="../src/css/components/forms.css">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="../src/css/pages/lista-jugadores.css">
+</head>
+
+<body aria-label="lista-jugadores">
+
+  <!-- ========================= HEADER ========================= -->
+  <header>
+    <div class="return-link__container">
+      <a href="../index.html" aria-label="volver al inicio de PadelSamu">
+        <img src="../assets/img/icons/icons8-volver-48.png" class="return-icon" alt="Home Icon" loading="lazy"
+          decoding="async">
+      </a>
+    </div>
+    <div class="brand-container">
+      <!-- Logo PadelSamu -->
+      <img src="../assets/img/icons/logo.png" alt="PadelSamu Logo" loading="lazy" decoding="async" class="brand-icon">
+      <span class="brand-name">PADEL<span class="brand-highlight">SAMU</span></span>
+    </div>
+    <!-- Avatar del usuario logeado -->
+    <div class="user-badge"></div>
+  </header>
+
+  <!-- ========================= MAIN ========================= -->
+  <main>
+
+    <!-- Título de la página -->
+    <section class="page-header">
+      <h1 class="page-title">Jugadores</h1>
+      <p class="page-description">Comunidad de PadelSamu</p>
+    </section>
+
+    <!-- Buscador -->
+    <div class="search-container">
+      <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" class="search-input" placeholder="Buscar jugador..." aria-label="Buscar jugador">
+    </div>
+
+    <!-- Grid de Jugadores -->
+    <div class="players-grid">
+
+      <!-- Jugador 1 -->
+      <a href="perfil.html?id=1" class="player-card">
+        <div class="player-avatar">AG</div>
+        <div class="player-info">
+          <span class="player-name">Ale Galán</span>
+          <span class="position-badge badge-reves">Revés</span>
+        </div>
+        <svg class="card-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Jugador 2 -->
+      <a href="perfil.html?id=2" class="player-card">
+        <div class="player-avatar">AC</div>
+        <div class="player-info">
+          <span class="player-name">Agus Coello</span>
+          <span class="position-badge badge-drive">Drive</span>
+        </div>
+        <svg class="card-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Jugador 3 -->
+      <a href="perfil.html?id=3" class="player-card">
+        <div class="player-avatar">MD</div>
+        <div class="player-info">
+          <span class="player-name">Martín Di Nenno</span>
+          <span class="position-badge badge-drive">Drive</span>
+        </div>
+        <svg class="card-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Jugador 4 -->
+      <a href="perfil.html?id=4" class="player-card">
+        <div class="player-avatar">FS</div>
+        <div class="player-info">
+          <span class="player-name">Franco Stupaczuk</span>
+          <span class="position-badge badge-reves">Revés</span>
+        </div>
+        <svg class="card-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Jugador 5 -->
+      <a href="perfil.html?id=5" class="player-card">
+        <div class="player-avatar">PL</div>
+        <div class="player-info">
+          <span class="player-name">Paquito Navarro</span>
+          <span class="position-badge badge-reves">Revés</span>
+        </div>
+        <svg class="card-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Jugador 6 -->
+      <a href="perfil.html?id=6" class="player-card">
+        <div class="player-avatar">JC</div>
+        <div class="player-info">
+          <span class="player-name">Juan Cruz Belluati</span>
+          <span class="position-badge badge-drive">Drive</span>
+        </div>
+        <svg class="card-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Jugador 7 -->
+      <a href="perfil.html?id=7" class="player-card">
+        <div class="player-avatar">VR</div>
+        <div class="player-info">
+          <span class="player-name">Virginia Riera</span>
+          <span class="position-badge badge-drive">Drive</span>
+        </div>
+        <svg class="card-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+      <!-- Jugador 8 -->
+      <a href="perfil.html?id=8" class="player-card">
+        <div class="player-avatar">AG</div>
+        <div class="player-info">
+          <span class="player-name">Ariana Sánchez</span>
+          <span class="position-badge badge-reves">Revés</span>
+        </div>
+        <svg class="card-arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </a>
+
+    </div>
+
+  </main>
+
+  <!-- ========================= FOOTER ========================= -->
+  <footer class="footer">
+    <p class="footer-text">PadelSamu 2026 &copy; by ocp2k</p>
+    <p class="footer-text">Todos los derechos reservados</p>
+  </footer>
+  <script src="../src/js/pages/listaJugadores.js" defer type="module"></script>
+</body>
+
+</html>

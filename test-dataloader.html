@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Test DataLoader - Paso 4 FINAL</title>
+  <style>
+    body {
+      font-family: system-ui;
+      font-size: 2rem;
+      padding: 2rem;
+      background: #0a0a0a;
+      color: #fff;
+      text-align: center;
+    }
+
+    button {
+      padding: 2rem;
+      margin: 4rem;
+      font-size: 2rem;
+      cursor: pointer;
+      border-radius: 1rem;
+      border: none;
+    }
+
+    .primary {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .secondary {
+      background: #84cc16;
+      color: black;
+    }
+
+    .danger {
+      background: #ef4444;
+      color: white;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    p {
+      color: #888;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🧪 Test DataLoader - Sistema Completo</h1>
+  <p>Abre la consola (F12) para ver los logs detallados</p>
+
+  <button class="primary" onclick="testInitialize()">
+    1️⃣ Inicializar App (usa cache si existe)
+  </button>
+
+  <button class="secondary" onclick="testRefresh()">
+    🔄 Forzar Actualización (ignora cache)
+  </button>
+
+  <button class="danger" onclick="clearAndReload()">
+    🗑️ Limpiar todo y recargar página
+  </button>
+
+  <script type="module">
+    import { initializeAppData, refreshData } from './src/js/utils/dataLoader.js';
+
+    // Inicializar (usa cache)
+    window.testInitialize = async function () {
+      console.clear();
+      console.log('🧪 TEST: initializeAppData()');
+      console.log('');
+      try {
+        const allData = await initializeAppData();
+        console.log('');
+        console.log('🎉 TEST EXITOSO');
+        console.log('📦 Datos disponibles:', allData);
+      } catch (error) {
+        console.error('💥 TEST FALLIDO:', error);
+      }
+    }
+
+    // Refrescar (ignora cache)
+    window.testRefresh = async function () {
+      console.clear();
+      console.log('🧪 TEST: refreshData()');
+      console.log('');
+      try {
+        const allData = await refreshData();
+        console.log('');
+        console.log('🎉 TEST EXITOSO');
+        console.log('📦 Datos actualizados:', allData);
+      } catch (error) {
+        console.error('💥 TEST FALLIDO:', error);
+      }
+    }
+
+    // Limpiar y recargar
+    window.clearAndReload = function () {
+      localStorage.clear();
+      console.clear();
+      console.log('🗑️ Cache limpiado completamente');
+      console.log('🔄 Recargando página...');
+      setTimeout(() => location.reload(), 1000);
+    }
+
+    // Ejecutar automáticamente al cargar
+    testInitialize();
+  </script>
+</body>
+
+</html>

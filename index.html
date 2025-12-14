@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PadelSamu - Gestiona tus partidas de pádel</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="PadelSamu - La plataforma definitiva para gestionar tus partidas de pádel. Organiza torneos, sigue resultados y escala en el ranking.">
+  <meta name="keywords" content="padel, pádel, torneos, partidas, ranking, deportes">
+  <meta name="author" content="ocp2k">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="PadelSamu - Gestiona tus partidas de pádel">
+  <meta property="og:description" content="La plataforma definitiva para gestionar tus partidas de pádel">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PadelSamu">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PadelSamu - Gestiona tus partidas de pádel">
+  <meta name="twitter:description" content="La plataforma definitiva para gestionar tus partidas de pádel">
+
+  <!-- Preconnect para recursos externos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <!-- Enlazamos el CSS -->
+  <link rel="stylesheet" href="src/css/normalize.css">
+  <link rel="stylesheet" href="src/css/variables.css">
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/components/footer.css">
+  <link rel="stylesheet" href="src/css/components/buttons.css">
+  <link rel="stylesheet" href="src/css/components/authUser.css">
+</head>
+
+<body aria-label="landing-page">
+  <main class="landing-page">
+    <!-- Background -->
+    <div class="background-wrapper">
+      <picture>
+        <source media="(max-width: 767px)" srcset="assets/img/bg/court-bg-mobile.jpeg">
+        <source media="(min-width: 768px)" srcset="assets/img/bg/court-bg-desktop.jpeg">
+        <img src="assets/img/bg/court-bg-desktop.jpeg" alt="Professional Padel Arena" class="background-image"
+          loading="lazy" decoding="async">
+      </picture>
+      <div class="gradient-overlay"></div>
+      <div class="blur-overlay"></div>
+    </div>
+    <!-- Contenido Principal -->
+    <div class="content-container">
+
+      <!-- Sección Superior: Branding -->
+      <section class="branding-section" aria-label="Información principal">
+        <div class="season-badge">
+          <!-- Icono Activity -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+            focusable="false">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+          </svg>
+          Season 2026
+        </div>
+        <!-- Avatar del usuario logeado -->
+        <div class="user-badge"></div>
+
+        <h1 class="main-title">
+          PADEL<span class="title-highlight">SAMU</span>
+        </h1>
+
+        <figure class="logo-container" role="img" aria-label="Logo de PadelSamu">
+          <img src="assets/img/icons/logo.png" alt="" class="brand-logo" loading="lazy" decoding="async">
+        </figure>
+
+        <p class="description">
+          La plataforma para gestionar tus partidas.
+          <span class="description-sub">Organiza partidas, sigue resultados y escala en el ranking.</span>
+        </p>
+      </section>
+
+      <!-- Sección Inferior: Menú -->
+      <nav class="menu-list" aria-label="Menú principal">
+        <!-- Item 1: Crear Partida -->
+        <a href="pages/crear-partida.html" class="menu-item" aria-label="Crear nueva partida">
+          <div class="menu-item-content">
+            <div class="menu-item-icon-box text-lime">
+              <!-- Icono PlusCircle -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                focusable="false">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 12h8" />
+                <path d="M12 8v8" />
+              </svg>
+            </div>
+            <div class="menu-item-text">
+              <span class="menu-item-label">Crear Partida</span>
+            </div>
+          </div>
+          <!-- Icono ChevronRight -->
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true" focusable="false">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </a>
+        <!-- Item 2: Crear Torneo -->
+        <a href="pages/torneos.html" class="menu-item" aria-label="Torneos">
+          <div class="menu-item-content">
+            <div class="menu-item-icon-box text-blue">
+              <!-- Icono Award/Trophy -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                focusable="false">
+                <circle cx="12" cy="8" r="6" />
+                <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+              </svg>
+            </div>
+            <div class="menu-item-text">
+              <span class="menu-item-label">Crear Torneo</span>
+            </div>
+          </div>
+          <!-- Icono ChevronRight -->
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true" focusable="false">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </a>
+        <!-- Item 3: Partidas Abiertas -->
+        <a href="pages/lista-partidas.html" class="menu-item" aria-label="Lista Partidas">
+          <div class="menu-item-content">
+            <div class="menu-item-icon-box text-blue">
+              <!-- Icono List -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                focusable="false">
+                <line x1="8" x2="21" y1="6" y2="6" />
+                <line x1="8" x2="21" y1="12" y2="12" />
+                <line x1="8" x2="21" y1="18" y2="18" />
+                <path d="M3 6h.01" />
+                <path d="M3 12h.01" />
+                <path d="M3 18h.01" />
+              </svg>
+            </div>
+            <div class="menu-item-text">
+              <span class="menu-item-label">Lista Partidas</span>
+            </div>
+          </div>
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true" focusable="false">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </a>
+        <!-- Item 4: Lista Jugadores -->
+        <a href="pages/lista-jugadores.html" class="menu-item" aria-label="Ver lista de jugadores">
+          <div class="menu-item-content">
+            <div class="menu-item-icon-box text-purple">
+              <!-- Icono Users -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                focusable="false">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div class="menu-item-text">
+              <span class="menu-item-label">Lista Jugadores</span>
+            </div>
+          </div>
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true" focusable="false">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </a>
+        <!-- Item 5: Resultados -->
+        <a href="pages/resultados.html" class="menu-item" aria-label="Resultados">
+          <div class="menu-item-content">
+            <div class="menu-item-icon-box text-amber">
+              <!-- Icono Trophy -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                focusable="false">
+                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                <path d="M4 22h16" />
+                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+              </svg>
+            </div>
+            <div class="menu-item-text">
+              <span class="menu-item-label">Resultados</span>
+            </div>
+          </div>
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true" focusable="false">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </a>
+        <!-- Item 6: Ranking -->
+        <a href="pages/ranking.html" class="menu-item" aria-label="Ranking">
+          <div class="menu-item-content">
+            <div class="menu-item-icon-box text-rose">
+              <!-- Icono BarChart2 -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                focusable="false">
+                <line x1="18" x2="18" y1="20" y2="10" />
+                <line x1="12" x2="12" y1="20" y2="4" />
+                <line x1="6" x2="6" y1="20" y2="14" />
+              </svg>
+            </div>
+            <div class="menu-item-text">
+              <span class="menu-item-label">Ranking</span>
+            </div>
+          </div>
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true" focusable="false">
+            <path d="m9 18 6-6-6-6" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+
+  </main>
+  <!-- Footer -->
+  <footer>
+    <p class="footer-text">PadelSamu 2026 &copy; by ocp2k</p>
+    <p class="footer-text">Todos los derechos reservados</p>
+  </footer>
+  <script src="src/js/main.js" defer type="module"></script>
+</body>
+
+</html>

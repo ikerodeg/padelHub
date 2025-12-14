@@ -1,0 +1,203 @@
+/* ============================================
+   ESTILOS DE /pages/crear-partida.html
+   ============================================ */
+
+/* ===================================
+   SECCIÓN FORMULARIO
+   ================================ */
+
+/* Sección botón mostrar formulario */
+/* ⚠️ Al pulsar el boton, hacer desaparecer tambien esta seccion */
+.form-toggle-section {
+  margin-block-start: var(--spacing-3xl);
+}
+
+
+/* Sección formulario */
+.form-section {
+  inline-size: 100%;
+  margin-block-start: var(--spacing-3xl);
+}
+
+/* Texto de ayuda del formulario */
+.form-help-text {
+  text-align: center;
+  color: var(--color-gray-400);
+  font-size: var(--font-size-md);
+  margin-block-end: var(--spacing-2xl);
+}
+
+/* ===================================
+   FORM STYLING
+   ================================ */
+/* Formulario */
+.create-match-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Fieldsets */
+fieldset {
+  border: 1px solid var(--color-gray-700);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  background-color: var(--color-gray-900-alpha-60);
+  backdrop-filter: blur(var(--blur-md));
+  transition: border-color var(--duration-normal) var(--easing-out);
+
+  &:hover {
+    border-color: var(--color-gray-600);
+  }
+
+  &:focus-within {
+    border-color: var(--color-blue-400);
+  }
+}
+
+/* Fieldset especial para número de partida (solo lectura) */
+.fieldset-readonly {
+  background: linear-gradient(135deg,
+      var(--color-blue-500-alpha-10) 0%,
+      var(--color-gray-900-alpha-60) 100%);
+  border-color: var(--color-blue-500-alpha-20);
+
+  &:hover {
+    border-color: var(--color-blue-500-alpha-20);
+  }
+}
+
+/* Número de la partida */
+.match-number-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+/* Etiqueta del número de la partida */
+.match-number-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-400);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* Valor del número de la partida */
+.match-number-value {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-black);
+
+  background: linear-gradient(to bottom right,
+      var(--color-blue-400),
+      var(--color-lime-400));
+  background-clip: text;
+  color: transparent;
+  letter-spacing: var(--letter-spacing-tight);
+  min-inline-size: 3ch;
+  text-align: center;
+}
+
+/* Leyenda de todos los inputs*/
+legend {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  color: var(--color-white);
+  letter-spacing: var(--letter-spacing-tight);
+  padding-inline: var(--spacing-sm);
+}
+
+/* Etiquetas de todos los inputs */
+label {
+  display: block;
+  margin-block-end: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-300);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+/* Inputs y Selects */
+fieldset input,
+fieldset select {
+  inline-size: 100%;
+  padding-block: var(--spacing-sm);
+  background-color: var(--color-gray-800-alpha-50);
+  color: var(--color-white);
+  border: 1px solid var(--color-gray-700);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-normal);
+
+  /* Transiciones */
+  transition:
+    border-color var(--duration-normal) var(--easing-out),
+    background-color var(--duration-normal) var(--easing-out),
+    box-shadow var(--duration-normal) var(--easing-out);
+
+  /* Hover */
+  &:hover {
+    border-color: var(--color-gray-600);
+  }
+
+  /* Focus */
+  &:focus {
+    outline: none;
+    border-color: var(--color-blue-400);
+    background-color: var(--color-gray-800);
+    box-shadow: 0 0 0 3px var(--color-blue-500-alpha-20);
+  }
+
+  /* Placeholder */
+  &::placeholder {
+    color: var(--color-gray-600);
+  }
+}
+
+/* Estilos específicos para date y time inputs */
+input[type="date"],
+input[type="time"] {
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+/* Radio buttons */
+fieldset label:has(input[type="radio"]) {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-inline-end: var(--spacing-xl);
+  cursor: pointer;
+
+  /* Radio buttons */
+  input[type="radio"] {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    cursor: pointer;
+    accent-color: var(--color-blue-400);
+  }
+}
+
+.jugadores-fieldset select {
+  margin-block-end: var(--spacing-lg);
+}
+
+.jugadores-fieldset select:last-child {
+  margin-block-end: 0;
+}
+
+/* ===================================
+   SECCION BOTONES
+   ================================ */
+.form-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  margin-block-end: var(--spacing-2xl);
+  gap: var(--spacing-xs);
+
+  button {
+    inline-size: 45%;
+  }
+}

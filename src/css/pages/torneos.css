@@ -1,0 +1,118 @@
+/* ============================================
+   ESTILOS DE /pages/torneos.html
+   MOBILE FIRST
+   ============================================ */
+
+/* ===================================
+   LAYOUT CENTRADO
+   ================================ */
+.construction-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  /* Ocupar buen espacio vertical */
+  text-align: center;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl);
+}
+
+/* ===================================
+   ICONO ANIMADO
+   ================================ */
+.construction-icon-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Círculo de fondo con glow */
+  background: radial-gradient(circle,
+      var(--color-blue-500-alpha-20) 0%,
+      transparent 70%);
+}
+
+.construction-icon {
+  width: 80px;
+  height: 80px;
+  color: var(--color-blue-400);
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px var(--color-blue-500-alpha-20));
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ===================================
+   TEXTOS
+   ================================ */
+.construction-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-black);
+  margin: 0;
+
+  /* Gradiente de texto */
+  background: linear-gradient(to right,
+      var(--color-blue-400),
+      var(--color-lime-400));
+  background-clip: text;
+  color: transparent;
+
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.construction-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-400);
+  max-width: 400px;
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+/* ===================================
+   BARRA DE PROGRESO (DECORATIVA)
+   ================================ */
+.progress-container {
+  width: 200px;
+  height: 6px;
+  background-color: var(--color-gray-800);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin-top: var(--spacing-lg);
+}
+
+.progress-bar {
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      var(--color-blue-400),
+      var(--color-lime-400));
+  border-radius: var(--radius-pill);
+  animation: loading 2s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}

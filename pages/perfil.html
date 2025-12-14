@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Perfil Jugador | PadelSamu</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Perfil detallado del jugador. Estadísticas, insignias y datos técnicos.">
+  <meta name="keywords" content="padel, perfil, stats, insignias, jugador">
+  <meta name="author" content="ocp2k">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../src/css/normalize.css">
+  <link rel="stylesheet" href="../src/css/variables.css">
+
+  <!-- Componentes -->
+  <link rel="stylesheet" href="../src/css/components/baseLayout.css">
+  <link rel="stylesheet" href="../src/css/components/header.css">
+  <link rel="stylesheet" href="../src/css/components/pageHeader.css">
+  <link rel="stylesheet" href="../src/css/components/footer.css">
+  <link rel="stylesheet" href="../src/css/components/buttons.css">
+  <link rel="stylesheet" href="../src/css/components/forms.css">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="../src/css/pages/lista-partidas.css">
+  <link rel="stylesheet" href="../src/css/pages/perfil.css">
+</head>
+
+<body>
+
+  <!-- ========================= HEADER ========================= -->
+  <header>
+    <div class="return-link__container">
+      <a href="../index.html" aria-label="volver al inicio de PadelSamu">
+        <img src="../assets/img/icons/icons8-volver-48.png" class="return-icon" alt="Home Icon" loading="lazy"
+          decoding="async">
+      </a>
+    </div>
+    <div class="brand-container">
+      <!-- Logo PadelSamu -->
+      <img src="../assets/img/icons/logo.png" alt="PadelSamu Logo" loading="lazy" decoding="async" class="brand-icon">
+      <span class="brand-name">PADEL<span class="brand-highlight">SAMU</span></span>
+    </div>
+    <!-- Avatar del usuario logeado -->
+    <div class="user-badge"></div>
+  </header>
+
+  <!-- ========================= MAIN ========================= -->
+  <main>
+
+    <div class="profile-container">
+
+      <!-- 1. BIO HERO (Redesigned) -->
+      <section class="hero-poster" id="heroPoster">
+        <div class="hero-backdrop"></div>
+
+        <div class="hero-content">
+          <h1 class="hero-name" id="profileName">Cargando...</h1>
+          <span class="hero-position-badge" id="profilePosition">...</span>
+        </div>
+
+        <div class="hero-visuals">
+          <div class="player-image-wrapper">
+            <img src="" alt="Jugador" loading="lazy" decoding="async" class="hero-player-img" id="profileImage">
+          </div>
+        </div>
+        <div class="hero-racket-box">
+          <span class="racket-label">Arma de juego</span>
+          <span class="racket-name" id="racketName">...</span>
+        </div>
+      </section>
+
+      <!-- SECCIONES DE INFO -->
+      <div class="profile-content">
+
+        <!-- 2. STATS -->
+        <section class="content-section">
+          <h2 class="section-title">📊 Estadísticas</h2>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value" id="statMatches">-</span>
+              <span class="stat-label">Partidas</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="statWon">-</span>
+              <span class="stat-label">Victorias</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" style="color: var(--color-lime-400);" id="statWinRate">-%</span>
+              <span class="stat-label">Win Rate</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. PUNTOS FUERTES -->
+        <section class="content-section">
+          <h2 class="section-title">💪 Puntos Fuertes</h2>
+          <ul class="strengths-list" id="strengthsList">
+            <!-- Llenado por JS -->
+          </ul>
+        </section>
+
+        <!-- 4. INSIGNIAS -->
+        <section class="content-section">
+          <h2 class="section-title">🏅 Insignias</h2>
+          <div class="badges-grid" id="badgesGrid">
+            <!-- Llenado por JS -->
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========================= FOOTER ========================= -->
+  <footer class="footer">
+    <p class="footer-text">PadelSamu 2026 &copy; by ocp2k</p>
+    <p class="footer-text">Todos los derechos reservados</p>
+  </footer>
+
+  <script src="../src/js/pages/perfil.js" defer type="module"></script>
+</body>
+
+</html>

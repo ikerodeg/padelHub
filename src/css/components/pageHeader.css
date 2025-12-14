@@ -1,0 +1,27 @@
+/* ===================================
+   PAGE HEADER
+   ================================ */
+.page-header {
+  text-align: center;
+  margin-block-end: var(--spacing-2xl);
+  inline-size: 100%;
+}
+
+.page-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-black);
+  margin: 0;
+  margin-block-end: var(--spacing-sm);
+  background: linear-gradient(to bottom right,
+      var(--color-blue-400),
+      var(--color-lime-400));
+  background-clip: text;
+  color: transparent;
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+.page-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-400);
+  margin: 0;
+}

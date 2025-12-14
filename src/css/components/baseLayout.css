@@ -1,0 +1,32 @@
+/* ===================================
+   BODY Y LAYOUT BASE
+   ================================ */
+body {
+  background-color: var(--color-gray-950);
+  font-family: var(--font-family-base);
+  color: var(--color-gray-300);
+  min-block-size: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===================================
+   MAIN CONTAINER
+   ================================ */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: var(--spacing-xl);
+  padding-inline: var(--spacing-md);
+  margin-inline: auto;
+  inline-size: 100%;
+  max-inline-size: 100dvw;
+}

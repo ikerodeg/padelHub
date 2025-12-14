@@ -1,0 +1,265 @@
+/* ============================================
+   ESTILOS DE /pages/ranking.html
+   MOBILE FIRST
+   ============================================ */
+
+/* ===================================
+   LAYOUT PRINCIPAL
+   ================================ */
+.ranking-layout {
+  display: grid;
+  gap: var(--spacing-xl);
+  width: 100%;
+  max-width: var(--max-width-xl);
+  margin-inline: auto;
+}
+
+/* ===================================
+   LEADERBOARD (CARD)
+   ================================ */
+.leaderboard-card {
+  background: linear-gradient(135deg,
+      var(--color-gray-900-alpha-60),
+      var(--color-gray-900));
+  backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--color-gray-700);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 0;
+}
+
+.leaderboard-header {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-gray-800);
+  background-color: var(--color-gray-800-alpha-50);
+}
+
+.leaderboard-title {
+  margin: 0;
+  font-size: var(--font-size-xl);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* ===================================
+   TABLA / LISTA DE RANKING
+   ================================ */
+.ranking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.ranking-item {
+  display: grid;
+  grid-template-columns: 32px 1fr auto auto auto;
+  /* Pos, User, Win%, Matches/Points, Trend */
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--color-gray-800);
+  transition: background-color var(--duration-fast);
+}
+
+.ranking-item:last-child {
+  border-bottom: none;
+}
+
+.ranking-item:hover {
+  background-color: var(--color-gray-800-alpha-50);
+}
+
+/* POSICION */
+.rank-position {
+  font-weight: var(--font-weight-black);
+  font-size: var(--font-size-md);
+  color: var(--color-gray-500);
+  text-align: center;
+}
+
+/* TOP 3 - MEDALLAS */
+.ranking-item[data-rank="1"] .rank-position {
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+.ranking-item[data-rank="2"] .rank-position {
+  color: #C0C0C0;
+  text-shadow: 0 0 10px rgba(192, 192, 192, 0.4);
+}
+
+.ranking-item[data-rank="3"] .rank-position {
+  color: #CD7F32;
+  text-shadow: 0 0 10px rgba(205, 127, 50, 0.4);
+}
+
+/* USUARIO */
+.rank-user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.rank-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-gray-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--color-gray-300);
+  border: 2px solid var(--color-gray-600);
+}
+
+.ranking-item[data-rank="1"] .rank-avatar {
+  border-color: #FFD700;
+}
+
+.ranking-item[data-rank="2"] .rank-avatar {
+  border-color: #C0C0C0;
+}
+
+.ranking-item[data-rank="3"] .rank-avatar {
+  border-color: #CD7F32;
+}
+
+.rank-name {
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-200);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* METRICAS */
+.rank-metrics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  min-width: 70px;
+}
+
+.rank-points {
+  font-weight: var(--font-weight-black);
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+}
+
+.rank-matches {
+  font-size: 0.7rem;
+  color: var(--color-gray-500);
+}
+
+/* PORCENTAJE VICTORIAS */
+.rank-win-rate {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-lime-400);
+  /* Default color (high) */
+  background-color: var(--color-gray-800);
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* TENDENCIA */
+.rank-trend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+}
+
+.trend-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.trend-up {
+  color: var(--color-lime-400);
+}
+
+.trend-down {
+  color: var(--color-red-400);
+}
+
+.trend-equal {
+  color: var(--color-gray-600);
+  font-size: 1.2rem;
+}
+
+/* Guion o igual */
+
+/* ===================================
+   CARD DE REGLAS / PUNTOS
+   ================================ */
+.rules-card {
+  background-color: var(--color-gray-900);
+  border: 1px solid var(--color-gray-800);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  position: sticky;
+  top: var(--spacing-xl);
+}
+
+.rules-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-block-end: var(--spacing-md);
+  color: var(--color-gray-300);
+}
+
+.points-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.point-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-sm);
+  background-color: var(--color-gray-800-alpha-50);
+  border-radius: var(--radius-sm);
+}
+
+.point-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-400);
+}
+
+.point-value {
+  font-weight: var(--font-weight-bold);
+  font-family: var(--font-family-mono);
+  /* toque técnico */
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: var(--font-size-xs);
+}
+
+.val-pos {
+  background-color: color-mix(in oklch, var(--color-lime-400) 20%, transparent);
+  color: var(--color-lime-400);
+}
+
+.val-neg-soft {
+  background-color: color-mix(in oklch, var(--color-amber-400) 20%, transparent);
+  color: var(--color-amber-400);
+}
+
+.val-neg-hard {
+  background-color: color-mix(in oklch, var(--color-red-400) 20%, transparent);
+  color: var(--color-red-400);
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Torneos | PadelSamu</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Próximamente: Torneos de PadelSamu. Compite y demuestra tu nivel.">
+  <meta name="keywords" content="padel, torneos, competicion, liga, padelsamu">
+  <meta name="author" content="ocp2k">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../src/css/normalize.css">
+  <link rel="stylesheet" href="../src/css/variables.css">
+
+  <!-- Componentes -->
+  <link rel="stylesheet" href="../src/css/components/baseLayout.css">
+  <link rel="stylesheet" href="../src/css/components/header.css">
+  <link rel="stylesheet" href="../src/css/components/pageHeader.css">
+  <link rel="stylesheet" href="../src/css/components/footer.css">
+  <link rel="stylesheet" href="../src/css/components/buttons.css">
+  <link rel="stylesheet" href="../src/css/components/forms.css">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="../src/css/pages/lista-partidas.css">
+  <link rel="stylesheet" href="../src/css/pages/torneos.css">
+</head>
+
+<body>
+
+  <!-- ========================= HEADER ========================= -->
+  <header>
+    <div class="return-link__container">
+      <a href="../index.html" aria-label="volver al inicio de PadelSamu">
+        <img src="../assets/img/icons/icons8-volver-48.png" class="return-icon" alt="Home Icon" loading="lazy"
+          decoding="async">
+      </a>
+    </div>
+    <div class="brand-container">
+      <!-- Logo PadelSamu -->
+      <img src="../assets/img/icons/logo.png" alt="PadelSamu Logo" loading="lazy" decoding="async" class="brand-icon">
+      <span class="brand-name">PADEL<span class="brand-highlight">SAMU</span></span>
+    </div>
+    <!-- Avatar del usuario logeado -->
+    <div class="user-badge"></div>
+  </header>
+
+  <!-- ========================= MAIN ========================= -->
+  <main>
+
+    <div class="construction-container">
+
+      <div class="construction-icon-wrapper">
+        <svg class="construction-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9l6 6 6-6" />
+          <path d="M2 12h20" />
+          <path d="M12 2v20" />
+          <circle cx="12" cy="12" r="10" />
+        </svg>
+      </div>
+
+      <h1 class="construction-title">Próximamente</h1>
+
+      <p class="construction-subtitle">
+        Estamos preparando el sistema de torneos más competitivo.<br>
+        ¡Prepara tu pala!
+      </p>
+
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ========================= FOOTER ========================= -->
+  <footer class="footer">
+    <p class="footer-text">PadelSamu 2026 &copy; by ocp2k</p>
+    <p class="footer-text">Todos los derechos reservados</p>
+  </footer>
+
+  <script src="../src/js/pages/torneos.js" defer type="module"></script>
+</body>
+
+</html>

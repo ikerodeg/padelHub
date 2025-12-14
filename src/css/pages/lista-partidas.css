@@ -1,0 +1,295 @@
+/* ============================================
+   ESTILOS DE /pages/lista-partidas.html
+   ============================================ */
+
+/* ===================================
+   CONTENEDOR DE PARTIDAS
+   ================================ */
+.partidas-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  inline-size: 100%;
+}
+
+/* ===================================
+   CARD DE PARTIDA - ESTILOS BASE
+   ================================ */
+.partida-card {
+  padding-inline: var(--spacing-sm);
+  background: linear-gradient(135deg,
+      var(--color-gray-900-alpha-60),
+      var(--color-gray-900));
+  backdrop-filter: blur(var(--blur-md));
+  border: 1px solid var(--color-gray-700);
+  border-radius: var(--radius-md);
+  transition:
+    border-color var(--duration-normal) var(--easing-out),
+    box-shadow var(--duration-normal) var(--easing-out);
+
+  &:active {
+    border-color: var(--color-gray-600);
+    box-shadow: 0 8px 20px var(--color-black-alpha-15);
+  }
+
+  .partida-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-block-end: 1px solid var(--color-gray-800);
+  }
+
+  .partida-number {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+
+  .number-label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-500);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+  }
+
+  .number-value {
+    font-weight: var(--font-weight-black);
+    background: linear-gradient(to bottom right,
+        var(--color-blue-400),
+        var(--color-lime-400));
+    background-clip: text;
+    color: transparent;
+    letter-spacing: var(--letter-spacing-tight);
+  }
+
+  .partida-status {
+    padding-block: var(--spacing-xs);
+    padding-inline: var(--spacing-sm);
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-tight);
+  }
+
+  .status-abierta {
+    background-color: var(--color-lime-400);
+    color: var(--color-gray-950);
+  }
+
+  .status-completa {
+    border: 1px solid var(--color-blue-400);
+    color: var(--color-blue-400);
+  }
+
+  .partida-info {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-around;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-block-end: 1px solid var(--color-gray-800);
+    margin-block-end: var(--spacing-xs);
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-gray-400);
+  }
+
+  .info-icon {
+    color: var(--color-blue-400);
+    flex-shrink: 0;
+  }
+
+  .partida-jugadores {
+    border-block-end: 1px solid var(--color-gray-800);
+    margin-block-end: var(--spacing-sm);
+  }
+
+  .jugadores-title {
+    padding-block: var(--spacing-xs);
+    padding-inline: 0;
+    font-size: var(--font-size-md);
+    margin-block-start: 0;
+    margin-block-end: var(--spacing-md);
+    text-align: center;
+  }
+
+}
+
+/* ===================================
+   CARD PARTIDA ABIERTA
+   ================================ */
+.partida-card[data-estado="abierta"] {
+
+  .jugador-field {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-block-end: var(--spacing-md);
+  }
+
+  .jugador-label {
+    font-size: var(--font-size-sm);
+  }
+
+  .jugador-select {
+    border-radius: var(--radius-sm);
+    padding-block: var(--spacing-sm);
+    padding-inline: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    background-color: var(--color-gray-700);
+    color: var(--color-gray-50);
+  }
+
+  .jugador-select[aria-disabled="true"] {
+    background-color: var(--color-gray-800);
+    color: var(--color-gray-500);
+  }
+
+  .partida-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-block-end: var(--spacing-md);
+  }
+
+  .btn-primary {
+    inline-size: 100%;
+  }
+
+  .btn-admin {
+    padding: var(--spacing-md);
+
+    svg {
+      inline-size: 18px;
+      block-size: 18px;
+    }
+  }
+}
+
+/* ===================================
+   CARD PARTIDA COMPLETA
+   ================================ */
+.partida-card[data-estado="completa"] {
+
+  .partida-info {
+    gap: var(--spacing-xs);
+
+    .info-item {
+      color: var(--color-gray-600);
+
+      .info-icon {
+        color: inherit;
+      }
+    }
+  }
+
+  .partida-teams {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: var(--spacing-sm);
+    align-items: center;
+    border-block-end: 1px solid var(--color-gray-800);
+    padding-block-start: var(--spacing-xs);
+    padding-block-end: var(--spacing-sm);
+  }
+
+  .team-card {
+    border: 1px solid var(--color-gray-700);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs);
+    text-align: center;
+    background-color: var(--color-gray-900-alpha-60);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .team-title {
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-600);
+    margin-block: 0 var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+  }
+
+  .team-players {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+  }
+
+  .player-name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-500);
+  }
+
+  /* Estilo VS */
+  .teams-versus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vs-text {
+    padding-inline: var(--spacing-xs);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-black);
+    font-style: italic;
+    line-height: 1;
+    background: linear-gradient(to bottom, #FFD700, #FF8C00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    filter: drop-shadow(0 2px 4px rgba(255, 140, 0, 0.4));
+    transform: skew(-10deg);
+  }
+}
+
+/* ===================================
+   ACCIONES DE LA PARTIDA
+   ================================ */
+.partida-actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+
+/* Botones de admin - estilos base */
+.btn-admin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-gray-800-alpha-50);
+  border: 1px solid var(--color-gray-700);
+  border-radius: var(--radius-sm);
+  color: var(--color-gray-300);
+  cursor: pointer;
+  transition:
+    border-color var(--duration-normal) var(--easing-out),
+    background-color var(--duration-normal) var(--easing-out),
+    color var(--duration-normal) var(--easing-out);
+
+  /* Padding y tamaño SVG específicos en variantes */
+  &:active {
+    border-color: var(--color-blue-400);
+    background-color: var(--color-gray-800);
+    color: var(--color-blue-400);
+  }
+
+  &.btn-danger:active {
+    border-color: var(--color-red-400);
+    background-color: var(--color-gray-800);
+    color: var(--color-red-400);
+  }
+}

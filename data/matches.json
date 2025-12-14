@@ -1,0 +1,393 @@
+[
+  {
+    "id": 1,
+    "date": "2025-12-15",
+    "time": "18:00",
+    "club": "Impala",
+    "court": "Pista 2",
+    "type": "unisex",
+    "players": {
+      "reves1": 1,
+      "drive1": null,
+      "reves2": 4,
+      "drive2": null
+    },
+    "status": "abierta",
+    "createdBy": 1,
+    "createdAt": "2025-12-12T10:30:00Z"
+  },
+  {
+    "id": 2,
+    "date": "2025-12-16",
+    "time": "19:30",
+    "club": "OkPadel",
+    "court": "Pista 1",
+    "type": "mixto",
+    "players": {
+      "reves1": 2,
+      "drive1": 3,
+      "reves2": null,
+      "drive2": null
+    },
+    "status": "abierta",
+    "createdBy": 2,
+    "createdAt": "2025-12-12T11:15:00Z"
+  },
+  {
+    "id": 3,
+    "date": "2025-12-17",
+    "time": "20:00",
+    "club": "Center",
+    "court": "Pista 3",
+    "type": "unisex",
+    "players": {
+      "reves1": 7,
+      "drive1": 9,
+      "reves2": 12,
+      "drive2": null
+    },
+    "status": "abierta",
+    "createdBy": 7,
+    "createdAt": "2025-12-12T12:00:00Z"
+  },
+  {
+    "id": 4,
+    "date": "2025-12-18",
+    "time": "18:30",
+    "club": "PlayPadel",
+    "court": "Pista 1",
+    "type": "unisex",
+    "players": {
+      "reves1": 14,
+      "drive1": null,
+      "reves2": null,
+      "drive2": 11
+    },
+    "status": "abierta",
+    "createdBy": 14,
+    "createdAt": "2025-12-12T13:45:00Z"
+  },
+  {
+    "id": 5,
+    "date": "2025-12-19",
+    "time": "21:00",
+    "club": "Raval",
+    "court": "Pista 2",
+    "type": "mixto",
+    "players": {
+      "reves1": 10,
+      "drive1": null,
+      "reves2": null,
+      "drive2": 9
+    },
+    "status": "abierta",
+    "createdBy": 10,
+    "createdAt": "2025-12-12T14:20:00Z"
+  },
+  {
+    "id": 6,
+    "date": "2025-12-20",
+    "time": "17:00",
+    "club": "+QPadel",
+    "court": "Pista 1",
+    "type": "unisex",
+    "players": {
+      "reves1": 1,
+      "drive1": 7,
+      "reves2": 2,
+      "drive2": 5
+    },
+    "status": "completa",
+    "createdBy": 1,
+    "createdAt": "2025-12-11T09:00:00Z"
+  },
+  {
+    "id": 7,
+    "date": "2025-12-20",
+    "time": "19:00",
+    "club": "Impala",
+    "court": "Pista 3",
+    "type": "mixto",
+    "players": {
+      "reves1": 4,
+      "drive1": 3,
+      "reves2": 10,
+      "drive2": 9
+    },
+    "status": "completa",
+    "createdBy": 4,
+    "createdAt": "2025-12-11T10:30:00Z"
+  },
+  {
+    "id": 8,
+    "date": "2025-12-21",
+    "time": "18:00",
+    "club": "OkPadel",
+    "court": "Pista 2",
+    "type": "unisex",
+    "players": {
+      "reves1": 12,
+      "drive1": 15,
+      "reves2": 6,
+      "drive2": 11
+    },
+    "status": "completa",
+    "createdBy": 15,
+    "createdAt": "2025-12-11T11:45:00Z"
+  },
+  {
+    "id": 9,
+    "date": "2025-12-21",
+    "time": "20:30",
+    "club": "Center",
+    "court": "Pista 1",
+    "type": "unisex",
+    "players": {
+      "reves1": 14,
+      "drive1": 5,
+      "reves2": 16,
+      "drive2": 7
+    },
+    "status": "completa",
+    "createdBy": 14,
+    "createdAt": "2025-12-11T12:00:00Z"
+  },
+  {
+    "id": 10,
+    "date": "2025-12-22",
+    "time": "10:00",
+    "club": "PlayPadel",
+    "court": "Pista 2",
+    "type": "unisex",
+    "players": {
+      "reves1": 2,
+      "drive1": 9,
+      "reves2": 12,
+      "drive2": 3
+    },
+    "status": "completa",
+    "createdBy": 2,
+    "createdAt": "2025-12-11T13:15:00Z"
+  },
+  {
+    "id": 11,
+    "date": "2025-12-22",
+    "time": "12:00",
+    "club": "Raval",
+    "court": "Pista 1",
+    "type": "mixto",
+    "players": {
+      "reves1": 8,
+      "drive1": 3,
+      "reves2": 14,
+      "drive2": 9
+    },
+    "status": "completa",
+    "createdBy": 8,
+    "createdAt": "2025-12-11T14:00:00Z"
+  },
+  {
+    "id": 12,
+    "date": "2025-12-23",
+    "time": "19:30",
+    "club": "+QPadel",
+    "court": "Pista 3",
+    "type": "unisex",
+    "players": {
+      "reves1": 1,
+      "drive1": 15,
+      "reves2": 4,
+      "drive2": 7
+    },
+    "status": "completa",
+    "createdBy": 1,
+    "createdAt": "2025-12-11T15:30:00Z"
+  },
+  {
+    "id": 13,
+    "date": "2025-12-23",
+    "time": "21:00",
+    "club": "Impala",
+    "court": "Pista 1",
+    "type": "unisex",
+    "players": {
+      "reves1": 10,
+      "drive1": 11,
+      "reves2": 16,
+      "drive2": 5
+    },
+    "status": "completa",
+    "createdBy": 10,
+    "createdAt": "2025-12-11T16:00:00Z"
+  },
+  {
+    "id": 14,
+    "date": "2025-12-24",
+    "time": "11:00",
+    "club": "OkPadel",
+    "court": "Pista 1",
+    "type": "mixto",
+    "players": {
+      "reves1": 2,
+      "drive1": 3,
+      "reves2": 6,
+      "drive2": 9
+    },
+    "status": "completa",
+    "createdBy": 2,
+    "createdAt": "2025-12-11T17:00:00Z"
+  },
+  {
+    "id": 15,
+    "date": "2025-12-24",
+    "time": "18:00",
+    "club": "Center",
+    "court": "Pista 2",
+    "type": "unisex",
+    "players": {
+      "reves1": 12,
+      "drive1": 7,
+      "reves2": 4,
+      "drive2": 15
+    },
+    "status": "completa",
+    "createdBy": 12,
+    "createdAt": "2025-12-11T18:00:00Z"
+  },
+  {
+    "id": 13,
+    "date": "2025-12-08",
+    "time": "20:00",
+    "club": "PlayPadel",
+    "court": "Pista 1",
+    "type": "unisex",
+    "players": {
+      "reves1": 1,
+      "drive1": 7,
+      "reves2": 2,
+      "drive2": 5
+    },
+    "status": "pendiente",
+    "createdBy": 1,
+    "createdAt": "2025-12-07T10:00:00Z"
+  },
+  {
+    "id": 14,
+    "date": "2025-12-09",
+    "time": "19:00",
+    "club": "Impala",
+    "court": "Pista 2",
+    "type": "mixto",
+    "players": {
+      "reves1": 4,
+      "drive1": 3,
+      "reves2": 10,
+      "drive2": 9
+    },
+    "status": "pendiente",
+    "createdBy": 4,
+    "createdAt": "2025-12-08T09:00:00Z"
+  },
+  {
+    "id": 15,
+    "date": "2025-12-09",
+    "time": "21:30",
+    "club": "Center",
+    "court": "Pista 3",
+    "type": "unisex",
+    "players": {
+      "reves1": 12,
+      "drive1": 15,
+      "reves2": 14,
+      "drive2": 11
+    },
+    "status": "pendiente",
+    "createdBy": 12,
+    "createdAt": "2025-12-08T10:00:00Z"
+  },
+  {
+    "id": 16,
+    "date": "2025-12-10",
+    "time": "18:30",
+    "club": "+QPadel",
+    "court": "Pista 1",
+    "type": "unisex",
+    "players": {
+      "reves1": 2,
+      "drive1": 9,
+      "reves2": 6,
+      "drive2": 7
+    },
+    "status": "pendiente",
+    "createdBy": 2,
+    "createdAt": "2025-12-09T09:30:00Z"
+  },
+  {
+    "id": 17,
+    "date": "2025-12-10",
+    "time": "20:00",
+    "club": "Raval",
+    "court": "Pista 2",
+    "type": "mixto",
+    "players": {
+      "reves1": 16,
+      "drive1": 3,
+      "reves2": 10,
+      "drive2": 5
+    },
+    "status": "pendiente",
+    "createdBy": 16,
+    "createdAt": "2025-12-09T11:00:00Z"
+  },
+  {
+    "id": 18,
+    "date": "2025-12-05",
+    "time": "19:30",
+    "club": "OkPadel",
+    "court": "Pista 2",
+    "type": "unisex",
+    "players": {
+      "reves1": 2,
+      "drive1": 7,
+      "reves2": 12,
+      "drive2": 15
+    },
+    "status": "finalizada",
+    "createdBy": 2,
+    "createdAt": "2025-12-04T10:00:00Z"
+  },
+  {
+    "id": 19,
+    "date": "2025-12-06",
+    "time": "18:00",
+    "club": "Center",
+    "court": "Pista 1",
+    "type": "mixto",
+    "players": {
+      "reves1": 4,
+      "drive1": 3,
+      "reves2": 14,
+      "drive2": 9
+    },
+    "status": "finalizada",
+    "createdBy": 4,
+    "createdAt": "2025-12-05T09:00:00Z"
+  },
+  {
+    "id": 20,
+    "date": "2025-12-07",
+    "time": "20:30",
+    "club": "Impala",
+    "court": "Pista 3",
+    "type": "unisex",
+    "players": {
+      "reves1": 1,
+      "drive1": 7,
+      "reves2": 10,
+      "drive2": 5
+    },
+    "status": "finalizada",
+    "createdBy": 1,
+    "createdAt": "2025-12-06T11:00:00Z"
+  }
+]

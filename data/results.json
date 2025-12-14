@@ -1,0 +1,114 @@
+[
+  {
+    "id": 1,
+    "matchId": 13,
+    "winnerTeam": null,
+    "team1": [
+      1,
+      7
+    ],
+    "team2": [
+      2,
+      5
+    ],
+    "completedAt": null
+  },
+  {
+    "id": 2,
+    "matchId": 14,
+    "winnerTeam": null,
+    "team1": [
+      4,
+      3
+    ],
+    "team2": [
+      10,
+      9
+    ],
+    "completedAt": null
+  },
+  {
+    "id": 3,
+    "matchId": 15,
+    "winnerTeam": null,
+    "team1": [
+      12,
+      15
+    ],
+    "team2": [
+      14,
+      11
+    ],
+    "completedAt": null
+  },
+  {
+    "id": 4,
+    "matchId": 16,
+    "winnerTeam": null,
+    "team1": [
+      2,
+      9
+    ],
+    "team2": [
+      6,
+      7
+    ],
+    "completedAt": null
+  },
+  {
+    "id": 5,
+    "matchId": 17,
+    "winnerTeam": null,
+    "team1": [
+      16,
+      3
+    ],
+    "team2": [
+      10,
+      5
+    ],
+    "completedAt": null
+  },
+  {
+    "id": 6,
+    "matchId": 18,
+    "winnerTeam": "team1",
+    "team1": [
+      2,
+      7
+    ],
+    "team2": [
+      12,
+      15
+    ],
+    "completedAt": "2025-12-05T21:30:00Z"
+  },
+  {
+    "id": 7,
+    "matchId": 19,
+    "winnerTeam": "team2",
+    "team1": [
+      4,
+      3
+    ],
+    "team2": [
+      14,
+      9
+    ],
+    "completedAt": "2025-12-06T20:00:00Z"
+  },
+  {
+    "id": 8,
+    "matchId": 20,
+    "winnerTeam": "team1",
+    "team1": [
+      1,
+      7
+    ],
+    "team2": [
+      10,
+      5
+    ],
+    "completedAt": "2025-12-07T22:30:00Z"
+  }
+]

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Crear nueva partida | PadelSamu</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Crea una nueva partida de pádel en PadelSamu. Añade jugadores, selecciona club, pista, fecha y hora.">
+  <meta name="keywords" content="padel, crear partida, pádel, partidos, organizar, deportes">
+  <meta name="author" content="ocp2k">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Crear nueva partida | PadelSamu">
+  <meta property="og:description" content="Gestiona fácilmente tus partidas de pádel con PadelSamu.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PadelSamu">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crear nueva partida | PadelSamu">
+  <meta name="twitter:description" content="Organiza tus partidas de pádel de forma sencilla y rápida.">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../src/css/normalize.css">
+  <link rel="stylesheet" href="../src/css/variables.css">
+
+  <!-- Componentes -->
+  <link rel="stylesheet" href="../src/css/components/baseLayout.css">
+  <link rel="stylesheet" href="../src/css/components/header.css">
+  <link rel="stylesheet" href="../src/css/components/pageHeader.css">
+  <link rel="stylesheet" href="../src/css/components/footer.css">
+  <link rel="stylesheet" href="../src/css/components/buttons.css">
+  <link rel="stylesheet" href="../src/css/components/forms.css">
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="../src/css/pages/crear-partida.css">
+</head>
+
+
+<body aria-label="crear-partida">
+
+  <!-- ========================= HEADER ========================= -->
+  <header>
+    <div class="return-link__container">
+      <a href="../index.html" aria-label="volver al inicio de PadelSamu">
+        <img src="../assets/img/icons/icons8-volver-48.png" class="return-icon" alt="Home Icon" loading="lazy"
+          decoding="async">
+      </a>
+    </div>
+    <div class="brand-container">
+      <!-- Logo PadelSamu -->
+      <img src="../assets/img/icons/logo.png" alt="PadelSamu Logo" loading="lazy" decoding="async" class="brand-icon">
+      <span class="brand-name">PADEL<span class="brand-highlight">SAMU</span></span>
+    </div>
+    <!-- Avatar del usuario logeado -->
+    <div class="user-badge"></div>
+  </header>
+
+
+  <!-- ========================= MAIN ========================= -->
+  <main>
+
+    <!-- Título de la página -->
+    <section class="page-header">
+      <h1 class="page-title">Crear Partida</h1>
+      <p class="page-description">Crea una nueva partida para jugar</p>
+    </section>
+
+    <!-- Botón que despliega el formulario -->
+    <section class="form-toggle-section">
+      <button type="button" id="toggleFormBtn" data-action="open-form" aria-expanded="false"
+        aria-controls="crearPartidaSection" class="btn btn-gradient btn-lg">
+        Crear partida nueva
+      </button>
+    </section>
+
+
+    <!-- ============= FORMULARIO (oculto inicialmente) ============= -->
+    <section id="crearPartidaSection" class="form-section" data-section="crear-partida" hidden aria-hidden="true">
+      <!--  añadirlo a arriba una vez se acabe de estilar -->
+
+
+      <form id="crearPartidaForm" class="create-match-form" aria-describedby="formHelp">
+        <p id="formHelp" class="form-help-text">Rellena los datos para crear una nueva partida.</p>
+        <!-- Número partida (generado automáticamente) -->
+        <fieldset class="fieldset-readonly">
+          <legend>Número de partida</legend>
+          <div class="match-number-display">
+            <span class="match-number-label">Partida #</span>
+            <span id="numeroPartida" class="match-number-value">---</span>
+          </div>
+        </fieldset>
+
+        <!-- Fecha -->
+        <fieldset>
+          <legend>Fecha</legend>
+          <label for="fechaPartida">Selecciona la fecha</label>
+          <input type="date" id="fechaPartida" name="fechaPartida" required>
+        </fieldset>
+
+        <!-- Hora -->
+        <fieldset>
+          <legend>Hora</legend>
+          <label for="horaPartida">Selecciona la hora</label>
+          <input type="time" id="horaPartida" name="horaPartida" required>
+        </fieldset>
+
+        <!-- Club -->
+        <fieldset>
+          <legend>Ubicación</legend>
+          <label for="clubPartida">Selecciona un club</label>
+          <select id="clubPartida" name="clubPartida" data-select="clubs" required>
+            <option value="">Selecciona un club</option>
+            <!-- El JS llenará esta lista -->
+          </select>
+        </fieldset>
+
+        <!-- Pista -->
+        <fieldset>
+          <legend>Pista</legend>
+          <label for="pistaPartida">Número o nombre de pista</label>
+          <input type="text" id="pistaPartida" name="pistaPartida" autocomplete="off" required>
+        </fieldset>
+
+        <!-- Tipo -->
+        <fieldset>
+          <legend>Tipo de partida</legend>
+
+          <label>
+            <input type="radio" name="tipoPartida" value="unisex" required>
+            Unisex
+          </label>
+
+          <label>
+            <input type="radio" name="tipoPartida" value="mixto">
+            Mixto
+          </label>
+        </fieldset>
+
+        <!-- Jugadores -->
+        <fieldset class="jugadores-fieldset">
+          <legend>Jugadores</legend>
+
+          <!-- Revés 1 -->
+          <label for="reves1">Revés 1</label>
+          <select id="reves1" name="reves1" data-role="reves1" required>
+            <option value="">Selecciona jugador</option>
+          </select>
+
+          <!-- Drive 1 -->
+          <label for="drive1">Drive 1</label>
+          <select id="drive1" name="drive1" data-role="drive1" required>
+            <option value="">Selecciona jugador</option>
+          </select>
+
+          <!-- Revés 2 -->
+          <label for="reves2">Revés 2</label>
+          <select id="reves2" name="reves2" data-role="reves2" required>
+            <option value="">Selecciona jugador</option>
+          </select>
+
+          <!-- Drive 2 -->
+          <label for="drive2">Drive 2</label>
+          <select id="drive2" name="drive2" data-role="drive2" required>
+            <option value="">Selecciona jugador</option>
+          </select>
+        </fieldset>
+
+        <!-- Botones confirmar y cancelar -->
+        <div class="form-buttons-container">
+          <button class="btn btn-success btn-lg" type="submit" id="confirmarPartidaBtn" data-action="confirmar">
+            CONFIRMAR
+          </button>
+          <button class="btn btn-danger btn-lg" type="button" id="cancelarPartidaBtn" data-action="cancelar">
+            CANCELAR
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <!-- ========================= FOOTER ========================= -->
+  <footer class="footer">
+    <p class="footer-text">PadelSamu 2026 &copy; by ocp2k</p>
+    <p class="footer-text">Todos los derechos reservados</p>
+  </footer>
+  <script src="../src/js/pages/crearPartida.js" type="module" defer></script>
+</body>
+
+</html>

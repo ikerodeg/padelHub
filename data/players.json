@@ -1,0 +1,415 @@
+[
+  {
+    "id": 1,
+    "name": "Samu Coach",
+    "avatar": "👨🏻",
+    "position": "drive",
+    "racket": "Bullpadel Vertex 04",
+    "stats": {
+      "matches": 87,
+      "won": 65,
+      "winRate": 75
+    },
+    "strengths": [
+      "Experiencia",
+      "Mentalidad",
+      "Estrategia"
+    ],
+    "badges": [
+      "veterano",
+      "organizador",
+      "racha_5",
+      "duo_dinamico",
+      "mvp_mes",
+      "social"
+    ],
+    "points": 2890
+  },
+  {
+    "id": 2,
+    "name": "Gustavo Capo",
+    "avatar": "GC",
+    "position": "reves",
+    "racket": "Adidas Metalbone",
+    "stats": {
+      "matches": 62,
+      "won": 54,
+      "winRate": 87
+    },
+    "strengths": [
+      "Potencia",
+      "Ataque",
+      "Definición"
+    ],
+    "badges": [
+      "veterano",
+      "racha_10",
+      "invicto",
+      "x3",
+      "vibora_mortal",
+      "red_master"
+    ],
+    "points": 2650
+  },
+  {
+    "id": 3,
+    "name": "Maria Ohms",
+    "avatar": "MO",
+    "position": "drive",
+    "racket": "Head Delta Pro",
+    "stats": {
+      "matches": 45,
+      "won": 38,
+      "winRate": 84
+    },
+    "strengths": [
+      "Regularidad",
+      "Colocación",
+      "Resistencia"
+    ],
+    "badges": [
+      "constante",
+      "racha_5",
+      "comeback",
+      "pared",
+      "fin_de_semana"
+    ],
+    "points": 2420
+  },
+  {
+    "id": 4,
+    "name": "Noelia Psyps",
+    "avatar": "NP",
+    "position": "reves",
+    "racket": "Nox AT10",
+    "stats": {
+      "matches": 53,
+      "won": 41,
+      "winRate": 77
+    },
+    "strengths": [
+      "Defensa",
+      "Anticipación",
+      "Paciencia"
+    ],
+    "badges": [
+      "veterano",
+      "pared",
+      "gladiador",
+      "lucky_7",
+      "social",
+      "tardon"
+    ],
+    "points": 2380
+  },
+  {
+    "id": 5,
+    "name": "Aitor Torres",
+    "avatar": "AT",
+    "position": "drive",
+    "racket": "Bullpadel Hack 03",
+    "stats": {
+      "matches": 71,
+      "won": 48,
+      "winRate": 68
+    },
+    "strengths": [
+      "Velocidad",
+      "Reflejos",
+      "Volea"
+    ],
+    "badges": [
+      "veterano",
+      "maratoniano",
+      "red_master",
+      "x4",
+      "charlatan",
+      "nocturno"
+    ],
+    "points": 2150
+  },
+  {
+    "id": 6,
+    "name": "Daniel Peralta",
+    "avatar": "DP",
+    "position": "reves",
+    "racket": "Head Flash",
+    "stats": {
+      "matches": 38,
+      "won": 22,
+      "winRate": 58
+    },
+    "strengths": [
+      "Saque",
+      "Potencia",
+      "Compromiso"
+    ],
+    "badges": [
+      "primerizo",
+      "racha_3",
+      "x3",
+      "sin_bolas",
+      "madrugador"
+    ],
+    "points": 1850
+  },
+  {
+    "id": 7,
+    "name": "Iker Rodriguez",
+    "avatar": "IR",
+    "position": "drive",
+    "racket": "Wilson Bela Pro",
+    "stats": {
+      "matches": 94,
+      "won": 71,
+      "winRate": 76
+    },
+    "strengths": [
+      "Versatilidad",
+      "Control",
+      "Táctica"
+    ],
+    "badges": [
+      "veterano",
+      "centurion",
+      "racha_5",
+      "duo_dinamico",
+      "globo_perfecto",
+      "social",
+      "organizador"
+    ],
+    "points": 2720
+  },
+  {
+    "id": 8,
+    "name": "Daniel Bodí",
+    "avatar": "DB",
+    "position": "reves",
+    "racket": "Adidas Adipower",
+    "stats": {
+      "matches": 29,
+      "won": 15,
+      "winRate": 52
+    },
+    "strengths": [
+      "Entusiasmo",
+      "Mejora continua",
+      "Esfuerzo"
+    ],
+    "badges": [
+      "primerizo",
+      "constante",
+      "comeback",
+      "el_roto",
+      "quejica"
+    ],
+    "points": 1620
+  },
+  {
+    "id": 9,
+    "name": "Maria Tyfra",
+    "avatar": "MT",
+    "position": "drive",
+    "racket": "Bullpadel Flow",
+    "stats": {
+      "matches": 56,
+      "won": 47,
+      "winRate": 84
+    },
+    "strengths": [
+      "Precisión",
+      "Inteligencia táctica",
+      "Derecha"
+    ],
+    "badges": [
+      "veterano",
+      "racha_5",
+      "bandeja_oro",
+      "duo_dinamico",
+      "fin_de_semana",
+      "mvp_mes"
+    ],
+    "points": 2480
+  },
+  {
+    "id": 10,
+    "name": "Agus Argentino",
+    "avatar": "AA",
+    "position": "reves",
+    "racket": "NOX ML10",
+    "stats": {
+      "matches": 41,
+      "won": 28,
+      "winRate": 68
+    },
+    "strengths": [
+      "Pasión",
+      "Juego agresivo",
+      "Energía"
+    ],
+    "badges": [
+      "constante",
+      "racha_3",
+      "x3",
+      "vibora_mortal",
+      "charlatan",
+      "nocturno"
+    ],
+    "points": 2100
+  },
+  {
+    "id": 11,
+    "name": "Carlos Fortuño",
+    "avatar": "CF",
+    "position": "drive",
+    "racket": "Head Alpha Pro",
+    "stats": {
+      "matches": 33,
+      "won": 19,
+      "winRate": 58
+    },
+    "strengths": [
+      "Servicio",
+      "Red",
+      "Actitud positiva"
+    ],
+    "badges": [
+      "primerizo",
+      "lucky_7",
+      "red_master",
+      "social",
+      "sin_bolas"
+    ],
+    "points": 1780
+  },
+  {
+    "id": 12,
+    "name": "Ismi Crack",
+    "avatar": "IC",
+    "position": "reves",
+    "racket": "Bullpadel Vertex 03",
+    "stats": {
+      "matches": 68,
+      "won": 55,
+      "winRate": 81
+    },
+    "strengths": [
+      "Consistencia",
+      "Revés cortado",
+      "Lectura"
+    ],
+    "badges": [
+      "veterano",
+      "racha_5",
+      "invicto",
+      "pared",
+      "globo_perfecto",
+      "duo_dinamico"
+    ],
+    "points": 2560
+  },
+  {
+    "id": 13,
+    "name": "Jesus G3",
+    "avatar": "JG",
+    "position": "drive",
+    "racket": "Nox Ultimate",
+    "stats": {
+      "matches": 22,
+      "won": 8,
+      "winRate": 36
+    },
+    "strengths": [
+      "Humor",
+      "Compañerismo",
+      "Superación"
+    ],
+    "badges": [
+      "primerizo",
+      "paquete_premium",
+      "doble_falta",
+      "red_iman",
+      "tardon"
+    ],
+    "points": 1340
+  },
+  {
+    "id": 14,
+    "name": "Nacho Zapata",
+    "avatar": "NZ",
+    "position": "reves",
+    "racket": "Adidas Metalbone",
+    "stats": {
+      "matches": 49,
+      "won": 35,
+      "winRate": 71
+    },
+    "strengths": [
+      "Smash",
+      "Físico",
+      "Agresividad"
+    ],
+    "badges": [
+      "constante",
+      "racha_3",
+      "x4",
+      "vibora_mortal",
+      "maratoniano",
+      "el_roto"
+    ],
+    "points": 2220
+  },
+  {
+    "id": 15,
+    "name": "Jorge Invictus",
+    "avatar": "JI",
+    "position": "drive",
+    "racket": "Head Delta Motion",
+    "stats": {
+      "matches": 77,
+      "won": 58,
+      "winRate": 75
+    },
+    "strengths": [
+      "Mentalidad ganadora",
+      "Juego completo",
+      "Adaptación"
+    ],
+    "badges": [
+      "veterano",
+      "racha_5",
+      "lucky_7",
+      "comeback",
+      "gladiador",
+      "social",
+      "organizador"
+    ],
+    "points": 2640
+  },
+  {
+    "id": 16,
+    "name": "Sergio Llorens",
+    "avatar": "SL",
+    "position": "reves",
+    "racket": "Wilson Carbon Force",
+    "stats": {
+      "matches": 36,
+      "won": 24,
+      "winRate": 67
+    },
+    "strengths": [
+      "Defensa sólida",
+      "Paciencia",
+      "Contra-ataque"
+    ],
+    "badges": [
+      "constante",
+      "pared",
+      "comeback",
+      "fin_de_semana",
+      "quejica",
+      "madrugador"
+    ],
+    "points": 1980
+  }
+]

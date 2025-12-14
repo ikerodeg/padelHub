@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Resultados | PadelSamu</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="Introduce el resultado de partidas de pádel y consulta el historial histórico de ganadores en PadelSamu.">
+  <meta name="keywords" content="padel, resultados, historial, ganadores, puntuación, deportes">
+  <meta name="author" content="ocp2k">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Resultados | PadelSamu">
+  <meta property="og:description" content="Gestiona resultados y consulta partidas finalizadas.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PadelSamu">
+
+  <!-- Tiwtter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Resultados | PadelSamu">
+  <meta name="twitter:description" content="Gestiona confirmación de partidas y rankings.">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../src/css/normalize.css">
+  <link rel="stylesheet" href="../src/css/variables.css">
+
+  <!-- Componentes -->
+  <link rel="stylesheet" href="../src/css/components/baseLayout.css">
+  <link rel="stylesheet" href="../src/css/components/header.css">
+  <link rel="stylesheet" href="../src/css/components/pageHeader.css">
+  <link rel="stylesheet" href="../src/css/components/footer.css">
+  <link rel="stylesheet" href="../src/css/components/buttons.css">
+  <link rel="stylesheet" href="../src/css/components/forms.css">
+  <link rel="stylesheet" href="../src/css/components/filter-tabs.css">
+
+  <!-- Páginas -->
+  <link rel="stylesheet" href="../src/css/pages/resultados.css">
+</head>
+
+
+<body>
+
+  <!-- ========================= HEADER ========================= -->
+  <header>
+    <div class="return-link__container">
+      <a href="../index.html" aria-label="volver al inicio de PadelSamu">
+        <img src="../assets/img/icons/icons8-volver-48.png" class="return-icon" alt="Home Icon" loading="lazy"
+          decoding="async">
+      </a>
+    </div>
+    <div class="brand-container">
+      <!-- Logo PadelSamu -->
+      <img src="../assets/img/icons/logo.png" alt="PadelSamu Logo" loading="lazy" decoding="async" class="brand-icon">
+      <span class="brand-name">PADEL<span class="brand-highlight">SAMU</span></span>
+    </div>
+    <!-- Avatar del usuario logeado -->
+    <div class="user-badge"></div>
+  </header>
+
+
+  <!-- ========================= MAIN ========================= -->
+  <main>
+
+    <!-- Título de la página -->
+    <section class="page-header">
+      <h1 class="page-title">Resultados</h1>
+      <p class="page-description">Confirma resultados de partidas jugadas o consulta el histórico</p>
+    </section>
+
+    <!-- Filtros / Pestañas -->
+    <section class="filters-section" role="tablist" aria-label="Filtros de resultados">
+      <button type="button" role="tab" class="filter-tab active" data-filter="todas" aria-selected="true"
+        aria-controls="resultadosContainer">
+        <span class="filter-icon">📋</span>
+        <span class="filter-label">Todas</span>
+        <span class="filter-badge" data-count="todas">35</span>
+      </button>
+
+      <button type="button" role="tab" class="filter-tab" data-filter="pendientes" aria-selected="false"
+        aria-controls="resultadosContainer">
+        <span class="filter-icon">⏳</span>
+        <span class="filter-label">Pendientes</span>
+        <span class="filter-badge" data-count="pendientes">2</span>
+      </button>
+
+      <button type="button" role="tab" class="filter-tab" data-filter="finalizadas" aria-selected="false"
+        aria-controls="resultadosContainer">
+        <span class="filter-icon">🏆</span>
+        <span class="filter-label">Finalizadas</span>
+        <span class="filter-badge" data-count="finalizadas">33</span>
+      </button>
+    </section>
+
+    <!-- Contenedor de resultados -->
+    <section id="resultadosContainer" class="resultados-container" role="tabpanel" aria-label="Lista de resultados">
+
+      <!-- ==========================================
+           PARTIDA PENDIENTE (Ejemplo)
+           ========================================== -->
+      <article class="resultado-card" data-estado="pendientes" data-partida-id="101">
+        <div class="resultado-header">
+          <div class="partida-number">
+            <span class="number-label">Partida</span>
+            <span class="number-value">#101</span>
+          </div>
+          <span class="partida-status status-pendiente" style="font-size: 0.7rem;">Pendiente</span>
+        </div>
+
+        <!-- Enfrentamiento (Selector de Ganador) -->
+        <h3 class="text-center text-gray-400 text-sm mb-4"
+          style="text-align: center; margin-bottom: 1rem; font-size: 0.85rem; color: var(--color-gray-500);">
+          Selecciona la pareja ganadora
+        </h3>
+
+        <div class="resultado-matchup">
+          <!-- Pareja 1 -->
+          <div class="couple-card" role="button" aria-label="Seleccionar pareja 1 como ganadora">
+            <span class="player-name">Carlos García</span>
+            <span class="player-name">Ana Martínez</span>
+          </div>
+
+          <!-- VS Badge -->
+          <div class="vs-badge">VS</div>
+
+          <!-- Pareja 2 -->
+          <div class="couple-card" role="button" aria-label="Seleccionar pareja 2 como ganadora">
+            <span class="player-name">María López</span>
+            <span class="player-name">Juan Pérez</span>
+          </div>
+        </div>
+
+        <div class="resultado-actions">
+          <button class="btn btn-success btn-confirm-result">Confirmar Resultado</button>
+        </div>
+      </article>
+
+      <!-- ==========================================
+           PARTIDA FINALIZADA (Ejemplo)
+           ========================================== -->
+      <article class="resultado-card" data-estado="finalizadas" data-partida-id="099">
+        <div class="resultado-header">
+          <div class="partida-number">
+            <span class="number-label">Partida</span>
+            <span class="number-value">#099</span>
+          </div>
+          <span class="partida-status status-completa" style="font-size: 0.7rem;">Finalizada</span>
+        </div>
+
+        <div class="resultado-matchup">
+          <!-- Pareja 1 (Perdedora) -->
+          <div class="couple-card loser">
+            <span class="player-name">Pedro Sánchez</span>
+            <span class="player-name">Lucía Gil</span>
+          </div>
+
+          <!-- VS Badge -->
+          <div class="vs-badge">VS</div>
+
+          <!-- Pareja 2 (Ganadora) -->
+          <div class="couple-card selected-winner">
+            <span class="player-name">David Ruiz</span>
+            <span class="player-name">Elena Yáñez</span>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- Otra Finalizada -->
+      <article class="resultado-card" data-estado="finalizadas" data-partida-id="098">
+        <div class="resultado-header">
+          <div class="partida-number">
+            <span class="number-label">Partida</span>
+            <span class="number-value">#098</span>
+          </div>
+          <span class="partida-status status-completa" style="font-size: 0.7rem;">Finalizada</span>
+        </div>
+
+        <div class="resultado-matchup">
+          <!-- Pareja 1 (Ganadora) -->
+          <div class="couple-card selected-winner">
+            <span class="player-name">Javi M.</span>
+            <span class="player-name">Laura T.</span>
+          </div>
+
+          <!-- VS Badge -->
+          <div class="vs-badge">VS</div>
+
+          <!-- Pareja 2 (Perdedora) -->
+          <div class="couple-card loser">
+            <span class="player-name">Marcos A.</span>
+            <span class="player-name">Sofia B.</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- ========================= FOOTER ========================= -->
+  <footer class="footer">
+    <p class="footer-text">PadelSamu 2026 &copy; by ocp2k</p>
+    <p class="footer-text">Todos los derechos reservados</p>
+  </footer>
+
+  <script src="../src/js/pages/resultados.js" type="module" defer></script>
+</body>
+
+</html>

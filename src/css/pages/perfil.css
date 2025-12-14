@@ -1,0 +1,230 @@
+/* ============================================
+   ESTILOS DE /pages/perfil.html
+   MOBILE FIRST
+   ============================================ */
+
+/* ===================================
+   LAYOUT GRID
+   ================================ */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  max-width: var(--max-width-lg);
+  margin-inline: auto;
+}
+
+/* ===================================
+   HERO POSTER
+   ================================ */
+.hero-poster {
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-2xl);
+}
+
+
+/* Background dinámico */
+/*
+.hero-backdrop {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right,
+      var(--color-gray-800),
+      var(--color-gray-950));
+  z-index: 0;
+}
+
+.hero-backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Content Layout */
+.hero-content {
+  position: relative;
+}
+
+.hero-position-badge {
+  inline-size: fit-content;
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: var(--font-size-xs);
+  border: 1px solid currentColor;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  margin-block-end: var(--spacing-xl);
+}
+
+.hero-name {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 0.9;
+  color: var(--color-white);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin-block: 0 var(--spacing-xl);
+  margin-inline: 0;
+  max-width: 80%;
+}
+
+/*
+
+/* Racket Box */
+
+.hero-racket-box {
+  inline-size: fit-content;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.racket-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--color-gray-400);
+  margin-bottom: 4px;
+}
+
+.hero-player-img {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  z-index: 1;
+  display: block;
+  padding: 0;
+  margin: 0;
+  object-fit: cover;
+  object-position: top center;
+  mask-image: linear-gradient(to top, transparent 0%, black 50%);
+  margin-inline: auto;
+}
+
+/* ===================================
+   SECCIONES DERECHA
+   ================================ */
+.content-section {
+  background-color: var(--color-gray-900-alpha-60);
+  border: 1px solid var(--color-gray-800);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  backdrop-filter: blur(var(--blur-md));
+}
+
+.section-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-gray-200);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* STATS GRID */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
+  text-align: center;
+}
+
+.stat-item {
+  background-color: var(--color-gray-800-alpha-50);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+}
+
+.stat-value {
+  display: block;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-black);
+  color: var(--color-white);
+  line-height: 1;
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+  margin-top: var(--spacing-sm);
+}
+
+/* STRENGTHS LIST */
+.strengths-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.strength-item {
+  background-color: color-mix(in oklch, var(--color-lime-400) 10%, transparent);
+  color: var(--color-lime-400);
+  border: 1px solid color-mix(in oklch, var(--color-lime-400) 20%, transparent);
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+}
+
+/* BADGES GRID */
+.badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--color-gray-800);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-lg);
+  transition: transform var(--duration-fast);
+  border: 1px solid transparent;
+}
+
+.badge-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-gray-600);
+}
+
+.badge-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.badge-title {
+  font-weight: bold;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-200);
+  margin-bottom: 2px;
+}
+
+.badge-desc {
+  font-size: 0.7rem;
+  color: var(--color-gray-500);
+}
