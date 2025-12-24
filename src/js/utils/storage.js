@@ -39,7 +39,8 @@ export function setItem(key, value) {
 
 export function getItem(key) {
   try {
-    const serializedValue = localStorage.getItem(key);  // Obtener el string desde localStorage
+    const serializedValue = localStorage.getItem(key);
+    
     
     // Si no existe la clave, devolver null
     if (serializedValue === null) {

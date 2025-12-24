@@ -4,6 +4,9 @@
  * ==========================================
  * Archivo: src/js/utils/dataLoader.js
 */
+
+import { setItem, getItem } from './storage.js';
+
 console.log("🚪 → 📁 dataLoader.js");
 
 /**
@@ -32,9 +35,6 @@ async function loadJSON(url) {
       throw new Error(`El archivo ${url} está vacío o no es válido`);
     }
     
-    console.log(`✅ Archivo cargado correctamente: ${url}`);
-    console.log(`📊 Datos cargados:`, data);
-    
     return data;
     
   } catch (error) {
@@ -49,8 +49,7 @@ async function loadJSON(url) {
  * @throws {Error} - Si algún archivo falla al cargar
  */
 async function loadAllData() {
-  console.log('🚀 Iniciando carga de todos los datos...');
-  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+  console.log('⚙️ Ejecutando loadAllData()...');
   
   try {
     // Cargar todos los JSON en paralelo con Promise.all
@@ -75,22 +74,13 @@ async function loadAllData() {
     };
     
     // Logs detallados de confirmación
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('✅ TODOS LOS DATOS CARGADOS EXITOSAMENTE');
-    console.log(`📊 Estadísticas:`);
-    console.log(`   👥 Jugadores: ${players.length}`);
-    console.log(`   🏟️  Clubs: ${clubs.length}`);
-    console.log(`   🎾 Partidas: ${matches.length}`);
-    console.log(`   🏆 Resultados: ${results.length}`);
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('✅ Archivos JSON cargados');
     
     return allData;
     
   } catch (error) {
-    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.error('❌ ERROR CRÍTICO AL CARGAR DATOS');
     console.error('Mensaje:', error.message);
-    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     throw error;
   }
 }
@@ -103,64 +93,34 @@ async function loadAllData() {
  * @returns {Promise<Object>} - Objeto con todos los datos cargados
  */
 async function initializeAppData() {
-  console.log('🎬 INICIANDO APLICACIÓN - PadelSamu');
-  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+  console.log('⚙️ Ejecutando initializeAppData()...');
   
   try {
-    // Verificar si ya existen datos en cache
-    const cachedPlayers = localStorage.getItem('players');
-    const cachedClubs = localStorage.getItem('clubs');
-    const cachedMatches = localStorage.getItem('matches');
-    const cachedResults = localStorage.getItem('results');
+    // Guarda en una variable el objeto JSON cacheado
+    const allDataObjectCached = await getItem('allDataObject');
     
-    // Si existe cache completo, usarlo
-    if (cachedPlayers && cachedClubs && cachedMatches && cachedResults) {
-      console.log('💾 DATOS ENCONTRADOS EN CACHE (localStorage)');
-      console.log('✅ No es necesario recargar desde archivos JSON');
+    // Si existen datos en cache, usarlos
+    if (allDataObjectCached) {
+      console.log('💾 Datos encontrados en cache (localStorage)');
       
-      // Parsear datos del cache
-      const allData = {
-        players: JSON.parse(cachedPlayers),
-        clubs: JSON.parse(cachedClubs),
-        matches: JSON.parse(cachedMatches),
-        results: JSON.parse(cachedResults)
-      };
-      
-      console.log('📊 Estadísticas del cache:');
-      console.log(`   👥 Jugadores: ${allData.players.length}`);
-      console.log(`   🏟️  Clubs: ${allData.clubs.length}`);
-      console.log(`   🎾 Partidas: ${allData.matches.length}`);
-      console.log(`   🏆 Resultados: ${allData.results.length}`);
-      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log('✅ APLICACIÓN LISTA');
-      
-      return allData;
+      // Retorna el objeto
+      return allDataObjectCached;
     }
     
     // Si no hay cache, cargar desde JSON
-    console.log('📂 NO HAY CACHE - Cargando desde archivos JSON...');
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('❌ NO HAY CACHE - Cargando archivos JSON...');
     
-    const allData = await loadAllData();
+    // Guardar todos los datos en un solo objeto JSON
+    const allDataObject = await loadAllData();
+
+    // Guardar el objeto JSON en localStorage
+    console.log('💾 Guardando objeto unificador de todos los JSON en localStorage...');
+    setItem('allDataObject', allDataObject);
     
-    // Guardar en localStorage
-    console.log('💾 Guardando datos en localStorage...');
-    localStorage.setItem('players', JSON.stringify(allData.players));
-    localStorage.setItem('clubs', JSON.stringify(allData.clubs));
-    localStorage.setItem('matches', JSON.stringify(allData.matches));
-    localStorage.setItem('results', JSON.stringify(allData.results));
-    console.log('✅ Datos guardados en cache correctamente');
-    
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('✅ APLICACIÓN LISTA');
-    
-    return allData;
-    
+    return allDataObject;
   } catch (error) {
-    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     console.error('❌ ERROR CRÍTICO AL INICIALIZAR APLICACIÓN');
     console.error('Mensaje:', error.message);
-    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     throw error;
   }
 }
@@ -194,22 +154,12 @@ async function refreshData() {
     
     // Guardar en localStorage
     console.log('💾 Guardando datos actualizados en localStorage...');
-    localStorage.setItem('players', JSON.stringify(allData.players));
-    localStorage.setItem('clubs', JSON.stringify(allData.clubs));
-    localStorage.setItem('matches', JSON.stringify(allData.matches));
-    localStorage.setItem('results', JSON.stringify(allData.results));
-    console.log('✅ Datos guardados en cache correctamente');
-    
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('✅ ACTUALIZACIÓN COMPLETADA');
+    setItem('allDataObject', allData);
+    console.log('✅ Datos guardados en cache exitosamente');
     
     return allData;
     
   } catch (error) {
-    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.error('❌ ERROR AL ACTUALIZAR DATOS');
-    console.error('Mensaje:', error.message);
-    console.error('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     throw error;
   }
 }

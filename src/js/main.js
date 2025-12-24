@@ -8,30 +8,37 @@
 console.log("🚪 → 📁 main.js");
 
 import { initializeAppData } from './utils/dataLoader.js';
-import { initializeCurrentUser, renderUserBadge } from './utils/auth.js';
+import { initializeUserSession } from './utils/auth.js';
+import { mostrarErrorCritico } from './utils/errores.js';
 
 /**
  * Inicialización principal de la aplicación
+ * Versión mejorada con manejo de errores robusto
  */
 async function init() {
+  console.log('⚙️ Ejecutando init()...');
+
   try {
-    // 1. Cargar datos
+    // 1. Cargar datos de la aplicación
     await initializeAppData();
-    
-    // 2. Inicializar sesión de usuario
-    initializeCurrentUser();
-    
-    // 3. Renderizar badge del usuario
-    renderUserBadge('.user-badge');
-    
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('🎉 APLICACIÓN INICIALIZADA CORRECTAMENTE');
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    
+
+    // 2. Inicializar sesión completa del usuario (sesión + UI)
+    await initializeUserSession('.user-badge');
+
+    console.log('🚀 APLICACIÓN INICIALIZADA EXITOSAMENTE');
+
   } catch (error) {
-    console.error('💥 Error al inicializar aplicación:', error);
+    console.error('💥 Error crítico al inicializar aplicación:', error.message);
+
+    // Mostrar error crítico al usuario
+    mostrarErrorCritico(
+      'Error al cargar la aplicación',
+      `No se pudo inicializar PadelSamu. ${error.message}`,
+      '🔄 Reintentar'
+    );
   }
 }
+
 
 // Ejecutar al cargar la página
 init();
