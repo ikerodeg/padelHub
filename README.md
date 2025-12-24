@@ -10,7 +10,7 @@
   [![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
   [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
   ![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
-  ![Mobile Friendly](https://img.shields.io/badge/Mobile-Friendly-✅-blue?style=for-the-badge)
+  ![Mobile](https://img.shields.io/badge/Mobile-Friendly-blue?style=for-the-badge&logo=iphone&logoColor=white)
 
   <p align="center">
     <a href="#-sobre-el-proyecto">Sobre el Proyecto</a> •
@@ -50,13 +50,13 @@ La aplicación permite crear y gestionar partidos de pádel, organizar jugadores
 - **Guardado automático** en localStorage
 
 ### 👥 Gestión de Jugadores
-- **Base de datos integrada** con 16 jugadores profesionales
+- **Base de datos integrada** con jugadores sólo miembros
 - **Sistema anti-duplicados** en selección de equipos
 - **Perfiles completos** con posiciones y estadísticas
 - **Búsqueda y filtrado** optimizado
 
 ### 🏓 Clubs y Ubicaciones
-- **6 clubs disponibles** en la base de datos
+- **Clubs disponibles** en la base de datos
 - **Selección intuitiva** de pistas y horarios
 - **Información detallada** de cada ubicación
 
@@ -173,8 +173,8 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 ### ✅ **Completado (v1.0)**
 - [x] **Diseño UI/UX Base** - Interfaz premium mobile-first
 - [x] **Sistema de Gestión de Partidas** - Creación completa con validaciones
-- [x] **Base de Datos de Jugadores** - 16 perfiles profesionales
-- [x] **Sistema de Clubs** - 6 ubicaciones disponibles
+- [x] **Base de Datos de Jugadores** - 16 perfiles temporales
+- [x] **Sistema de Clubs** - 6 clubes temporales
 - [x] **Numeración Automática** - Contador persistente de partidos
 - [x] **Estados Inteligentes** - Partidas completas/abiertas
 - [x] **Persistencia localStorage** - Datos mantenidos entre sesiones
