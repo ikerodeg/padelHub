@@ -49,6 +49,15 @@ La aplicación permite crear y gestionar partidos de pádel, organizar jugadores
 - **Selección de jugadores** sin duplicados
 - **Guardado automático** en localStorage
 
+### 📋 Gestión Completa de Partidas
+- **Listado dinámico** de todas las partidas con filtros inteligentes
+- **Sistema de filtros** por estado: Todas, Abiertas, Completas
+- **Ordenamiento automático**: Abiertas primero, luego Completas
+- **Contadores reales** en tiempo real para cada filtro
+- **Unirse a partidas** con selección múltiple de jugadores
+- **Estados dinámicos** que cambian automáticamente al completarse
+- **Notificaciones inteligentes** sin modales intrusivos
+
 ### 👥 Gestión de Jugadores
 - **Base de datos integrada** con jugadores sólo miembros
 - **Sistema anti-duplicados** en selección de equipos
@@ -170,20 +179,23 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 
 ## 🗺 Roadmap
 
-### ✅ **Completado (v1.0)**
+### ✅ **Completado (v1.1)**
 - [x] **Diseño UI/UX Base** - Interfaz premium mobile-first
 - [x] **Sistema de Gestión de Partidas** - Creación completa con validaciones
+- [x] **Lista de Partidas** - Sistema completo con filtros y ordenamiento
+- [x] **Unirse a Partidas** - Múltiples jugadores simultáneamente
+- [x] **Notificaciones Mobile-Friendly** - Sin modales intrusivos
 - [x] **Base de Datos de Jugadores** - 16 perfiles temporales
 - [x] **Sistema de Clubs** - 6 clubes temporales
 - [x] **Numeración Automática** - Contador persistente de partidos
-- [x] **Estados Inteligentes** - Partidas completas/abiertas
+- [x] **Estados Inteligentes** - Partidas completas/abiertas dinámicas
 - [x] **Persistencia localStorage** - Datos mantenidos entre sesiones
 - [x] **Sistema de Errores** - Manejo robusto y mobile-friendly
 - [x] **Accesibilidad Completa** - ARIA, navegación por teclado
 - [x] **Responsive Design** - Optimizado para todos los dispositivos
 
 ### 🚧 **Próximas Funcionalidades**
-- [ ] **Lista de Partidas** - Visualizar y gestionar partidos existentes
+- [ ] **Controles de Administrador** - Editar y eliminar partidas
 - [ ] **Sistema de Resultados** - Registrar ganadores y estadísticas
 - [ ] **Rankings Dinámicos** - Sistema ELO con clasificación
 - [ ] **Perfiles de Usuario** - Historial y estadísticas personales
@@ -235,5 +247,5 @@ Este proyecto está bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE)
 <div align="center">
   <p>Desarrollado con ❤️ y 🎾 por <a href="https://github.com/ikerodeg">ikerodeg</a></p>
   <p><em>¡Domina la pista con PadelSamu! 🏓</em></p>
-  <p><strong>Season 2025 - v1.0</strong></p>
+  <p><strong>Season 2025 - v1.1</strong></p>
 </div>
