@@ -3,7 +3,6 @@
    ================================ */
 .page-header {
   text-align: center;
-  margin-block-end: var(--spacing-2xl);
   inline-size: 100%;
 }
 

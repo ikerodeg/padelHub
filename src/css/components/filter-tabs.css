@@ -4,7 +4,7 @@
 .filters-section {
   display: flex;
   gap: var(--spacing-sm);
-  margin-block-end: var(--spacing-lg);
+  margin-block: var(--spacing-lg);
   inline-size: 100%;
 }
 

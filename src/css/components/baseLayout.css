@@ -1,32 +1,35 @@
-/* ===================================
-   BODY Y LAYOUT BASE
-   ================================ */
+/* ================================
+          LAYOUT BASE
+================================ */
+header, body, footer {
+  max-inline-size: var(--max-width-md);
+}
+
 body {
-  background-color: var(--color-gray-950);
-  font-family: var(--font-family-base);
-  color: var(--color-gray-300);
   min-block-size: 100vh;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  font-family: var(--font-family-base);
+  background-color: var(--color-gray-950);
+  color: var(--color-gray-300);
+  margin-inline: auto;
   overflow-x: hidden;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
 /* ===================================
-   MAIN CONTAINER
-   ================================ */
+MAIN CONTAINER
+================================ */
 main {
   display: flex;
+  position: relative;
+  inline-size: 100%;
+  block-size: 100%;
+  max-inline-size: 100dvi;
   flex-direction: column;
   align-items: center;
-  padding-block: var(--spacing-xl);
-  padding-inline: var(--spacing-md);
+  justify-content: center;
+  overflow-y: auto;
   margin-inline: auto;
-  inline-size: 100%;
-  max-inline-size: 100dvw;
+  background-color: var(--color-gray-950);
+  padding-block: var(--spacing-2xl);
+  padding-inline: var(--spacing-xl);
+  gap: var(--spacing-xl);
 }

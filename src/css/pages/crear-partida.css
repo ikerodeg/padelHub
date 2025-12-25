@@ -1,11 +1,28 @@
-/* ============================================
+/* ===========================================
    ESTILOS DE /pages/crear-partida.html
-   ============================================ */
+============================================ */
 
-/* ===================================
+/* =================================
+   SECCIÓN GLOBAL
+================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* =================================
+   SECCIÓN BODY
+================================ */
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+
+/* =================================
    SECCIÓN FORMULARIO
-   ================================ */
-
+================================ */
 /* Sección botón mostrar formulario */
 /* ⚠️ Al pulsar el boton, hacer desaparecer tambien esta seccion */
 .form-toggle-section {
@@ -16,7 +33,7 @@
 /* Sección formulario */
 .form-section {
   inline-size: 100%;
-  margin-block-start: var(--spacing-3xl);
+  margin-block-start: var(--spacing-xl);
 }
 
 /* Texto de ayuda del formulario */
@@ -24,6 +41,7 @@
   text-align: center;
   color: var(--color-gray-400);
   font-size: var(--font-size-md);
+  margin-block-start: 0;
   margin-block-end: var(--spacing-2xl);
 }
 

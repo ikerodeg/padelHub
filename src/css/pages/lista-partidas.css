@@ -2,19 +2,32 @@
    ESTILOS DE /pages/lista-partidas.html
    ============================================ */
 
-/* ===================================
+/* =================================
+   SECCIÓN GLOBAL
+================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+main{
+  gap: var(--spacing-md)
+}
+
+/* =================================
    CONTENEDOR DE PARTIDAS
-   ================================ */
+================================ */
 .partidas-container {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xl);
   inline-size: 100%;
 }
 
-/* ===================================
+/* ================================
    CARD DE PARTIDA - ESTILOS BASE
-   ================================ */
+================================ */
 .partida-card {
   padding-inline: var(--spacing-sm);
   background: linear-gradient(135deg,
