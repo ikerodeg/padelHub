@@ -12,7 +12,7 @@
       "reves2": 4,
       "drive2": null
     },
-    "status": "abierta",
+    "status": ["abierta"],
     "createdBy": 1,
     "createdAt": "2025-12-12T10:30:00Z"
   },
@@ -29,7 +29,7 @@
       "reves2": null,
       "drive2": null
     },
-    "status": "abierta",
+    "status": ["abierta"],
     "createdBy": 2,
     "createdAt": "2025-12-12T11:15:00Z"
   },
@@ -46,7 +46,7 @@
       "reves2": 12,
       "drive2": null
     },
-    "status": "abierta",
+    "status": ["abierta"],
     "createdBy": 7,
     "createdAt": "2025-12-12T12:00:00Z"
   },
@@ -63,7 +63,7 @@
       "reves2": null,
       "drive2": 11
     },
-    "status": "abierta",
+    "status": ["abierta"],
     "createdBy": 14,
     "createdAt": "2025-12-12T13:45:00Z"
   },
@@ -80,7 +80,7 @@
       "reves2": null,
       "drive2": 9
     },
-    "status": "abierta",
+    "status": ["abierta"],
     "createdBy": 10,
     "createdAt": "2025-12-12T14:20:00Z"
   },
@@ -97,7 +97,7 @@
       "reves2": 2,
       "drive2": 5
     },
-    "status": "completa",
+    "status": ["completa", "pendiente"],
     "createdBy": 1,
     "createdAt": "2025-12-11T09:00:00Z"
   },
@@ -114,7 +114,7 @@
       "reves2": 10,
       "drive2": 9
     },
-    "status": "completa",
+    "status": ["completa", "pendiente"],
     "createdBy": 4,
     "createdAt": "2025-12-11T10:30:00Z"
   },
@@ -131,7 +131,7 @@
       "reves2": 6,
       "drive2": 11
     },
-    "status": "completa",
+    "status": ["completa", "pendiente"],
     "createdBy": 15,
     "createdAt": "2025-12-11T11:45:00Z"
   },
@@ -148,7 +148,7 @@
       "reves2": 16,
       "drive2": 7
     },
-    "status": "completa",
+    "status": ["completa", "pendiente"],
     "createdBy": 14,
     "createdAt": "2025-12-11T12:00:00Z"
   },
@@ -165,7 +165,7 @@
       "reves2": 12,
       "drive2": 3
     },
-    "status": "completa",
+    "status": ["completa", "pendiente"],
     "createdBy": 2,
     "createdAt": "2025-12-11T13:15:00Z"
   },
@@ -182,7 +182,7 @@
       "reves2": 14,
       "drive2": 9
     },
-    "status": "completa",
+    "status": ["completa", "pendiente"],
     "createdBy": 8,
     "createdAt": "2025-12-11T14:00:00Z"
   },
@@ -199,7 +199,7 @@
       "reves2": 4,
       "drive2": 7
     },
-    "status": "completa",
+    "status": ["completa", "pendiente"],
     "createdBy": 1,
     "createdAt": "2025-12-11T15:30:00Z"
   },
@@ -216,7 +216,7 @@
       "reves2": 16,
       "drive2": 5
     },
-    "status": "completa",
+    "status": ["completa", "pendiente"],
     "createdBy": 10,
     "createdAt": "2025-12-11T16:00:00Z"
   },
@@ -233,7 +233,7 @@
       "reves2": 6,
       "drive2": 9
     },
-    "status": "completa",
+    "status": ["completa", "pendiente"],
     "createdBy": 2,
     "createdAt": "2025-12-11T17:00:00Z"
   },
@@ -250,12 +250,12 @@
       "reves2": 4,
       "drive2": 15
     },
-    "status": "completa",
+    "status": ["completa", "pendiente"],
     "createdBy": 12,
     "createdAt": "2025-12-11T18:00:00Z"
   },
   {
-    "id": 112,
+    "id": 115,
     "date": "2025-12-08",
     "time": "20:00",
     "club": "PlayPadel",
@@ -267,12 +267,12 @@
       "reves2": 2,
       "drive2": 5
     },
-    "status": "pendiente",
+    "status": ["pendiente"],
     "createdBy": 1,
     "createdAt": "2025-12-07T10:00:00Z"
   },
   {
-    "id": 113,
+    "id": 116,
     "date": "2025-12-09",
     "time": "19:00",
     "club": "Impala",
@@ -284,12 +284,12 @@
       "reves2": 10,
       "drive2": 9
     },
-    "status": "pendiente",
+    "status": ["pendiente"],
     "createdBy": 4,
     "createdAt": "2025-12-08T09:00:00Z"
   },
   {
-    "id": 114,
+    "id": 117,
     "date": "2025-12-09",
     "time": "21:30",
     "club": "Center",
@@ -301,12 +301,12 @@
       "reves2": 14,
       "drive2": 11
     },
-    "status": "pendiente",
+    "status": ["pendiente"],
     "createdBy": 12,
     "createdAt": "2025-12-08T10:00:00Z"
   },
   {
-    "id": 115,
+    "id": 118,
     "date": "2025-12-10",
     "time": "18:30",
     "club": "+QPadel",
@@ -318,12 +318,12 @@
       "reves2": 6,
       "drive2": 7
     },
-    "status": "pendiente",
+    "status": ["pendiente"],
     "createdBy": 2,
     "createdAt": "2025-12-09T09:30:00Z"
   },
   {
-    "id": 116,
+    "id": 119,
     "date": "2025-12-10",
     "time": "20:00",
     "club": "Raval",
@@ -335,12 +335,12 @@
       "reves2": 10,
       "drive2": 5
     },
-    "status": "pendiente",
+    "status": ["pendiente"],
     "createdBy": 16,
     "createdAt": "2025-12-09T11:00:00Z"
   },
   {
-    "id": 117,
+    "id": 120,
     "date": "2025-12-05",
     "time": "19:30",
     "club": "OkPadel",
@@ -352,12 +352,13 @@
       "reves2": 12,
       "drive2": 15
     },
-    "status": "finalizada",
+    "status": ["finalizada"],
+    "winner": "pareja1",
     "createdBy": 2,
     "createdAt": "2025-12-04T10:00:00Z"
   },
   {
-    "id": 118,
+    "id": 121,
     "date": "2025-12-06",
     "time": "18:00",
     "club": "Center",
@@ -369,12 +370,13 @@
       "reves2": 14,
       "drive2": 9
     },
-    "status": "finalizada",
+    "status": ["finalizada"],
+    "winner": "pareja2",
     "createdBy": 4,
     "createdAt": "2025-12-05T09:00:00Z"
   },
   {
-    "id": 119,
+    "id": 122,
     "date": "2025-12-07",
     "time": "20:30",
     "club": "Impala",
@@ -386,7 +388,8 @@
       "reves2": 10,
       "drive2": 5
     },
-    "status": "finalizada",
+    "status": ["finalizada"],
+    "winner": "pareja1",
     "createdBy": 1,
     "createdAt": "2025-12-06T11:00:00Z"
   }

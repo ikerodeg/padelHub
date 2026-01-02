@@ -10,57 +10,8 @@ console.log("🚪 → 📁 crearPartida.js");
 import { getItem, setItem } from '../utils/storage.js';
 import { mostrarErrorDatos } from '../utils/errores.js';
 import { renderUserBadge } from '../utils/auth.js';
-
-/**
- * Muestra una notificación temporal en pantalla
- * @param {string} message - Mensaje a mostrar
- * @param {string} type - Tipo de notificación ('success', 'error', 'info')
- */
-function showNotification(message, type = 'info') {
-  // Crear elemento de notificación
-  const notification = document.createElement('div');
-  notification.className = `notification notification-${type}`;
-  notification.textContent = message;
-
-  // Estilos básicos para la notificación
-  notification.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
-    color: white;
-    padding: 12px 16px;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    z-index: 1000;
-    font-family: inherit;
-    font-size: 14px;
-    max-width: 300px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-  `;
-
-  // Agregar al DOM
-  document.body.appendChild(notification);
-
-  // Animar entrada
-  setTimeout(() => {
-    notification.style.opacity = '1';
-    notification.style.transform = 'translateY(0)';
-  }, 10);
-
-  // Remover automáticamente después de 3 segundos
-  setTimeout(() => {
-    notification.style.opacity = '0';
-    notification.style.transform = 'translateY(-10px)';
-    setTimeout(() => {
-      if (notification.parentNode) {
-        notification.parentNode.removeChild(notification);
-      }
-    }, 300);
-  }, 3000);
-}
+import { showNotification } from '../components/notification.js';
+import { setStatus, hasStatus } from '../utils/statusHelper.js';
 
 // ==================== VARIABLES GLOBALES ====================
 let jugadores = [];
@@ -475,7 +426,7 @@ function inicializarConfirmacionPartida() {
     // Determinar estado para el mensaje
     const formData = obtenerDatosFormulario();
     const estadoPartida = determinarEstadoPartida(formData.players);
-    const mensajeEstado = estadoPartida === 'completa' ? 'completa' : 'abierta (faltan jugadores)';
+    const mensajeEstado = estadoPartida.includes('completa') ? 'completa' : 'abierta (faltan jugadores)';
 
     console.log(`🎾 Partida ${mensajeEstado} confirmada y creada en el sistema`);
 
@@ -518,7 +469,7 @@ function confirmarPartida() {
     // Limpiar estado temporal
     numeroPartidaTemporal = null;
 
-    const mensajeEstado = status === 'completa' ? 'completa' : 'abierta (faltan jugadores)';
+    const mensajeEstado = status.includes('completa') ? 'completa' : 'abierta (faltan jugadores)';
     console.log(`✅ Partida #${partida.id} creada exitosamente (${mensajeEstado})`);
 
   } catch (error) {
@@ -567,20 +518,21 @@ function obtenerDatosFormulario() {
 /**
  * Determina si la partida está completa o abierta
  * @param {Object} players - Objeto con los jugadores seleccionados
- * @returns {string} "completa" o "abierta"
+ * @returns {Array<string>} Array con estados: ["completa", "pendiente"] o ["abierta"]
  */
 function determinarEstadoPartida(players) {
   // Contar jugadores no nulos
   const jugadoresSeleccionados = Object.values(players).filter(player => player !== null);
 
-  // Si tiene 4 jugadores, está completa; si no, abierta
-  return jugadoresSeleccionados.length === 4 ? 'completa' : 'abierta';
+  // Si tiene 4 jugadores, está completa y pendiente de resultado
+  // Si no, está abierta (faltan jugadores)
+  return jugadoresSeleccionados.length === 4 ? ['completa', 'pendiente'] : ['abierta'];
 }
 
 /**
  * Crea el objeto de partida con todos los datos necesarios
  * @param {Object} formData - Datos del formulario
- * @param {string} status - Estado de la partida
+ * @param {Array<string>} status - Estados de la partida
  * @returns {Object} Objeto de partida completo
  */
 function crearObjetoPartida(formData, status) {

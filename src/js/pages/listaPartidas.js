@@ -7,6 +7,8 @@ console.log("🚪 → 📁 listaPartidas.js");
 import { renderUserBadge } from '../utils/auth.js';
 import { initializeAppData } from '../utils/dataLoader.js';
 import { getItem, setItem } from '../utils/storage.js';
+import { showNotification } from '../components/notification.js';
+import { hasStatus, setStatus } from '../utils/statusHelper.js';
 
 // Constantes para SVGs reutilizables
 const ICONS = {
@@ -100,14 +102,14 @@ function generateOpenMatchHTML(match, players) {
     .join('');
 
   return `
-    <article class="partida-card" data-estado="${match.status}" data-partida-id="${formattedId}">
+    <article class="partida-card" data-estado="${match.status.join(' ')}" data-partida-id="${formattedId}">
       <header class="partida-header">
         <div class="partida-number">
           <span class="number-label">Partida</span>
           <span class="number-value">#${formattedId}</span>
         </div>
         ${generateAdminButtons(formattedId)}
-        <span class="partida-status status-${match.status}">Abierta</span>
+        <span class="partida-status status-${match.status[0]}">Abierta</span>
       </header>
 
       <div class="partida-info">
@@ -200,14 +202,14 @@ function generateCompleteMatchHTML(match, players) {
   const drive2 = findPlayerById(players, match.players.drive2);
 
   return `
-    <article class="partida-card" data-estado="${match.status}" data-partida-id="${formattedId}">
+    <article class="partida-card" data-estado="${match.status.join(' ')}" data-partida-id="${formattedId}">
       <header class="partida-header">
         <div class="partida-number">
           <span class="number-label">Partida</span>
           <span class="number-value">#${formattedId}</span>
         </div>
         ${generateAdminButtons(formattedId)}
-        <span class="partida-status status-${match.status}">Completa</span>
+        <span class="partida-status status-${match.status[0]}">Completa</span>
       </header>
 
       <div class="partida-info">
@@ -261,11 +263,11 @@ function generateCompleteMatchHTML(match, players) {
 function updateFilterCounts(matches) {
   console.log('🔢 Actualizando contadores de filtros...');
 
-  // Calcular números reales (excluyendo pendientes y finalizadas)
-  const validMatches = matches.filter(match => match.status !== 'pendiente' && match.status !== 'finalizada');
+  // Calcular números reales (excluyendo finalizadas)
+  const validMatches = matches.filter(match => !hasStatus(match, 'finalizada'));
   const totalCount = validMatches.length;
-  const abiertasCount = validMatches.filter(match => match.status === 'abierta').length;
-  const completasCount = validMatches.filter(match => match.status === 'completa').length;
+  const abiertasCount = validMatches.filter(match => hasStatus(match, 'abierta')).length;
+  const completasCount = validMatches.filter(match => hasStatus(match, 'completa')).length;
 
   // Actualizar elementos del DOM
   const todasBadge = document.querySelector('.filter-badge[data-count="todas"]');
@@ -297,17 +299,17 @@ function applyFilter(matches, players, filter) {
     return;
   }
 
-  // Obtener todas las partidas válidas (excluyendo pendientes y finalizadas)
-  const validMatches = matches.filter(match => match.status !== 'pendiente' && match.status !== 'finalizada');
+  // Obtener todas las partidas válidas (excluyendo finalizadas)
+  const validMatches = matches.filter(match => !hasStatus(match, 'finalizada'));
 
   // Aplicar filtro específico
   let filteredMatches;
   switch (filter) {
     case 'abiertas':
-      filteredMatches = validMatches.filter(match => match.status === 'abierta');
+      filteredMatches = validMatches.filter(match => hasStatus(match, 'abierta'));
       break;
     case 'completas':
-      filteredMatches = validMatches.filter(match => match.status === 'completa');
+      filteredMatches = validMatches.filter(match => hasStatus(match, 'completa'));
       break;
     case 'todas':
     default:
@@ -317,18 +319,18 @@ function applyFilter(matches, players, filter) {
 
   // Ordenar las partidas filtradas
   if (filter === 'todas') {
-    // Para "todas": abiertas primero, luego completas, ordenadas por ID dentro de cada grupo
+    // Para "todas": abiertas primero, luego completas, ordenadas por fecha dentro de cada grupo
     filteredMatches.sort((a, b) => {
       // Primero ordenar por estado: abiertas antes que completas
-      if (a.status === 'abierta' && b.status !== 'abierta') return -1;
-      if (a.status !== 'abierta' && b.status === 'abierta') return 1;
+      if (hasStatus(a, 'abierta') && !hasStatus(b, 'abierta')) return -1;
+      if (!hasStatus(a, 'abierta') && hasStatus(b, 'abierta')) return 1;
 
-      // Dentro del mismo estado, ordenar por ID ascendente
-      return a.id - b.id;
+      // Dentro del mismo estado, ordenar por fecha descendente (más nuevas primero)
+      return new Date(b.date) - new Date(a.date);
     });
   } else {
-    // Para filtros específicos, ordenar solo por ID
-    filteredMatches.sort((a, b) => a.id - b.id);
+    // Para filtros específicos, ordenar solo por fecha descendente (más nuevas primero)
+    filteredMatches.sort((a, b) => new Date(b.date) - new Date(a.date));
   }
 
   console.log(`📊 Filtro "${filter}": ${filteredMatches.length} partidas de ${validMatches.length} totales`);
@@ -344,9 +346,9 @@ function applyFilter(matches, players, filter) {
   filteredMatches.forEach(match => {
     let matchHTML = '';
 
-    if (match.status === 'abierta') {
+    if (hasStatus(match, 'abierta')) {
       matchHTML = generateOpenMatchHTML(match, players);
-    } else if (match.status === 'completa') {
+    } else if (hasStatus(match, 'completa')) {
       matchHTML = generateCompleteMatchHTML(match, players);
     } else {
       console.warn(`⚠️ Estado de partida desconocido: ${match.status} para partida ${match.id}`);
@@ -397,57 +399,6 @@ function handleFilterClick(event, matches, players) {
 
   // Aplicar filtro
   applyFilter(matches, players, currentFilter);
-}
-
-/**
- * Muestra una notificación temporal en pantalla
- * @param {string} message - Mensaje a mostrar
- * @param {string} type - Tipo de notificación ('success', 'error', 'info')
- */
-function showNotification(message, type = 'info') {
-  // Crear elemento de notificación
-  const notification = document.createElement('div');
-  notification.className = `notification notification-${type}`;
-  notification.textContent = message;
-
-  // Estilos básicos para la notificación
-  notification.style.cssText = `
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
-    color: white;
-    padding: 12px 16px;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    z-index: 1000;
-    font-family: inherit;
-    font-size: 14px;
-    max-width: 300px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-  `;
-
-  // Agregar al DOM
-  document.body.appendChild(notification);
-
-  // Animar entrada
-  setTimeout(() => {
-    notification.style.opacity = '1';
-    notification.style.transform = 'translateY(0)';
-  }, 10);
-
-  // Remover automáticamente después de 3 segundos
-  setTimeout(() => {
-    notification.style.opacity = '0';
-    notification.style.transform = 'translateY(-10px)';
-    setTimeout(() => {
-      if (notification.parentNode) {
-        notification.parentNode.removeChild(notification);
-      }
-    }, 300);
-  }, 3000);
 }
 
 /**
@@ -535,8 +486,8 @@ function handleJoinMatch(event, matches, players) {
 
   // Si hay 4 jugadores, cambiar estado a "completa"
   if (playerCount === 4) {
-    match.status = 'completa';
-    console.log(`🎉 ¡Partida #${matchId} completada! Cambiando estado a "completa"`);
+    setStatus(match, ['completa', 'pendiente']);
+    console.log(`🎉 ¡Partida #${matchId} completada! Cambiando estado a "completa" y "pendiente"`);
     showNotification(`¡Partida #${matchId} completada! Ya están todos los jugadores.`, 'success');
   }
 
@@ -671,6 +622,9 @@ function renderMatches(matches, players) {
   initializeJoinFunctionality(matches, players);
 }
 
+/**
+ * Inicializa la página listaPartidas.js
+ */
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     // Renderizar badge del usuario

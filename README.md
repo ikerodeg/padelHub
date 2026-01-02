@@ -52,11 +52,22 @@ La aplicación permite crear y gestionar partidos de pádel, organizar jugadores
 ### 📋 Gestión Completa de Partidas
 - **Listado dinámico** de todas las partidas con filtros inteligentes
 - **Sistema de filtros** por estado: Todas, Abiertas, Completas
-- **Ordenamiento automático**: Abiertas primero, luego Completas
+- **Ordenamiento automático**: Por fecha (más recientes primero)
 - **Contadores reales** en tiempo real para cada filtro
 - **Unirse a partidas** con selección múltiple de jugadores
 - **Estados dinámicos** que cambian automáticamente al completarse
 - **Notificaciones inteligentes** sin modales intrusivos
+- **Sistema de estados múltiples**: Las partidas completas aparecen tanto en Lista Partidas como en Resultados
+
+### 🏆 Sistema de Resultados
+- **Gestión de resultados** para partidas completas y finalizadas
+- **Selección interactiva** de pareja ganadora con feedback visual
+- **Filtros avanzados**: Todas, Pendientes, Finalizadas
+- **Historial completo** de partidas finalizadas con ganadores
+- **Indicador visual** de ganador (👑 corona)
+- **Transición automática** de estados: Completa → Pendiente → Finalizada
+- **Sincronización inteligente**: Las partidas finalizadas desaparecen de Lista Partidas
+- **Persistencia de resultados** en localStorage
 
 ### 👥 Gestión de Jugadores
 - **Base de datos integrada** con jugadores sólo miembros
@@ -179,16 +190,21 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 
 ## 🗺 Roadmap
 
-### ✅ **Completado (v1.1)**
+### ✅ **Completado (v1.2)**
 - [x] **Diseño UI/UX Base** - Interfaz premium mobile-first
 - [x] **Sistema de Gestión de Partidas** - Creación completa con validaciones
 - [x] **Lista de Partidas** - Sistema completo con filtros y ordenamiento
 - [x] **Unirse a Partidas** - Múltiples jugadores simultáneamente
+- [x] **Sistema de Resultados** - Selección de ganadores y historial completo
+- [x] **Estados Múltiples** - Array-based status para partidas (completa + pendiente)
+- [x] **Sincronización de Estados** - Partidas finalizadas desaparecen de Lista
+- [x] **Ordenamiento por Fecha** - Partidas más recientes primero
 - [x] **Notificaciones Mobile-Friendly** - Sin modales intrusivos
+- [x] **Componente Reutilizable** - Sistema de notificaciones modular
 - [x] **Base de Datos de Jugadores** - 16 perfiles temporales
 - [x] **Sistema de Clubs** - 6 clubes temporales
 - [x] **Numeración Automática** - Contador persistente de partidos
-- [x] **Estados Inteligentes** - Partidas completas/abiertas dinámicas
+- [x] **Estados Inteligentes** - Partidas completas/abiertas/pendientes/finalizadas
 - [x] **Persistencia localStorage** - Datos mantenidos entre sesiones
 - [x] **Sistema de Errores** - Manejo robusto y mobile-friendly
 - [x] **Accesibilidad Completa** - ARIA, navegación por teclado
@@ -196,7 +212,7 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 
 ### 🚧 **Próximas Funcionalidades**
 - [ ] **Controles de Administrador** - Editar y eliminar partidas
-- [ ] **Sistema de Resultados** - Registrar ganadores y estadísticas
+- [ ] **Marcador Detallado** - Sets y juegos en resultados
 - [ ] **Rankings Dinámicos** - Sistema ELO con clasificación
 - [ ] **Perfiles de Usuario** - Historial y estadísticas personales
 - [ ] **Integración Telegram** - Notificaciones automáticas
@@ -247,5 +263,5 @@ Este proyecto está bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE)
 <div align="center">
   <p>Desarrollado con ❤️ y 🎾 por <a href="https://github.com/ikerodeg">ikerodeg</a></p>
   <p><em>¡Domina la pista con PadelSamu! 🏓</em></p>
-  <p><strong>Season 2025 - v1.1</strong></p>
+  <p><strong>Season 2025 - v1.2</strong></p>
 </div>
