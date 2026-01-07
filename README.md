@@ -196,6 +196,9 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 - [x] **Lista de Partidas** - Sistema completo con filtros y ordenamiento
 - [x] **Unirse a Partidas** - Múltiples jugadores simultáneamente
 - [x] **Sistema de Resultados** - Selección de ganadores y historial completo
+- [x] **Distribución de Puntos** - (+3 ganadores, +1 perdedores)
+- [x] **Estadísticas Automáticas** - Incremento de partidos jugados y ganados
+- [x] **Rankings Dinámicos** - Cálculo de Win Rate en tiempo real
 - [x] **Estados Múltiples** - Array-based status para partidas (completa + pendiente)
 - [x] **Sincronización de Estados** - Partidas finalizadas desaparecen de Lista
 - [x] **Ordenamiento por Fecha** - Partidas más recientes primero
@@ -213,8 +216,7 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 ### 🚧 **Próximas Funcionalidades**
 - [ ] **Controles de Administrador** - Editar y eliminar partidas
 - [ ] **Marcador Detallado** - Sets y juegos en resultados
-- [ ] **Rankings Dinámicos** - Sistema ELO con clasificación
-- [ ] **Perfiles de Usuario** - Historial y estadísticas personales
+- [ ] **Perfiles de Usuario** - Historial detallado individual
 - [ ] **Integración Telegram** - Notificaciones automáticas
 - [ ] **PWA Features** - Offline y notificaciones push
 - [ ] **API Backend** - Sincronización con servidor

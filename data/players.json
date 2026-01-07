@@ -6,9 +6,9 @@
     "position": "drive",
     "racket": "Bullpadel Vertex 04",
     "stats": {
-      "matches": 87,
-      "won": 65,
-      "winRate": 75
+      "matches": 2,
+      "won": 2,
+      "winRate": 0
     },
     "strengths": [
       "Experiencia",
@@ -23,7 +23,7 @@
       "mvp_mes",
       "social"
     ],
-    "points": 2890
+    "points": 6
   },
   {
     "id": 2,
@@ -32,9 +32,9 @@
     "position": "reves",
     "racket": "Adidas Metalbone",
     "stats": {
-      "matches": 62,
-      "won": 54,
-      "winRate": 87
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Potencia",
@@ -49,7 +49,7 @@
       "vibora_mortal",
       "red_master"
     ],
-    "points": 2650
+    "points": 0
   },
   {
     "id": 3,
@@ -58,9 +58,9 @@
     "position": "drive",
     "racket": "Head Delta Pro",
     "stats": {
-      "matches": 45,
-      "won": 38,
-      "winRate": 84
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Regularidad",
@@ -74,7 +74,7 @@
       "pared",
       "fin_de_semana"
     ],
-    "points": 2420
+    "points": 0
   },
   {
     "id": 4,
@@ -83,9 +83,9 @@
     "position": "reves",
     "racket": "Nox AT10",
     "stats": {
-      "matches": 53,
-      "won": 41,
-      "winRate": 77
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Defensa",
@@ -100,7 +100,7 @@
       "social",
       "tardon"
     ],
-    "points": 2380
+    "points": 0
   },
   {
     "id": 5,
@@ -109,9 +109,9 @@
     "position": "drive",
     "racket": "Bullpadel Hack 03",
     "stats": {
-      "matches": 71,
-      "won": 48,
-      "winRate": 68
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Velocidad",
@@ -126,7 +126,7 @@
       "charlatan",
       "nocturno"
     ],
-    "points": 2150
+    "points": 0
   },
   {
     "id": 6,
@@ -135,9 +135,9 @@
     "position": "reves",
     "racket": "Head Flash",
     "stats": {
-      "matches": 38,
-      "won": 22,
-      "winRate": 58
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Saque",
@@ -151,7 +151,7 @@
       "sin_bolas",
       "madrugador"
     ],
-    "points": 1850
+    "points": 0
   },
   {
     "id": 7,
@@ -160,9 +160,9 @@
     "position": "drive",
     "racket": "Wilson Bela Pro",
     "stats": {
-      "matches": 94,
-      "won": 71,
-      "winRate": 76
+      "matches": 1,
+      "won": 1,
+      "winRate": 0
     },
     "strengths": [
       "Versatilidad",
@@ -178,7 +178,7 @@
       "social",
       "organizador"
     ],
-    "points": 2720
+    "points": 3
   },
   {
     "id": 8,
@@ -187,9 +187,9 @@
     "position": "reves",
     "racket": "Adidas Adipower",
     "stats": {
-      "matches": 29,
-      "won": 15,
-      "winRate": 52
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Entusiasmo",
@@ -203,7 +203,7 @@
       "el_roto",
       "quejica"
     ],
-    "points": 1620
+    "points": 0
   },
   {
     "id": 9,
@@ -212,9 +212,9 @@
     "position": "drive",
     "racket": "Bullpadel Flow",
     "stats": {
-      "matches": 56,
-      "won": 47,
-      "winRate": 84
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Precisión",
@@ -229,7 +229,7 @@
       "fin_de_semana",
       "mvp_mes"
     ],
-    "points": 2480
+    "points": 0
   },
   {
     "id": 10,
@@ -238,9 +238,9 @@
     "position": "reves",
     "racket": "NOX ML10",
     "stats": {
-      "matches": 41,
-      "won": 28,
-      "winRate": 68
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Pasión",
@@ -255,7 +255,7 @@
       "charlatan",
       "nocturno"
     ],
-    "points": 2100
+    "points": 0
   },
   {
     "id": 11,
@@ -264,9 +264,9 @@
     "position": "drive",
     "racket": "Head Alpha Pro",
     "stats": {
-      "matches": 33,
-      "won": 19,
-      "winRate": 58
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Servicio",
@@ -280,7 +280,7 @@
       "social",
       "sin_bolas"
     ],
-    "points": 1780
+    "points": 0
   },
   {
     "id": 12,
@@ -289,9 +289,9 @@
     "position": "reves",
     "racket": "Bullpadel Vertex 03",
     "stats": {
-      "matches": 68,
-      "won": 55,
-      "winRate": 81
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Consistencia",
@@ -306,7 +306,7 @@
       "globo_perfecto",
       "duo_dinamico"
     ],
-    "points": 2560
+    "points": 0
   },
   {
     "id": 13,
@@ -315,9 +315,9 @@
     "position": "drive",
     "racket": "Nox Ultimate",
     "stats": {
-      "matches": 22,
-      "won": 8,
-      "winRate": 36
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Humor",
@@ -331,7 +331,7 @@
       "red_iman",
       "tardon"
     ],
-    "points": 1340
+    "points": 0
   },
   {
     "id": 14,
@@ -340,9 +340,9 @@
     "position": "reves",
     "racket": "Adidas Metalbone",
     "stats": {
-      "matches": 49,
-      "won": 35,
-      "winRate": 71
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Smash",
@@ -357,7 +357,7 @@
       "maratoniano",
       "el_roto"
     ],
-    "points": 2220
+    "points": 0
   },
   {
     "id": 15,
@@ -366,9 +366,9 @@
     "position": "drive",
     "racket": "Head Delta Motion",
     "stats": {
-      "matches": 77,
-      "won": 58,
-      "winRate": 75
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Mentalidad ganadora",
@@ -384,7 +384,7 @@
       "social",
       "organizador"
     ],
-    "points": 2640
+    "points": 0
   },
   {
     "id": 16,
@@ -393,9 +393,9 @@
     "position": "reves",
     "racket": "Wilson Carbon Force",
     "stats": {
-      "matches": 36,
-      "won": 24,
-      "winRate": 67
+      "matches": 0,
+      "won": 0,
+      "winRate": 0
     },
     "strengths": [
       "Defensa sólida",
@@ -410,6 +410,6 @@
       "quejica",
       "madrugador"
     ],
-    "points": 1980
+    "points": 0
   }
 ]

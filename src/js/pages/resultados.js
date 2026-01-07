@@ -413,6 +413,45 @@ async function confirmMatchResult(matchId, winnerPareja, card, confirmBtn) {
     // Guardar pareja ganadora
     match.winner = winnerPareja;
 
+    // --- DISTRIBUCIÓN DE PUNTOS ---
+    const isPareja1Winner = winnerPareja === 'pareja1';
+    
+    const winners = isPareja1Winner 
+      ? [match.players.drive1, match.players.reves1] 
+      : [match.players.drive2, match.players.reves2];
+      
+    const losers = isPareja1Winner 
+      ? [match.players.drive2, match.players.reves2] 
+      : [match.players.drive1, match.players.reves1];
+
+    console.log(`🏆 Ganadores: ${winners.join(', ')} (+3 pts) | 😢 Perdedores: ${losers.join(', ')} (+1 pt)`);
+
+    // Actualizar puntos en el array de jugadores
+    allData.players.forEach(player => {
+      // Verificar si el jugador participó en la partida
+      if (winners.includes(player.id) || losers.includes(player.id)) {
+        // Incrementar contador de partidas jugadas
+        player.stats = player.stats || {};
+        player.stats.matches = (player.stats.matches || 0) + 1;
+        console.log(`📊 Jugador ${player.name}: Partidas ${player.stats.matches - 1} -> ${player.stats.matches}`);
+      }
+
+      // Ganadores suman 3 puntos
+      if (winners.includes(player.id)) {
+        const oldPoints = player.points || 0;
+        player.points = oldPoints + 3;
+        player.stats.won = (player.stats.won || 0) + 1; // Opcional: Incrementar victorias también si se desea
+        console.log(`📈 Jugador ${player.name}: Puntos ${oldPoints} -> ${player.points}`);
+      }
+      
+      // Perdedores suman 1 punto
+      if (losers.includes(player.id)) {
+        const oldPoints = player.points || 0;
+        player.points = oldPoints + 1;
+        console.log(`📉 Jugador ${player.name}: Puntos ${oldPoints} -> ${player.points}`);
+      }
+    });
+
     // Guardar en localStorage
     setItem('allDataObject', allData);
 
