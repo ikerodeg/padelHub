@@ -70,10 +70,12 @@ La aplicación permite crear y gestionar partidos de pádel, organizar jugadores
 - **Persistencia de resultados** en localStorage
 
 ### 👥 Gestión de Jugadores
-- **Base de datos integrada** con jugadores sólo miembros
+- **Directorio dinámico** de jugadores registrados en localStorage
+- **Orden alfabético automático** para fácil navegación
+- **Búsqueda en tiempo real** filtrando por nombre
+- **Perfiles detallados** con estadísticas, pala, puntos fuertes e insignias
+- **30+ insignias coleccionables** con iconos y descripciones únicas
 - **Sistema anti-duplicados** en selección de equipos
-- **Perfiles completos** con posiciones y estadísticas
-- **Búsqueda y filtrado** optimizado
 
 ### 🏓 Clubs y Ubicaciones
 - **Clubs disponibles** en la base de datos
@@ -204,7 +206,10 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 - [x] **Ordenamiento por Fecha** - Partidas más recientes primero
 - [x] **Notificaciones Mobile-Friendly** - Sin modales intrusivos
 - [x] **Componente Reutilizable** - Sistema de notificaciones modular
-- [x] **Base de Datos de Jugadores** - 16 perfiles temporales
+- [x] **Base de Datos de Jugadores** - 16 perfiles con datos completos
+- [x] **Lista de Jugadores Dinámica** - Carga desde localStorage con orden alfabético
+- [x] **Búsqueda de Jugadores** - Filtrado en tiempo real por nombre
+- [x] **Perfiles de Jugador** - Página individual con stats, insignias y más
 - [x] **Sistema de Clubs** - 6 clubes temporales
 - [x] **Numeración Automática** - Contador persistente de partidos
 - [x] **Estados Inteligentes** - Partidas completas/abiertas/pendientes/finalizadas
@@ -216,7 +221,7 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 ### 🚧 **Próximas Funcionalidades**
 - [ ] **Controles de Administrador** - Editar y eliminar partidas
 - [ ] **Marcador Detallado** - Sets y juegos en resultados
-- [ ] **Perfiles de Usuario** - Historial detallado individual
+- [ ] **Historial de Partidas por Usuario** - Detalle de partidas jugadas
 - [ ] **Integración Telegram** - Notificaciones automáticas
 - [ ] **PWA Features** - Offline y notificaciones push
 - [ ] **API Backend** - Sincronización con servidor
@@ -265,5 +270,5 @@ Este proyecto está bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE)
 <div align="center">
   <p>Desarrollado con ❤️ y 🎾 por <a href="https://github.com/ikerodeg">ikerodeg</a></p>
   <p><em>¡Domina la pista con PadelSamu! 🏓</em></p>
-  <p><strong>Season 2025 - v1.2</strong></p>
+  <p><strong>Season 2026 - v1.3</strong></p>
 </div>
