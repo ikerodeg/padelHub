@@ -5,13 +5,8 @@
 /* =================================
    SECCIÓN GLOBAL
 ================================ */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
 
-main{
+main {
   gap: var(--spacing-md)
 }
 
@@ -189,7 +184,7 @@ main{
 /* ===================================
    CARD PARTIDA COMPLETA
    ================================ */
-.partida-card[data-estado="completa"] {
+.partida-card[data-estado="completa pendiente"] {
 
   .partida-info {
     gap: var(--spacing-xs);

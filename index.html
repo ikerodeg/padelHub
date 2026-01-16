@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="src/css/components/footer.css">
   <link rel="stylesheet" href="src/css/components/buttons.css">
   <link rel="stylesheet" href="src/css/components/authUser.css">
-  
+
   <!-- Page CSS -->
   <link rel="stylesheet" href="src/css/style.css">
 </head>
@@ -45,14 +45,8 @@
   <main class="landing-page">
     <!-- Background -->
     <div class="background-wrapper">
-      <picture>
-        <source media="(max-width: 767px)" srcset="assets/img/bg/court-bg-mobile.jpeg">
-        <source media="(min-width: 768px)" srcset="assets/img/bg/court-bg-desktop.jpeg">
-        <img src="assets/img/bg/court-bg-desktop.jpeg" alt="Professional Padel Arena" class="background-image"
-          loading="lazy" decoding="async">
-      </picture>
-      <div class="gradient-overlay"></div>
-      <div class="blur-overlay"></div>
+      <div class="background-overlay"></div>
+      <div class="background-blur"></div>
     </div>
     <!-- Contenido Principal -->
     <div class="content-container">
@@ -79,10 +73,7 @@
           <img src="assets/img/icons/logo.png" alt="" class="brand-logo" loading="lazy" decoding="async">
         </figure>
 
-        <p class="description">
-          La plataforma para gestionar tus partidas.
-          <span class="description-sub">Organiza partidas, sigue resultados y escala en el ranking.</span>
-        </p>
+        <p class="description">La plataforma para gestionar tus partidas.</p>
       </section>
 
       <!-- Sección Inferior: Menú -->
@@ -213,7 +204,7 @@
         <!-- Item 6: Ranking -->
         <a href="pages/ranking.html" class="menu-item" aria-label="Ranking">
           <div class="menu-item-content">
-            <div class="menu-item-icon-box text-rose">
+            <div class="menu-item-icon-box text-red">
               <!-- Icono BarChart2 -->
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"

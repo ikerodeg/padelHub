@@ -27,7 +27,6 @@ function createRankingItem(player, position) {
   li.className = 'ranking-item';
   li.dataset.rank = position;
 
-  const avatarText = player.avatar || getInitials(player.name);
   const points = Number.isFinite(player.points) ? player.points : 0;
   
   // Calcular Win Rate dinámicamente
@@ -39,7 +38,6 @@ function createRankingItem(player, position) {
   li.innerHTML = `
     <span class="rank-position">${position}</span>
     <div class="rank-user">
-      <div class="rank-avatar">${avatarText}</div>
       <span class="rank-name">${player.name || 'Jugador sin nombre'}</span>
     </div>
     <div class="rank-win-rate">${winRate}%</div>
@@ -70,7 +68,6 @@ function renderRanking(players) {
     empty.innerHTML = `
       <span class="rank-position">—</span>
       <div class="rank-user">
-        <div class="rank-avatar">--</div>
         <span class="rank-name">No hay jugadores disponibles</span>
       </div>
       <div class="rank-win-rate">--</div>

@@ -1,11 +1,14 @@
 /* ================================
           LAYOUT BASE
 ================================ */
-header, body, footer {
+header,
+body,
+footer {
   max-inline-size: var(--max-width-md);
 }
 
 body {
+  background-color: darkslategrey;
   min-block-size: 100vh;
   font-family: var(--font-family-base);
   background-color: var(--color-gray-950);
@@ -17,19 +20,49 @@ body {
 /* ===================================
 MAIN CONTAINER
 ================================ */
+
 main {
   display: flex;
   position: relative;
-  inline-size: 100%;
-  block-size: 100%;
-  max-inline-size: 100dvi;
+  margin-inline: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow-y: auto;
-  margin-inline: auto;
-  background-color: var(--color-gray-950);
-  padding-block: var(--spacing-2xl);
   padding-inline: var(--spacing-xl);
-  gap: var(--spacing-xl);
+  padding-block: var(--spacing-2xl);
+}
+
+/* ===================================
+   FONDO E IMÁGENES
+   ================================ */
+
+.background-wrapper {
+  background-image: url("../../../assets/img/bg/court-bg-mobile.jpeg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+.background-blur {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom,
+      hsl(240 10% 3% / 0.450),
+      hsl(240 10% 3% / 0.450)),
+    hsla(240, 7%, 3%, 0.450);
 }

@@ -17,6 +17,7 @@ import { setStatus, hasStatus } from '../utils/statusHelper.js';
 let jugadores = [];
 let clubes = [];
 let numeroPartidaTemporal = null; // Número mostrado pero no confirmado
+let editingMatchId = null; // ID de la partida si estamos editando
 
 // ==================== INICIALIZACIÓN ====================
 document.addEventListener('DOMContentLoaded', async () => {
@@ -39,6 +40,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Inicializar confirmación de partida
     inicializarConfirmacionPartida();
 
+    // Comprobar si hay solicitud de edición en la URL
+    checkEditMode();
+
   } catch (error) {
     console.error('❌ Error en el PASO 1:', error.message);
     mostrarErrorDatos(
@@ -47,6 +51,95 @@ document.addEventListener('DOMContentLoaded', async () => {
     );
   }
 });
+
+/**
+ * Comprueba si la URL contiene parámetros para editar una partida existente
+ */
+function checkEditMode() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const editId = urlParams.get('edit');
+  
+  if (editId) {
+    editingMatchId = parseInt(editId, 10);
+    console.log('✏️ Modo edición detectado para partida #' + editingMatchId);
+    // Pequeño delay para asegurar que los selects estén listos
+    setTimeout(() => loadMatchData(editingMatchId), 100);
+  }
+}
+
+/**
+ * Carga los datos de una partida existente en el formulario
+ * @param {number} id - ID de la partida a cargar
+ */
+async function loadMatchData(id) {
+  const allData = getItem('allDataObject');
+  const match = allData.matches.find(m => m.id === id);
+  
+  if (!match) {
+    console.error('❌ Partida no encontrada para editar');
+    showNotification('No se encontró la partida solicitada.', 'error');
+    return;
+  }
+
+  console.log('📂 Cargando datos de partida:', match);
+
+  // Abrir formulario
+  const toggleBtn = document.getElementById('toggleFormBtn');
+  const formSection = document.getElementById('crearPartidaSection');
+  const toggleSection = document.querySelector('.form-toggle-section');
+  
+  if (toggleSection) toggleSection.style.display = 'none';
+  if (formSection) {
+    formSection.hidden = false;
+    formSection.removeAttribute('aria-hidden');
+  }
+  if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+
+  // Precargar número (readonly)
+  const numElem = document.getElementById('numeroPartida');
+  if (numElem) numElem.textContent = match.id.toString().padStart(3, '0');
+
+  // Precargar inputs de texto/fecha
+  const form = document.getElementById('crearPartidaForm');
+  if (form) {
+    if (form.fechaPartida) form.fechaPartida.value = match.date;
+    if (form.horaPartida) form.horaPartida.value = match.time;
+    // Seleccionar el club buscando por nombre si el ID no coincide directo (o por ID si tenemos mapped)
+    // El objeto match tiene 'club': 'Nombre Club'. Necesito el ID.
+    // Busco en el array global 'clubes'
+    const clubObj = clubes.find(c => c.name === match.club);
+    if (clubObj && form.clubPartida) form.clubPartida.value = clubObj.id;
+    
+    if (form.pistaPartida) form.pistaPartida.value = match.court;
+    
+    // Tipo de partida
+    if (form.tipoPartida) {
+       // Radio buttons
+       const radios = form.elements['tipoPartida'];
+       if (radios) radios.value = match.type || 'unisex';
+    }
+
+    // Jugadores - Asumiendo que el select tiene los values cargados
+    // Dispath change event para actualizar filtros si es necesario, pero setear valor directo debería funcionar
+    if (form.reves1 && match.players.reves1) form.reves1.value = match.players.reves1;
+    if (form.drive1 && match.players.drive1) form.drive1.value = match.players.drive1;
+    if (form.reves2 && match.players.reves2) form.reves2.value = match.players.reves2;
+    if (form.drive2 && match.players.drive2) form.drive2.value = match.players.drive2;
+  }
+
+  // Modificar UI para reflejar edición
+  const pageTitle = document.querySelector('.page-title');
+  if (pageTitle) pageTitle.textContent = `Editar Partida #${match.id.toString().padStart(3, '0')}`;
+  
+  const confirmBtn = document.getElementById('confirmarPartidaBtn');
+  if (confirmBtn) {
+    confirmBtn.textContent = 'GUARDAR CAMBIOS';
+    confirmBtn.classList.remove('btn-success');
+    confirmBtn.classList.add('btn-primary'); // Cambiar color si se desea
+  }
+  
+  console.log('✅ Formulario precargado con datos de partida #' + id);
+}
 
 // ==================== RECUPERACIÓN DE DATOS ====================
 
@@ -444,11 +537,11 @@ function inicializarConfirmacionPartida() {
 }
 
 /**
- * Confirma la creación de la partida incrementando el contador oficial
- * y guardando la partida en localStorage
+ * Confirma la creación o edición de la partida
+ * y guardando los cambios en localStorage
  */
 function confirmarPartida() {
-  console.log('🎾 Confirmando creación de partida...');
+  console.log('🎾 Confirmando acción de partida...');
 
   try {
     // Obtener datos del formulario
@@ -457,20 +550,38 @@ function confirmarPartida() {
     // Determinar estado de la partida
     const status = determinarEstadoPartida(formData.players);
 
-    // Crear objeto de partida
+    // Crear objeto de partida (nuevo o actualizado)
     const partida = crearObjetoPartida(formData, status);
 
     // Guardar partida en localStorage
     guardarPartida(partida);
 
-    // Incrementar contador oficial de partidas
-    incrementarContadorPartidas();
+    // Incrementa contador SOLO si es nueva partida
+    if (editingMatchId === null) {
+      incrementarContadorPartidas();
+    }
 
-    // Limpiar estado temporal
+    const mensajeEstado = status.includes('completa') ? 'completa' : 'abierta';
+    
+    if (editingMatchId !== null) {
+        console.log(`✅ Partida #${partida.id} actualizada exitosamente`);
+        showNotification('Cambios guardados correctamente. Redirigiendo...', 'success');
+        
+        // Redirigir a la lista tras editar
+        setTimeout(() => {
+            window.location.href = 'lista-partidas.html';
+        }, 1500);
+        
+    } else {
+        console.log(`✅ Partida #${partida.id} creada exitosamente`);
+        showNotification(`¡Nueva partida creada! Partida ${mensajeEstado}.`, 'success');
+        // Resetear formulario para seguir creando
+        resetearFormulario();
+    }
+    
+    // Limpiar variables temporales
     numeroPartidaTemporal = null;
-
-    const mensajeEstado = status.includes('completa') ? 'completa' : 'abierta (faltan jugadores)';
-    console.log(`✅ Partida #${partida.id} creada exitosamente (${mensajeEstado})`);
+    editingMatchId = null;
 
   } catch (error) {
     console.error('❌ Error al confirmar partida:', error.message);
@@ -531,17 +642,37 @@ function determinarEstadoPartida(players) {
 
 /**
  * Crea el objeto de partida con todos los datos necesarios
+ * Soporta creación y edición (mergeando datos originales)
  * @param {Object} formData - Datos del formulario
  * @param {Array<string>} status - Estados de la partida
  * @returns {Object} Objeto de partida completo
  */
 function crearObjetoPartida(formData, status) {
-  // Obtener usuario actual (creador de la partida)
-  const userData = getItem('cachedUserData');
-  const createdBy = userData ? userData.id : 1; // Fallback al usuario 1
+  let basePartida = {};
 
+  if (editingMatchId !== null) {
+    // Si estamos editando, recuperamos la partida original para mantener metadatos
+    const allData = getItem('allDataObject');
+    const original = allData.matches.find(m => m.id === editingMatchId);
+    if (original) {
+        basePartida = original;
+        console.log('🔄 Utilizando datos base de partida existente');
+    }
+  } else {
+    // Datos base para NUEVA partida
+    const userData = getItem('cachedUserData');
+    const createdBy = userData ? userData.id : 1;
+    
+    basePartida = {
+        id: numeroPartidaTemporal,
+        createdBy: createdBy,
+        createdAt: new Date().toISOString()
+    };
+  }
+
+  // Retornar objeto mergeado (base + cambios del form)
   return {
-    id: numeroPartidaTemporal,
+    ...basePartida,
     date: formData.fecha,
     time: formData.hora,
     club: formData.nombreClub,
@@ -549,8 +680,8 @@ function crearObjetoPartida(formData, status) {
     type: formData.tipo,
     players: formData.players,
     status: status,
-    createdBy: createdBy,
-    createdAt: new Date().toISOString()
+    // updatedBy se podría añadir aquí si quisiéramos traquear quién editó
+    updatedAt: new Date().toISOString()
   };
 }
 
@@ -568,10 +699,20 @@ function guardarPartida(partida) {
     // Crear copia del array de matches para evitar modificar el original
     const matches = Array.isArray(datosCache.matches) ? [...datosCache.matches] : [];
 
-    // Agregar nueva partida
-    matches.push(partida);
+    // Buscar si la partida ya existe
+    const index = matches.findIndex(m => m.id === partida.id);
 
-    // Crear nuevo objeto con la partida añadida
+    if (index !== -1) {
+        // ACTUALIZAR: Reemplazar partida existente
+        matches[index] = partida;
+        console.log(`🔄 Partida #${partida.id} actualizada en la posición ${index}`);
+    } else {
+        // CREAR: Agregar nueva partida
+        matches.push(partida);
+        console.log(`✨ Nueva partida #${partida.id} añadida al final`);
+    }
+
+    // Crear nuevo objeto con la partida añadida/actualizada
     const nuevosDatos = {
       ...datosCache,
       matches: matches
@@ -580,8 +721,7 @@ function guardarPartida(partida) {
     // Guardar en localStorage
     setItem('allDataObject', nuevosDatos);
 
-    console.log(`✅ Partida guardada en localStorage (total: ${matches.length} partidas)`);
-    console.log('📋 Partida guardada:', partida);
+    console.log(`✅ Datos guardados exitosamente (Total: ${matches.length} partidas)`);
 
   } catch (error) {
     console.error('❌ Error al guardar partida:', error.message);

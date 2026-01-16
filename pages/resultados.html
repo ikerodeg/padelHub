@@ -69,6 +69,12 @@
   <!-- ========================= MAIN ========================= -->
   <main>
 
+    <!-- Background -->
+    <div class="background-wrapper">
+      <div class="background-overlay"></div>
+      <div class="background-blur"></div>
+    </div>
+
     <!-- Título de la página -->
     <section class="page-header">
       <h1 class="page-title">Resultados</h1>
@@ -101,105 +107,6 @@
 
     <!-- Contenedor de resultados -->
     <section id="resultadosContainer" class="resultados-container" role="tabpanel" aria-label="Lista de resultados">
-
-      <!-- ==========================================
-           PARTIDA PENDIENTE (Ejemplo)
-           ========================================== -->
-      <article class="resultado-card" data-estado="pendientes" data-partida-id="101">
-        <div class="resultado-header">
-          <div class="partida-number">
-            <span class="number-label">Partida</span>
-            <span class="number-value">#101</span>
-          </div>
-          <span class="partida-status status-pendiente" style="font-size: 0.7rem;">Pendiente</span>
-        </div>
-
-        <!-- Enfrentamiento (Selector de Ganador) -->
-        <h3 class="text-center text-gray-400 text-sm mb-4"
-          style="text-align: center; margin-bottom: 1rem; font-size: 0.85rem; color: var(--color-gray-500);">
-          Selecciona la pareja ganadora
-        </h3>
-
-        <div class="resultado-matchup">
-          <!-- Pareja 1 -->
-          <div class="couple-card" role="button" aria-label="Seleccionar pareja 1 como ganadora">
-            <span class="player-name">Carlos García</span>
-            <span class="player-name">Ana Martínez</span>
-          </div>
-
-          <!-- VS Badge -->
-          <div class="vs-badge">VS</div>
-
-          <!-- Pareja 2 -->
-          <div class="couple-card" role="button" aria-label="Seleccionar pareja 2 como ganadora">
-            <span class="player-name">María López</span>
-            <span class="player-name">Juan Pérez</span>
-          </div>
-        </div>
-
-        <div class="resultado-actions">
-          <button class="btn btn-success btn-confirm-result">Confirmar Resultado</button>
-        </div>
-      </article>
-
-      <!-- ==========================================
-           PARTIDA FINALIZADA (Ejemplo)
-           ========================================== -->
-      <article class="resultado-card" data-estado="finalizadas" data-partida-id="099">
-        <div class="resultado-header">
-          <div class="partida-number">
-            <span class="number-label">Partida</span>
-            <span class="number-value">#099</span>
-          </div>
-          <span class="partida-status status-completa" style="font-size: 0.7rem;">Finalizada</span>
-        </div>
-
-        <div class="resultado-matchup">
-          <!-- Pareja 1 (Perdedora) -->
-          <div class="couple-card loser">
-            <span class="player-name">Pedro Sánchez</span>
-            <span class="player-name">Lucía Gil</span>
-          </div>
-
-          <!-- VS Badge -->
-          <div class="vs-badge">VS</div>
-
-          <!-- Pareja 2 (Ganadora) -->
-          <div class="couple-card selected-winner">
-            <span class="player-name">David Ruiz</span>
-            <span class="player-name">Elena Yáñez</span>
-          </div>
-        </div>
-      </article>
-
-
-      <!-- Otra Finalizada -->
-      <article class="resultado-card" data-estado="finalizadas" data-partida-id="098">
-        <div class="resultado-header">
-          <div class="partida-number">
-            <span class="number-label">Partida</span>
-            <span class="number-value">#098</span>
-          </div>
-          <span class="partida-status status-completa" style="font-size: 0.7rem;">Finalizada</span>
-        </div>
-
-        <div class="resultado-matchup">
-          <!-- Pareja 1 (Ganadora) -->
-          <div class="couple-card selected-winner">
-            <span class="player-name">Javi M.</span>
-            <span class="player-name">Laura T.</span>
-          </div>
-
-          <!-- VS Badge -->
-          <div class="vs-badge">VS</div>
-
-          <!-- Pareja 2 (Perdedora) -->
-          <div class="couple-card loser">
-            <span class="player-name">Marcos A.</span>
-            <span class="player-name">Sofia B.</span>
-          </div>
-        </div>
-      </article>
 
     </section>
 

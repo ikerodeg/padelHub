@@ -5,7 +5,7 @@
   display: flex;
   gap: var(--spacing-sm);
   margin-block: var(--spacing-lg);
-  inline-size: 100%;
+  padding-inline: var(--spacing-sm);
 }
 
 .filter-tab {
@@ -47,7 +47,7 @@
 }
 
 .filter-icon {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xs);
 }
 
 .filter-label {
@@ -60,7 +60,6 @@
   justify-content: center;
   min-inline-size: 1.5rem;
   block-size: 1.5rem;
-  padding-inline: var(--spacing-xs);
   background-color: var(--color-gray-700);
   border-radius: var(--radius-pill);
   font-size: var(--font-size-xs);

@@ -4,6 +4,7 @@
 .page-header {
   text-align: center;
   inline-size: 100%;
+  margin-block-end: var(--spacing-md);
 }
 
 .page-title {

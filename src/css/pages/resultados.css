@@ -13,124 +13,185 @@
   inline-size: 100%;
 }
 
-/* ===================================
-   CARD BASE - MINIMALISTA
-   ================================ */
+/* ================================
+   CARD DE PARTIDA - ESTILOS BASE
+================================ */
 .resultado-card {
+  padding-inline: var(--spacing-sm);
   background: linear-gradient(135deg,
       var(--color-gray-900-alpha-60),
       var(--color-gray-900));
   backdrop-filter: blur(var(--blur-md));
   border: 1px solid var(--color-gray-700);
   border-radius: var(--radius-md);
-  padding: var(--spacing-lg);
-  transition: all var(--duration-normal) var(--easing-out);
-}
+  transition:
+    border-color var(--duration-normal) var(--easing-out),
+    box-shadow var(--duration-normal) var(--easing-out);
 
-/* ===================================
-   HEADER DE LA CARD
-   ================================ */
-.resultado-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-block-end: var(--spacing-lg);
-  border-block-end: 1px solid var(--color-gray-800);
-  padding-block-end: var(--spacing-sm);
-}
+  &:active {
+    border-color: var(--color-gray-600);
+    box-shadow: 0 8px 20px var(--color-black-alpha-15);
+  }
 
-.resultado-info-row {
-  display: flex;
-  gap: var(--spacing-md);
-  align-items: center;
-  font-size: var(--font-size-sm);
-  color: var(--color-gray-400);
-}
+  .resultado-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-block-end: 1px solid var(--color-gray-800);
+    padding-block: var(--spacing-sm);
+    margin-block-end: var(--spacing-sm);
+  }
 
-.resultado-info-item {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-}
+  .partida-number {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
 
-.resultado-info-icon {
-  width: 16px;
-  height: 16px;
-  color: var(--color-blue-400);
-}
+  .number-label {
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-500);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-wide);
+  }
 
-/* ===================================
-   SECCIÓN JUGADORES (COUPLES)
-   ================================ */
-.resultado-matchup {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: var(--spacing-md);
-  align-items: center;
-}
+  .number-value {
+    font-weight: var(--font-weight-black);
+    background: linear-gradient(to bottom right,
+        var(--color-blue-400),
+        var(--color-lime-400));
+    background-clip: text;
+    color: transparent;
+    letter-spacing: var(--letter-spacing-tight);
+  }
 
-.vs-badge {
-  font-weight: var(--font-weight-black);
-  color: var(--color-gray-600);
-  font-size: var(--font-size-xl);
-  font-style: italic;
-}
+  .partida-status {
+    padding-block: var(--spacing-xs);
+    padding-inline: var(--spacing-sm);
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-tight);
+  }
 
-/* ===================================
+  .resultado-info-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-sm);
+    color: var(--color-gray-400);
+    margin-block-end: var(--spacing-md);
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+  }
+
+  .resultado-matchup {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .vs-badge {
+    font-weight: var(--font-weight-black);
+    color: var(--color-gray-600);
+    font-size: var(--font-size-xl);
+    font-style: italic;
+  }
+
+  /* ===================================
    PAREJAS (COUPLE CARD)
    ================================ */
-.couple-card {
-  background-color: var(--color-gray-800-alpha-50);
-  border: 1px solid var(--color-gray-700);
-  border-radius: var(--radius-sm);
-  padding: var(--spacing-sm);
-  cursor: pointer;
-  transition: all var(--duration-fast) var(--easing-out);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+
+  .couple-card {
+    background-color: var(--color-gray-800-alpha-50);
+    border: 1px solid var(--color-gray-700);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    transition: all var(--duration-fast) var(--easing-out);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .couple-card:hover {
+    background-color: var(--color-gray-800);
+    border-color: var(--color-gray-600);
+  }
+
+  .couple-card.selected-winner {
+    background: linear-gradient(135deg,
+        color-mix(in oklch, var(--color-lime-500) 10%, transparent),
+        color-mix(in oklch, var(--color-lime-500) 5%, transparent));
+    border-color: var(--color-lime-400);
+    box-shadow: 0 0 15px color-mix(in oklch, var(--color-lime-400) 20%, transparent);
+  }
+
+  .couple-card.selected-winner::after {
+    content: "👑";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 1.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  }
+
+  .couple-card.loser {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+
+  .player-name {
+    display: block;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-gray-300);
+    margin-block: 2px;
+  }
 }
 
-.couple-card:hover {
-  background-color: var(--color-gray-800);
-  border-color: var(--color-gray-600);
+/* ================================
+   CARD DE PARTIDA PENDIENTE
+================================ */
+.resultado-card[data-estado="pendiente"] {
+
+  h3 {
+    text-align: center;
+    font-size: var(--font-size-sm);
+    color: var(--color-amber-400);
+  }
+
+  .partida-status {
+    background-color: var(--color-amber-400);
+    color: var(--color-gray-950);
+  }
 }
 
-/* Estado: Seleccionado como ganador (Pendiente -> Selección) */
-.couple-card.selected-winner {
-  background: linear-gradient(135deg,
-      color-mix(in oklch, var(--color-lime-500) 10%, transparent),
-      color-mix(in oklch, var(--color-lime-500) 5%, transparent));
-  border-color: var(--color-lime-400);
-  box-shadow: 0 0 15px color-mix(in oklch, var(--color-lime-400) 20%, transparent);
-}
+/* ================================
+   CARD DE PARTIDA FINALIZADA
+================================ */
+.resultado-card[data-estado="finalizada"] {
+  .partida-status {
+    background-color: var(--color-gray-600);
+    color: var(--color-gray-400);
+  }
 
-.couple-card.selected-winner::after {
-  content: "👑";
-  position: absolute;
-  top: -5px;
-  right: -5px;
-  font-size: 1.2rem;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
-}
-
-/* Estado: Perdedor (Cuando el otro es seleccionado) */
-.couple-card.loser {
-  opacity: 0.5;
-  transform: scale(0.98);
-}
-
-.player-name {
-  display: block;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: var(--color-gray-300);
-  margin-block: 2px;
+  .number-value {
+    color: var(--color-gray-400);
+  }
 }
 
 /* ===================================
    ACCIONES
    ================================ */
+
 .resultado-actions {
   margin-block-start: var(--spacing-lg);
   display: flex;
@@ -139,7 +200,6 @@
 }
 
 .btn-confirm-result {
-  /* Visibility logic handled here, visual styles via .btn-success */
   display: none;
   opacity: 0;
   transform: translateY(10px);
@@ -163,9 +223,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.status-pendiente {
-  background-color: var(--color-red-400);
-  color: var(--color-gray-950);
 }

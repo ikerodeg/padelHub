@@ -192,7 +192,7 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 
 ## 🗺 Roadmap
 
-### ✅ **Completado (v1.2)**
+### ✅ **Completado (v1.4)**
 - [x] **Diseño UI/UX Base** - Interfaz premium mobile-first
 - [x] **Sistema de Gestión de Partidas** - Creación completa con validaciones
 - [x] **Lista de Partidas** - Sistema completo con filtros y ordenamiento
@@ -217,9 +217,9 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 - [x] **Sistema de Errores** - Manejo robusto y mobile-friendly
 - [x] **Accesibilidad Completa** - ARIA, navegación por teclado
 - [x] **Responsive Design** - Optimizado para todos los dispositivos
+- [x] **Controles de Administrador** - Editar y eliminar partidas
 
 ### 🚧 **Próximas Funcionalidades**
-- [ ] **Controles de Administrador** - Editar y eliminar partidas
 - [ ] **Marcador Detallado** - Sets y juegos en resultados
 - [ ] **Historial de Partidas por Usuario** - Detalle de partidas jugadas
 - [ ] **Integración Telegram** - Notificaciones automáticas
@@ -270,5 +270,5 @@ Este proyecto está bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE)
 <div align="center">
   <p>Desarrollado con ❤️ y 🎾 por <a href="https://github.com/ikerodeg">ikerodeg</a></p>
   <p><em>¡Domina la pista con PadelSamu! 🏓</em></p>
-  <p><strong>Season 2026 - v1.3</strong></p>
+  <p><strong>Season 2026 - v1.4</strong></p>
 </div>

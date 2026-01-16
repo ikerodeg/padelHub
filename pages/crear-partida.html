@@ -64,9 +64,13 @@
     <div class="user-badge"></div>
   </header>
 
-
   <!-- ========================= MAIN ========================= -->
   <main>
+    <!-- Background -->
+    <div class="background-wrapper">
+      <div class="background-overlay"></div>
+      <div class="background-blur"></div>
+    </div>
 
     <!-- Título de la página -->
     <section class="page-header">
@@ -82,14 +86,14 @@
       </button>
     </section>
 
-
     <!-- ============= FORMULARIO (oculto inicialmente) ============= -->
     <section id="crearPartidaSection" class="form-section" data-section="crear-partida" hidden aria-hidden="true">
       <!--  añadirlo a arriba una vez se acabe de estilar -->
 
 
       <form id="crearPartidaForm" class="create-match-form" aria-describedby="formHelp">
-        <p id="formHelp" class="form-help-text">Rellena los datos para crear una nueva partida.</p>
+        <p id="formHelp" class="form-help-text">Rellena los datos para crear una nueva partida. Puedes crearla
+          incompleta.</p>
         <!-- Número partida (generado automáticamente) -->
         <fieldset class="fieldset-readonly">
           <legend>Número de partida</legend>

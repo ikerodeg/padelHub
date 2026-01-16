@@ -78,35 +78,35 @@ function generatePendingMatchHTML(match, players) {
   const pareja2Drive = findPlayerById(players, match.players.drive2);
 
   return `
-    <article class="resultado-card" data-estado="pendientes" data-partida-id="${match.id}">
+    <article class="resultado-card" data-estado="pendiente" data-partida-id="${match.id}">
       <div class="resultado-header">
         <div class="partida-number">
           <span class="number-label">Partida</span>
           <span class="number-value">#${formattedId}</span>
         </div>
-        <span class="partida-status status-pendiente" style="font-size: 0.7rem;">Pendiente</span>
+        <span class="partida-status" data-estado="pendiente">Pendiente</span>
       </div>
 
-      <div class="resultado-info-row" style="margin-bottom: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--color-gray-400);">
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <div class="resultado-info-row">
+        <div>
           ${ICONS.calendar}
           <span>${new Date(match.date).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <div>
           ${ICONS.clock}
           <span>${match.time}</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <div>
           ${ICONS.location}
           <span>${match.club}</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <div>
           ${ICONS.court}
           <span>${match.court}</span>
         </div>
       </div>
 
-      <h3 class="text-center text-gray-400 text-sm mb-4" style="text-align: center; margin-bottom: 1rem; font-size: 0.85rem; color: var(--color-gray-500);">
+      <h3>
         Selecciona la pareja ganadora
       </h3>
 
@@ -151,29 +151,29 @@ function generateFinalizedMatchHTML(match, players) {
   const pareja2Class = match.winner === 'pareja2' ? 'selected-winner' : 'loser';
 
   return `
-    <article class="resultado-card" data-estado="finalizadas" data-partida-id="${match.id}">
+    <article class="resultado-card" data-estado="finalizada" data-partida-id="${match.id}">
       <div class="resultado-header">
         <div class="partida-number">
           <span class="number-label">Partida</span>
           <span class="number-value">#${formattedId}</span>
         </div>
-        <span class="partida-status status-completa" style="font-size: 0.7rem;">Finalizada</span>
+        <span class="partida-status" data-estado="finalizada">Finalizada</span>
       </div>
 
-      <div class="resultado-info-row" style="margin-bottom: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; color: var(--color-gray-400);">
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <div class="resultado-info-row">
+        <div>
           ${ICONS.calendar}
           <span>${new Date(match.date).toLocaleDateString('es-ES', { day: '2-digit', month: 'short', year: 'numeric' })}</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <div>
           ${ICONS.clock}
           <span>${match.time}</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <div>
           ${ICONS.location}
           <span>${match.club}</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <div>
           ${ICONS.court}
           <span>${match.court}</span>
         </div>
@@ -329,7 +329,7 @@ function initializeFilters(matches, players) {
  * Inicializa la funcionalidad de selección de ganador
  */
 function initializeWinnerSelection() {
-  const pendingCards = document.querySelectorAll('.resultado-card[data-estado="pendientes"]');
+  const pendingCards = document.querySelectorAll('.resultado-card[data-estado="pendiente"]');
 
   pendingCards.forEach(card => {
     const couples = card.querySelectorAll('.couple-card');
