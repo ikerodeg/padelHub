@@ -192,7 +192,7 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 
 ## 🗺 Roadmap
 
-### ✅ **Completado (v1.4)**
+### ✅ **Completado (v1.5)**
 - [x] **Diseño UI/UX Base** - Interfaz premium mobile-first
 - [x] **Sistema de Gestión de Partidas** - Creación completa con validaciones
 - [x] **Lista de Partidas** - Sistema completo con filtros y ordenamiento
@@ -218,10 +218,12 @@ Construido con **tecnologías web puras** para máxima compatibilidad y performa
 - [x] **Accesibilidad Completa** - ARIA, navegación por teclado
 - [x] **Responsive Design** - Optimizado para todos los dispositivos
 - [x] **Controles de Administrador** - Editar y eliminar partidas
+- [x] **Avatar Generado** - Generación de imágenes de jugadores
+- [x] **Avatar clickeable** - Redirección a perfil
+- [x] **Agenda partidas jugador** - Agenda de partidas por jugador en su perfil
+- [x] **Partidas agenda clickeables** - Redirección a resultados
 
 ### 🚧 **Próximas Funcionalidades**
-- [ ] **Marcador Detallado** - Sets y juegos en resultados
-- [ ] **Historial de Partidas por Usuario** - Detalle de partidas jugadas
 - [ ] **Integración Telegram** - Notificaciones automáticas
 - [ ] **PWA Features** - Offline y notificaciones push
 - [ ] **API Backend** - Sincronización con servidor

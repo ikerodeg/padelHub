@@ -228,3 +228,84 @@
   font-size: 0.7rem;
   color: var(--color-gray-500);
 }
+
+/* ===================================
+   UPCOMING MATCHES (AGENDA)
+   MOBILE FIRST
+   ================================ */
+.upcoming-matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.upcoming-match-card {
+  background: var(--color-gray-800-alpha-50);
+  border: 1px solid var(--color-gray-700);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-md);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-md);
+  transition: all var(--duration-fast);
+}
+
+.upcoming-match-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-lime-400);
+  box-shadow: var(--shadow-lg);
+}
+
+.match-date-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-lime-400);
+  color: var(--color-gray-950);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  min-width: 60px;
+  text-align: center;
+}
+
+.match-date-day {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-black);
+  line-height: 1;
+}
+
+.match-date-month {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+}
+
+.match-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.match-time {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+}
+
+.match-location {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-400);
+}
+
+.match-teammates {
+  font-size: var(--font-size-sm);
+  color: var(--color-lime-400);
+}
+
+.no-data {
+  text-align: center;
+  color: var(--color-gray-500);
+  font-style: italic;
+  padding: var(--spacing-lg);
+}

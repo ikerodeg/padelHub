@@ -514,8 +514,52 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Renderizar las partidas en el DOM
     renderMatches(matches, players);
 
+    // Verificar si hay parámetro matchId en la URL para scroll automático
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetMatchId = urlParams.get('matchId');
+    
+    if (targetMatchId) {
+      console.log(`🎯 Parámetro matchId detectado: ${targetMatchId}`);
+      scrollToMatch(parseInt(targetMatchId));
+    }
+
     console.log('✅ Página de resultados inicializada correctamente');
   } catch (error) {
     console.error('❌ Error en la inicialización de la página:', error);
   }
 });
+
+/**
+ * Scroll automático y highlight a una partida específica
+ * @param {number} matchId - ID de la partida a destacar
+ */
+function scrollToMatch(matchId) {
+  // Pequeño delay para asegurar que el DOM esté renderizado
+  setTimeout(() => {
+    const matchCard = document.querySelector(`.resultado-card[data-partida-id="${matchId}"]`);
+    
+    if (!matchCard) {
+      console.warn(`⚠️ No se encontró la partida #${matchId} para hacer scroll`);
+      return;
+    }
+
+    // Scroll suave a la card
+    matchCard.scrollIntoView({ 
+      behavior: 'smooth', 
+      block: 'center' 
+    });
+
+    // Añadir highlight visual temporal
+    matchCard.style.transition = 'all 0.3s ease';
+    matchCard.style.boxShadow = '0 0 0 3px var(--color-lime-400)';
+    matchCard.style.transform = 'scale(1.02)';
+
+    // Remover highlight después de 2 segundos
+    setTimeout(() => {
+      matchCard.style.boxShadow = '';
+      matchCard.style.transform = '';
+    }, 2000);
+
+    console.log(`✅ Scroll completado a partida #${matchId}`);
+  }, 300);
+}

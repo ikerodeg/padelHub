@@ -102,11 +102,112 @@ async function loadPlayerProfile(playerId) {
     console.log(`✅ Cargando perfil de: ${player.name}`);
     renderProfile(player);
     
+    // Renderizar partidas próximas
+    const upcomingMatches = getPlayerUpcomingMatches(playerId, appData.matches || []);
+    renderUpcomingMatches(upcomingMatches, appData.players || [], playerId);
+    
   } catch (error) {
     console.error('❌ Error al cargar perfil:', error);
     showError('Error al cargar perfil');
   }
 }
+
+/**
+ * Obtiene las partidas próximas del jugador
+ * @param {number} playerId - ID del jugador
+ * @param {Array} matches - Array de todas las partidas
+ * @returns {Array} Partidas filtradas y ordenadas
+ */
+function getPlayerUpcomingMatches(playerId, matches) {
+  if (!matches || matches.length === 0) return [];
+
+  return matches
+    .filter(match => {
+      // Solo partidas completas (listas para jugar)
+      const isComplete = match.status?.includes('completa');
+      
+      // El jugador está en la partida (revisar en players object)
+      const playerValues = match.players ? Object.values(match.players) : [];
+      const isPlayerInMatch = playerValues.includes(playerId);
+      
+      return isComplete && isPlayerInMatch;
+    })
+    .sort((a, b) => {
+      // Ordenar por fecha ascendente (más cercanas primero)
+      const dateA = new Date(a.date || a.fecha);
+      const dateB = new Date(b.date || b.fecha);
+      return dateA - dateB;
+    });
+}
+
+/**
+ * Renderiza las partidas próximas en el DOM
+ * @param {Array} matches - Partidas del jugador
+ * @param {Array} players - Array de todos los jugadores
+ * @param {number} currentPlayerId - ID del jugador actual
+ */
+function renderUpcomingMatches(matches, players, currentPlayerId) {
+  const container = document.getElementById('upcomingMatchesContainer');
+  const noMatchesMsg = document.getElementById('noMatchesMessage');
+  
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  if (matches.length === 0) {
+    container.style.display = 'none';
+    noMatchesMsg.style.display = 'block';
+    return;
+  }
+
+  container.style.display = 'flex';
+  noMatchesMsg.style.display = 'none';
+
+  matches.forEach(match => {
+    const matchDate = new Date(match.date || match.fecha);
+    const day = matchDate.getDate();
+    const month = matchDate.toLocaleDateString('es-ES', { month: 'short' });
+
+    // Obtener nombres de compañeros (excluyendo al jugador actual)
+    // match.players es {reves1: id, drive1: id, reves2: id, drive2: id}
+    const playerIds = match.players ? Object.values(match.players).filter(id => id !== null && id !== currentPlayerId) : [];
+    
+    const teammates = playerIds
+      .map(playerId => {
+        const player = players.find(p => p.id === playerId);
+        return player ? player.name : 'Desconocido';
+      })
+      .join(', ') || 'Sin compañeros';
+
+    const cardHTML = `
+      <article class="upcoming-match-card" data-match-id="${match.id}" style="cursor: pointer;">
+        <div class="match-date-badge">
+          <span class="match-date-day">${day}</span>
+          <span class="match-date-month">${month}</span>
+        </div>
+        <div class="match-details">
+          <div class="match-time">⏰ ${match.time || match.hora}</div>
+          <div class="match-location">📍 ${match.club} - ${match.court || match.pista}</div>
+          <div class="match-teammates">🤝 ${teammates}</div>
+        </div>
+      </article>
+    `;
+
+    container.insertAdjacentHTML('beforeend', cardHTML);
+  });
+
+  // Añadir event listeners a las cards para navegación
+  const matchCards = container.querySelectorAll('.upcoming-match-card');
+  matchCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const matchId = card.getAttribute('data-match-id');
+      window.location.href = `../pages/resultados.html?matchId=${matchId}`;
+    });
+  });
+
+  console.log(`✅ ${matches.length} partidas próximas renderizadas`);
+}
+
 
 /**
  * Renderiza el perfil del jugador en el DOM
@@ -130,11 +231,19 @@ function renderProfile(player) {
     posBadge.style.borderColor = 'var(--color-blue-400)';
   }
   
-  // Imagen del jugador (ocultar si no existe)
+  // Imagen del jugador
   const imgEl = document.getElementById('profileImage');
   if (imgEl) {
-    // Por ahora no hay fotos en el JSON, ocultar
-    imgEl.style.display = 'none';
+    if (player.profileImg) {
+      // Si el jugador tiene imagen, cargarla
+      imgEl.src = player.profileImg;
+      imgEl.style.display = 'block';
+      console.log(`📸 Imagen de perfil cargada: ${player.profileImg}`);
+    } else {
+      // Si no tiene imagen, ocultar el contenedor
+      imgEl.style.display = 'none';
+      console.log('📸 Sin imagen de perfil para este jugador');
+    }
   }
   
   // Pala

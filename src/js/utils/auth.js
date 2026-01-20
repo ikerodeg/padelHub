@@ -179,6 +179,31 @@ function renderBadgeContent(container, userData) {
     avatar.className = 'user-avatar';
     avatar.textContent = userData.avatar; // Iniciales del jugador (ej: "SC")
     avatar.setAttribute('aria-label', `Avatar de ${userData.name}`);
+    avatar.style.cursor = 'pointer';
+    avatar.setAttribute('title', 'Ver mi perfil');
+
+    // Añadir evento click para navegar al perfil
+    avatar.addEventListener('click', () => {
+      const userId = userData.id;
+      
+      // Detectar contexto actual para construir ruta correcta
+      const currentPath = window.location.pathname;
+      let targetUrl;
+      
+      if (currentPath.includes('index.html') || currentPath.endsWith('/')) {
+        // Desde index.html (raíz)
+        targetUrl = `pages/perfil.html?id=${userId}`;
+      } else if (currentPath.includes('/pages/')) {
+        // Desde cualquier página dentro de /pages/
+        targetUrl = `perfil.html?id=${userId}`;
+      } else {
+        // Fallback genérico
+        targetUrl = `pages/perfil.html?id=${userId}`;
+      }
+      
+      console.log(`🔗 Navegando al perfil del usuario #${userId}: ${targetUrl}`);
+      window.location.href = targetUrl;
+    });
 
     container.appendChild(avatar);
 
@@ -204,7 +229,7 @@ function renderBadgeContent(container, userData) {
       console.log('👑 Badge de administrador añadido');
     }
 
-    console.log(`✅ Badge renderizado: ${userData.name}`);
+    console.log(`✅ Badge renderizado: ${userData.name} (clickeable)`);
     return true;
 
   } catch (error) {

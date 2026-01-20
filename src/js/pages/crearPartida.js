@@ -372,27 +372,26 @@ function poblarSelectsJugadores() {
 // ==================== SISTEMA DE NUMERACIÓN ====================
 
 /**
- * Obtiene el número de la siguiente partida desde localStorage
- * Si no existe contador, devuelve 1
- * @returns {number} Número de la siguiente partida
+ * Obtiene el número de la siguiente partida buscando el ID máximo en las partidas existentes
+ * Esto previene colisiones de IDs cuando se eliminan partidas o se resetea el contador
+ * @returns {number} Número de la siguiente partida (maxId + 1)
  */
 function obtenerSiguienteNumeroPartida() {
-  const contadorActual = getItem('contadorPartidas') || 0;
-  return contadorActual + 1;
-}
-
-/**
- * Incrementa el contador de partidas en localStorage
- * @returns {number} Nuevo número de partida
- */
-function incrementarContadorPartidas() {
-  const contadorActual = getItem('contadorPartidas') || 0;
-  const nuevoContador = contadorActual + 1;
-
-  setItem('contadorPartidas', nuevoContador);
-  console.log(`🔢 Contador de partidas incrementado a: ${nuevoContador}`);
-
-  return nuevoContador;
+  const allData = getItem('allDataObject');
+  const matches = allData?.matches || [];
+  
+  // Si no hay partidas, empezar en 1
+  if (matches.length === 0) {
+    console.log('📋 No hay partidas existentes, empezando en 1');
+    return 1;
+  }
+  
+  // Buscar el ID máximo entre todas las partidas
+  const maxId = Math.max(...matches.map(m => m.id));
+  const nextId = maxId + 1;
+  
+  console.log(`🔢 ID máximo encontrado: ${maxId}, siguiente ID: ${nextId}`);
+  return nextId;
 }
 
 /**
@@ -555,11 +554,6 @@ function confirmarPartida() {
 
     // Guardar partida en localStorage
     guardarPartida(partida);
-
-    // Incrementa contador SOLO si es nueva partida
-    if (editingMatchId === null) {
-      incrementarContadorPartidas();
-    }
 
     const mensajeEstado = status.includes('completa') ? 'completa' : 'abierta';
     
