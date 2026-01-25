@@ -226,6 +226,33 @@ function renderBadgeContent(container, userData) {
       adminBadge.setAttribute('title', 'Usuario Administrador');
 
       container.appendChild(adminBadge);
+      
+      // Añadir botón de admin solo en landing page
+      if (document.body.getAttribute('aria-label') === 'landing-page') {
+        const adminLink = document.createElement('a');
+        adminLink.href = 'pages/admin/admin.html';
+        adminLink.className = 'admin-settings-btn';
+        adminLink.setAttribute('aria-label', 'Ir a Administración');
+        adminLink.setAttribute('title', 'Panel de Administración');
+        adminLink.style.display = 'flex';
+        adminLink.style.alignItems = 'center';
+        adminLink.style.justifyContent = 'center';
+        adminLink.style.marginLeft = '0.5rem';
+        adminLink.style.color = 'var(--text-primary)';
+        adminLink.style.textDecoration = 'none';
+        
+        // Icono de engranaje (Settings)
+        adminLink.innerHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.38a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.72v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        `;
+
+        container.appendChild(adminLink);
+        console.log('⚙️ Botón de administración añadido');
+      }
+
       console.log('👑 Badge de administrador añadido');
     }
 

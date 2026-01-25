@@ -33,7 +33,7 @@ async function init() {
     // Mostrar error crítico al usuario
     mostrarErrorCritico(
       'Error al cargar la aplicación',
-      `No se pudo inicializar PadelSamu. ${error.message}`,
+      `No se pudo inicializar PadelHub. ${error.message}`,
       '🔄 Reintentar'
     );
   }

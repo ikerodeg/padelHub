@@ -1,276 +1,98 @@
 <div align="center">
-  <img src="assets/img/icons/logo.png" alt="PadelSamu Logo" width="120" height="120">
+  <img src="assets/img/icons/logo.png" alt="PadelHub Logo" width="120" height="120">
 
-  # 🎾 PADEL SAMU
+  # 🎾 PADEL HUB
 
   **Gestiona tus partidas. Domina la pista.**
 
-  [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge&logo=github)](https://ikerodeg.github.io/padelSamu/)
-  [![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
-  [![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-  [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-  ![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
-  ![Mobile](https://img.shields.io/badge/Mobile-Friendly-blue?style=for-the-badge&logo=iphone&logoColor=white)
+  [![Live Demo](https://img.shields.io/badge/Acceso-App_Web-brightgreen?style=for-the-badge&logo=pwa)](https://ikerodeg.github.io/padelSamu/)
+  ![Status](https://img.shields.io/badge/Estado-Activo-success?style=for-the-badge)
+  ![Mobile](https://img.shields.io/badge/Diseño-100%25_Móvil-blue?style=for-the-badge&logo=iphone&logoColor=white)
 
   <p align="center">
-    <a href="#-sobre-el-proyecto">Sobre el Proyecto</a> •
-    <a href="#-características">Características</a> •
-    <a href="#-demo">Demo</a> •
-    <a href="#-instalación">Instalación</a> •
-    <a href="#-roadmap">Roadmap</a>
+    <a href="#-sobre-padelhub">Sobre PadelHub</a> •
+    <a href="#-para-jugadores">Soy Jugador</a> •
+    <a href="#-para-el-admin">Soy Admin</a> •
+    <a href="#-tecnología">Tecnología</a> •
+    <a href="#-roadmap">Futuro</a>
   </p>
 </div>
 
 ---
 
-## 🚀 Sobre el Proyecto
+## 🚀 Sobre PadelHub
 
-**PadelSamu** es una aplicación web moderna para la gestión integral de partidos de pádel amateur. Construida con tecnologías web puras, ofrece una experiencia premium y fluida tanto en dispositivos móviles como de escritorio.
+**PadelHub** es la aplicación definitiva para tu grupo de pádel. Olvídate de los interminables hilos de WhatsApp o listas de notas desordenadas. 
 
-La aplicación permite crear y gestionar partidos de pádel, organizar jugadores, mantener rankings dinámicos y centralizar toda la información deportiva en un solo lugar. Diseñada con un enfoque **mobile-first**, es perfecta para organizar partidos en cualquier momento y lugar.
+Diseñada desde cero para ser **100% móvil**, PadelHub centraliza toda la gestión deportiva de tu comunidad en una interfaz moderna, rápida y sencilla. Funciona directamente en tu navegador como una App Nativa (PWA).
 
-### 🎯 **¿Qué hace único a PadelSamu?**
-- ✅ **Sin dependencias externas** - Funciona offline y es completamente independiente
-- ✅ **Experiencia móvil nativa** - Optimizada para smartphones y tablets
-- ✅ **Sistema inteligente** - Gestión automática de estados y validaciones
-- ✅ **Persistencia local** - Tus datos se mantienen entre sesiones
+### 🎯 **¿Por qué te encantará?**
+- ✅ **Sin descargas pesadas**: Accede al instante desde cualquier móvil (iOS/Android).
+- ✅ **Todo organizado**: Partidas, resultados y ranking en un solo lugar.
+- ✅ **Perfil de Jugador**: Estadísticas personales, insignias y agenda.
+- ✅ **Competitividad Sana**: Clasificación automática basada en victorias.
 
 <div align="center">
-  <img src="assets/img/bg/court-bg-desktop.jpeg" alt="Padel Court" width="80%" style="border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
+  <h3>📱 Capturas de Pantalla</h3>
+  <img src="assets/img/bg/court-bg-desktop.jpeg" alt="PadelHub Interfaz" width="90%" style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+  <p><em>Interfaz diseñada para pulgares: navegación fluida y sin distracciones.</em></p>
 </div>
 
-## ✨ Características
+---
 
-### 🎾 Creación de Partidas Inteligente
-- **Formulario dinámico** con validación en tiempo real
-- **Numeración automática** persistente de partidos
-- **Horarios realistas** (08:00 - 22:00 cada 30 minutos)
-- **Estados inteligentes**: Partidas "completas" o "abiertas"
-- **Selección de jugadores** sin duplicados
-- **Guardado automático** en localStorage
+## ✨ Características Principales
 
-### 📋 Gestión Completa de Partidas
-- **Listado dinámico** de todas las partidas con filtros inteligentes
-- **Sistema de filtros** por estado: Todas, Abiertas, Completas
-- **Ordenamiento automático**: Por fecha (más recientes primero)
-- **Contadores reales** en tiempo real para cada filtro
-- **Unirse a partidas** con selección múltiple de jugadores
-- **Estados dinámicos** que cambian automáticamente al completarse
-- **Notificaciones inteligentes** sin modales intrusivos
-- **Sistema de estados múltiples**: Las partidas completas aparecen tanto en Lista Partidas como en Resultados
+### 🧢 **Para el Jugador**
+¡Tu carrera deportiva empieza aquí!
 
-### 🏆 Sistema de Resultados
-- **Gestión de resultados** para partidas completas y finalizadas
-- **Selección interactiva** de pareja ganadora con feedback visual
-- **Filtros avanzados**: Todas, Pendientes, Finalizadas
-- **Historial completo** de partidas finalizadas con ganadores
-- **Indicador visual** de ganador (👑 corona)
-- **Transición automática** de estados: Completa → Pendiente → Finalizada
-- **Sincronización inteligente**: Las partidas finalizadas desaparecen de Lista Partidas
-- **Persistencia de resultados** en localStorage
+*   **🏆 Ranking en Tiempo Real**: Consulta quién es el número 1 de la temporada. El sistema premia la constancia y las victorias (+3 puntos ganar, +1 jugar).
+*   **📅 Agenda Personal**: Ve directo al grano. Tu perfil muestra tus próximas partidas y tu historial reciente.
+*   **⚡ Acción Rápida**: Únete a partidas abiertas con un solo toque.
+*   **🏅 Insignias**: Desbloquea logros únicos (MVP, Muralla, Francotirador...) que lucen en tu perfil.
+*   **📊 Estadísticas**: Controla tus partidos jugados y tu ratio de victorias.
 
-### 👥 Gestión de Jugadores
-- **Directorio dinámico** de jugadores registrados en localStorage
-- **Orden alfabético automático** para fácil navegación
-- **Búsqueda en tiempo real** filtrando por nombre
-- **Perfiles detallados** con estadísticas, pala, puntos fuertes e insignias
-- **30+ insignias coleccionables** con iconos y descripciones únicas
-- **Sistema anti-duplicados** en selección de equipos
+### 👑 **Para el Administrador (Samu Coach)**
+Control total sobre la competición.
 
-### 🏓 Clubs y Ubicaciones
-- **Clubs disponibles** en la base de datos
-- **Selección intuitiva** de pistas y horarios
-- **Información detallada** de cada ubicación
-
-### 🎨 Diseño Premium Mobile-First
-- **Tema oscuro profesional** con paleta OKLCH
-- **Interfaz responsive** adaptada a todos los dispositivos
-- **Animaciones sutiles** y transiciones fluidas
-- **Accesibilidad completa** con navegación por teclado
-- **Sin modales** - experiencia mobile-friendly
-
-### 💾 Persistencia y Estado
-- **Sistema de cache inteligente** para datos críticos
-- **Sesión de usuario persistente** entre visitas
-- **Contador de partidos** que sobrevive recargas
-- **Estados de aplicación** mantenidos automáticamente
-
-## 🎮 Demo en Vivo
-
-<div align="center">
-  <a href="https://ikerodeg.github.io/padelSamu/">
-    <img src="assets/img/bg/court-bg-desktop.jpeg" alt="PadelSamu Demo" width="80%" style="border-radius: 10px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);">
-  </a>
-  <br>
-  <strong>👆 Click en la imagen para probar PadelSamu en vivo</strong>
-  <br>
-  <em>Disponible en GitHub Pages - Funciona en móvil y desktop</em>
-</div>
-
-### 📱 **Capturas de Pantalla**
-- **Landing Page**: Interfaz principal con navegación intuitiva
-- **Crear Partida**: Formulario completo con validaciones inteligentes
-- **Estados Dinámicos**: Gestión automática de partidos completos/abiertos
-
-## 🛠 Stack Tecnológico
-
-Construido con **tecnologías web puras** para máxima compatibilidad y performance. Sin frameworks ni dependencias externas.
-
-### 🎨 **Frontend Moderno**
-*   **HTML5 Semántico**
-    *   Estructura accesible con ARIA labels
-    *   Navegación por teclado completa
-    *   Meta tags optimizados para SEO
-
-*   **CSS3 Next-Gen**
-    *   Variables CSS personalizadas para consistencia
-    *   Colores `oklch()` para precisión cromática
-    *   Flexbox & Grid para layouts responsive
-    *   Media Queries para mobile-first design
-    *   Animaciones CSS nativas y transiciones
-
-*   **Vanilla JavaScript (ES6+)**
-    *   Módulos ES6 (`import/export`) para arquitectura modular
-    *   Async/await para operaciones asíncronas
-    *   Destructuring, spread operator, y sintaxis moderna
-    *   API del DOM nativa sin librerías externas
-
-### 💾 **Persistencia y Estado**
-*   **localStorage API** nativa para persistencia de datos
-*   **Sistema de cache inteligente** para optimización de carga
-*   **Estados de aplicación** mantenidos automáticamente
-*   **Serialización JSON** nativa
-
-### 🏗️ **Arquitectura**
-*   **Patrón modular** con separación clara de responsabilidades
-*   **Sistema de errores centralizado** (mobile-friendly)
-*   **Componentes reutilizables** y funciones puras
-*   **Documentación completa** con JSDoc
-
-## ⚡ Instalación y Uso
-
-¡Clona y juega! No necesitas procesos de compilación ni dependencias externas.
-
-### 📥 **Instalación**
-
-1.  **Clona el repositorio**
-    ```bash
-    git clone https://github.com/ikerodeg/padelSamu.git
-    cd padelSamu
-    ```
-
-2.  **Ejecuta localmente**
-    ```bash
-    # Con Python 3
-    python3 -m http.server 8000
-
-    # O con Node.js
-    npx serve .
-
-    # O con VS Code: Click derecho en index.html → "Open with Live Server"
-    ```
-
-3.  **Abre en navegador**
-    ```
-    http://localhost:8000
-    ```
-
-### 🎮 **Primeros Pasos**
-
-1. **Landing Page**: Explora la interfaz principal
-2. **Crear Partida**: Haz click en "Crear partida nueva"
-3. **Rellena el formulario**: Fecha, hora, club, pista, jugadores
-4. **Confirma**: La partida se guarda automáticamente
-5. **Repite**: Crea múltiples partidos con numeración automática
-
-### 📱 **Compatible con**
-- ✅ Chrome/Chromium (recomendado)
-- ✅ Firefox
-- ✅ Safari
-- ✅ Edge
-- ✅ Navegadores móviles (iOS/Android)
-
-## 🗺 Roadmap
-
-### ✅ **Completado (v1.5)**
-- [x] **Diseño UI/UX Base** - Interfaz premium mobile-first
-- [x] **Sistema de Gestión de Partidas** - Creación completa con validaciones
-- [x] **Lista de Partidas** - Sistema completo con filtros y ordenamiento
-- [x] **Unirse a Partidas** - Múltiples jugadores simultáneamente
-- [x] **Sistema de Resultados** - Selección de ganadores y historial completo
-- [x] **Distribución de Puntos** - (+3 ganadores, +1 perdedores)
-- [x] **Estadísticas Automáticas** - Incremento de partidos jugados y ganados
-- [x] **Rankings Dinámicos** - Cálculo de Win Rate en tiempo real
-- [x] **Estados Múltiples** - Array-based status para partidas (completa + pendiente)
-- [x] **Sincronización de Estados** - Partidas finalizadas desaparecen de Lista
-- [x] **Ordenamiento por Fecha** - Partidas más recientes primero
-- [x] **Notificaciones Mobile-Friendly** - Sin modales intrusivos
-- [x] **Componente Reutilizable** - Sistema de notificaciones modular
-- [x] **Base de Datos de Jugadores** - 16 perfiles con datos completos
-- [x] **Lista de Jugadores Dinámica** - Carga desde localStorage con orden alfabético
-- [x] **Búsqueda de Jugadores** - Filtrado en tiempo real por nombre
-- [x] **Perfiles de Jugador** - Página individual con stats, insignias y más
-- [x] **Sistema de Clubs** - 6 clubes temporales
-- [x] **Numeración Automática** - Contador persistente de partidos
-- [x] **Estados Inteligentes** - Partidas completas/abiertas/pendientes/finalizadas
-- [x] **Persistencia localStorage** - Datos mantenidos entre sesiones
-- [x] **Sistema de Errores** - Manejo robusto y mobile-friendly
-- [x] **Accesibilidad Completa** - ARIA, navegación por teclado
-- [x] **Responsive Design** - Optimizado para todos los dispositivos
-- [x] **Controles de Administrador** - Editar y eliminar partidas
-- [x] **Avatar Generado** - Generación de imágenes de jugadores
-- [x] **Avatar clickeable** - Redirección a perfil
-- [x] **Agenda partidas jugador** - Agenda de partidas por jugador en su perfil
-- [x] **Partidas agenda clickeables** - Redirección a resultados
-
-### 🚧 **Próximas Funcionalidades**
-- [ ] **Integración Telegram** - Notificaciones automáticas
-- [ ] **PWA Features** - Offline y notificaciones push
-- [ ] **API Backend** - Sincronización con servidor
-
-### 🎯 **Mejoras Futuras**
-- [ ] **Modo Torneo** - Gestión de competiciones
-- [ ] **Estadísticas Avanzadas** - Gráficos y métricas
-- [ ] **Modo Oscuro/Claro** - Toggle de temas
-- [ ] **Multi-idioma** - Soporte para varios idiomas
-- [ ] **Exportación de Datos** - CSV/Excel de estadísticas
+*   **📝 Gestión de Partidas**: Crea encuentros en segundos (Fecha, Hora, Club, Pista).
+*   **👥 Control de Jugadores**: Gestiona el alta de nuevos miembros y edita sus perfiles.
+*   **📢 Estados Automáticos**: Las partidas pasan de "Abierta" a "Completa" automáticamente cuando se llenan los 4 huecos.
+*   **✅ Validación de Resultados**: Cierra las partidas y asigna los ganadores. La app se encarga de repartir los puntos y actualizar el ranking sola.
+*   **📲 Próximamente**: Comparte partidas en Telegram con un click.
 
 ---
 
-## 🤝 Contribuciones
+## 🛠 Tecnología
 
-¡Las contribuciones son bienvenidas! Si quieres mejorar PadelSamu:
+PadelHub no es una web normal, es una **Web App de Alto Rendimiento**.
 
-1. **Fork** el proyecto
-2. **Crea** una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
-3. **Commit** tus cambios (`git commit -m 'feat: añade nueva funcionalidad'`)
-4. **Push** a la rama (`git push origin feature/nueva-funcionalidad`)
-5. **Abre** un Pull Request
-
-### 📋 **Guías de Contribución**
-- Sigue los estándares de código ES6+
-- Mantén la compatibilidad mobile-first
-- Agrega tests para nuevas funcionalidades
-- Actualiza la documentación
+*   **⚡ Velocidad Extrema**: Construida con tecnología web pura (Vanilla JS) sin librerías pesadas que ralenticen tu móvil.
+*   **📱 Mobile First**: Cada botón, carta y menú ha sido diseñado pensando en la pantalla de tu teléfono.
+*   **🔒 Privacidad**: Tus datos se gestionan de forma segura y eficiente.
+*   **☁️ Preparada para el Futuro**: Arquitectura lista para escalar a la nube (Backend Bun + Supabase en desarrollo).
 
 ---
 
-## 📄 Licencia
+## 🗺 Roadmap (El Futuro)
 
-Este proyecto está bajo la **Licencia MIT** - ver el archivo [LICENSE](LICENSE) para más detalles.
+Estamos trabajando constantemente para mejorar. Esto es lo que viene:
 
----
+### 🌟 **Fase 1: Experiencia "Pro" (Actual)**
+- [x] Gestión completa de partidas y jugadores.
+- [x] Ranking automático.
+- [ ] **PWA**: Instalación nativa en tu pantalla de inicio.
+- [ ] **Telegram**: Botón "Copiar Invitación" para compartir partidas fácilmente.
 
-## 🙏 Agradecimientos
+### ☁️ **Fase 2: Conexión Total**
+- [ ] **Cuentas de Usuario**: Login seguro con contraseña.
+- [ ] **Sincronización en la Nube**: Accede a tus datos desde cualquier dispositivo.
 
-- **Diseño de UI/UX**: Inspirado en aplicaciones deportivas modernas
-- **Tecnologías Web**: Por hacer posible el desarrollo sin dependencias
-- **Comunidad Open Source**: Por las herramientas y recursos utilizados
+### 🤖 **Fase 3: Automatización**
+- [ ] **Bot de Telegram**: La app notificará sola al grupo cuando haya partido nuevo o se cierre uno.
 
 ---
 
 <div align="center">
-  <p>Desarrollado con ❤️ y 🎾 por <a href="https://github.com/ikerodeg">ikerodeg</a></p>
-  <p><em>¡Domina la pista con PadelSamu! 🏓</em></p>
-  <p><strong>Season 2026 - v1.4</strong></p>
+  <p><strong>PadelHub 2026</strong></p>
+  <p><em>Season 2026 - v1.5</em></p>
 </div>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión Partidas | PadelHub</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <!-- Reset y variables -->
+  <link rel="stylesheet" href="../../src/css/normalize.css">
+  <link rel="stylesheet" href="../../src/css/variables.css">
+
+  <!-- Componentes -->
+  <link rel="stylesheet" href="../../src/css/components/baseLayout.css">
+  <link rel="stylesheet" href="../../src/css/components/header.css">
+  <link rel="stylesheet" href="../../src/css/components/footer.css">
+  <link rel="stylesheet" href="../../src/css/components/buttons.css">
+
+  <!-- Reutilizamos estilos de landing para el menú -->
+  <!-- Reutilizamos estilos de resultados para las cards y lista-partidas para botones -->
+  <link rel="stylesheet" href="../../src/css/pages/resultados.css">
+  <link rel="stylesheet" href="../../src/css/pages/lista-partidas.css">
+
+  <style>
+    /* Estilos específicos inline por ahora */
+    body {
+      margin: 0;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .admin-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .admin-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .admin-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    /* Override para cards en admin */
+    .resultado-card[data-estado="abierta"] .partida-status {
+      background-color: var(--color-lime-400);
+      color: var(--color-gray-950);
+    }
+
+    .resultado-card[data-estado="completa"] .partida-status {
+      border: 1px solid var(--color-blue-400);
+      color: var(--color-blue-400);
+    }
+
+    /* Ajuste para botones admin en header de resultado-card */
+    .resultado-header {
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .partida-actions[data-admin-only] {
+      margin-left: auto;
+      margin-right: 1rem;
+      display: flex !important;
+      /* Forzar display flex en esta pagina */
+    }
+
+    /* Ensure main doesn't overflow */
+    main {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding-inline: var(--spacing-md);
+    }
+  </style>
+</head>
+
+<body aria-label="admin-page">
+  <!-- Header -->
+  <header>
+    <div class="return-link__container">
+      <a href="admin.html" aria-label="volver al panel de administración">
+        <img src="../../assets/img/icons/icons8-volver-48.png" class="return-icon" alt="Volver" loading="lazy"
+          decoding="async">
+      </a>
+    </div>
+    <div class="brand-container">
+      <!-- Logo PadelHub -->
+      <img src="../../assets/img/icons/logo.png" alt="PadelHub Logo" loading="lazy" decoding="async" class="brand-icon">
+      <span class="brand-name">PADEL<span class="brand-highlight">Hub</span></span>
+    </div>
+    <!-- Avatar del usuario logeado -->
+    <div class="user-badge">
+      <div class="user-avatar" aria-label="Avatar de Samu Coach" title="Ver mi perfil" style="cursor: pointer;">👨🏻
+      </div><span class="admin-badge" aria-label="Administrador" title="Usuario Administrador">👑</span>
+    </div>
+  </header>
+
+  <main class="landing-page"> <!-- Reutilizando clase para background -->
+    <!-- Background -->
+    <div class="background-wrapper">
+      <div class="background-overlay"></div>
+      <div class="background-blur"></div>
+    </div>
+
+    <div class="content-container admin-container">
+      <section class="admin-header">
+        <h1 class="admin-title">Gestión de Partidas</h1>
+      </section>
+
+      <!-- Container para las partidas -->
+      <section id="partidasAdminContainer" class="resultados-container">
+        <!-- Las partidas se generan dinámicamente aquí -->
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-text">PadelHub 2026 &copy; by ocp2k</p>
+    <p class="footer-text">Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Script principal -->
+  <script type="module" src="../../src/js/pages/admin/partidasAdmin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Jugador | PadelHub</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <!-- Reset y variables -->
+  <link rel="stylesheet" href="../../src/css/normalize.css">
+  <link rel="stylesheet" href="../../src/css/variables.css">
+
+  <!-- Componentes -->
+  <link rel="stylesheet" href="../../src/css/components/baseLayout.css">
+  <link rel="stylesheet" href="../../src/css/components/header.css">
+  <link rel="stylesheet" href="../../src/css/components/footer.css">
+  <link rel="stylesheet" href="../../src/css/components/buttons.css">
+  <link rel="stylesheet" href="../../src/css/components/forms.css">
+
+  <link rel="stylesheet" href="../../src/css/style.css">
+
+  <!-- Estilos página perfil -->
+  <link rel="stylesheet" href="../../src/css/pages/admin/jugadorPerfilAdmin.css">
+
+  <style>
+    body {
+      margin: 0;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .admin-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .admin-header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .admin-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    main {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding-inline: var(--spacing-md);
+    }
+
+    /* Input file hidden */
+    input[type="file"] {
+      display: none;
+    }
+  </style>
+</head>
+
+<body aria-label="admin-page">
+  <!-- Header -->
+  <header>
+    <div class="return-link__container">
+      <a href="jugadoresAdmin.html" aria-label="volver a lista de jugadores">
+        <img src="../../assets/img/icons/icons8-volver-48.png" class="return-icon" alt="Volver" loading="lazy"
+          decoding="async">
+      </a>
+    </div>
+    <div class="brand-container">
+      <!-- Logo PadelHub -->
+      <img src="../../assets/img/icons/logo.png" alt="PadelHub Logo" loading="lazy" decoding="async" class="brand-icon">
+      <span class="brand-name">PADEL<span class="brand-highlight">Hub</span></span>
+    </div>
+    <div class="user-badge">
+      <div class="user-avatar" aria-label="Avatar de Samu Coach" title="Ver mi perfil" style="cursor: pointer;">👨🏻
+      </div><span class="admin-badge" aria-label="Administrador" title="Usuario Administrador">👑</span>
+    </div>
+  </header>
+
+  <main class="landing-page">
+    <div class="background-wrapper">
+      <div class="background-overlay"></div>
+      <div class="background-blur"></div>
+    </div>
+
+    <div class="content-container admin-container">
+      <section class="admin-header">
+        <h1 class="admin-title" id="pageTitle">Nuevo Jugador</h1>
+      </section>
+
+      <form id="playerForm" class="create-match-form">
+        <input type="hidden" id="playerId" name="id">
+
+        <!-- Foto de Perfil -->
+        <div class="image-preview-container">
+          <!-- Using a solid color div fallback or simple text if image fails is handled by style, but let's put a valid placeholder -->
+          <img id="imagePreview" src="../../assets/img/icons/logo.png" style="opacity: 0.5; padding: 20px;"
+            class="preview-img" alt="Vista previa">
+          <label for="playerPhoto" class="file-upload-btn">
+            📸 Seleccionar Foto
+          </label>
+          <input type="file" id="playerPhoto" name="photo" accept="image/*">
+          <input type="hidden" id="photoBase64">
+        </div>
+
+        <fieldset>
+          <legend>Información Básica</legend>
+          <label for="playerName">Nombre Completo *</label>
+          <input type="text" id="playerName" name="name" required placeholder="Ej: Juan Pérez">
+
+          <label for="playerAvatar">Avatar (Emoji o Iniciales) *</label>
+          <input type="text" id="playerAvatar" name="avatar" required placeholder="Ej: JP o 🧔🏻‍♂️" maxlength="4">
+        </fieldset>
+
+        <fieldset>
+          <legend>Detalles Deportivos</legend>
+          <label for="playerPosition">Posición *</label>
+          <select id="playerPosition" name="position" required>
+            <option value="drive">Drive</option>
+            <option value="reves">Revés</option>
+          </select>
+
+          <label for="playerPoints">Puntos Iniciales</label>
+          <input type="number" id="playerPoints" name="points" value="0" min="0">
+
+          <label for="playerRacket">Pala (Raqueta)</label>
+          <input type="text" id="playerRacket" name="racket" placeholder="Ej: Bullpadel Vertex 04">
+        </fieldset>
+
+        <fieldset>
+          <legend>Disponibilidad</legend>
+          <label for="playerAvailability">Horarios preferidos</label>
+          <textarea id="playerAvailability" name="availability" rows="3"
+            placeholder="Ej: Lunes y Miércoles a partir de las 19:00, Fines de semana mañanas..."></textarea>
+        </fieldset>
+
+        <div class="form-buttons-container">
+          <button class="btn btn-success btn-lg" type="submit">GUARDAR</button>
+          <button class="btn btn-danger btn-lg" type="button" id="cancelBtn">CANCELAR</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p class="footer-text">PadelHub 2026 &copy; by ocp2k</p>
+    <p class="footer-text">Todos los derechos reservados</p>
+  </footer>
+
+  <script type="module" src="../../src/js/pages/admin/jugadorPerfilAdmin.js"></script>
+  <script type="module">
+    import { initializeUserSession } from '../../src/js/utils/auth.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeUserSession('.user-badge');
+    });
+  </script>
+</body>
+
+</html>

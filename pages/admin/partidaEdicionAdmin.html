@@ -4,97 +4,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Crear nueva partida | PadelHub</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description"
-    content="Crea una nueva partida de pádel en PadelHub. Añade jugadores, selecciona club, pista, fecha y hora.">
-  <meta name="keywords" content="padel, crear partida, pádel, partidos, organizar, deportes">
-  <meta name="author" content="ocp2k">
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Crear nueva partida | PadelHub">
-  <meta property="og:description" content="Gestiona fácilmente tus partidas de pádel con PadelHub.">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="PadelHub">
-
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Crear nueva partida | PadelHub">
-  <meta name="twitter:description" content="Organiza tus partidas de pádel de forma sencilla y rápida.">
+  <title>Editar Partida | PadelHub</title>
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://images.unsplash.com">
 
   <!-- Reset y variables -->
-  <link rel="stylesheet" href="../src/css/normalize.css">
-  <link rel="stylesheet" href="../src/css/variables.css">
+  <link rel="stylesheet" href="../../src/css/normalize.css">
+  <link rel="stylesheet" href="../../src/css/variables.css">
 
   <!-- Componentes -->
-  <link rel="stylesheet" href="../src/css/components/baseLayout.css">
-  <link rel="stylesheet" href="../src/css/components/header.css">
-  <link rel="stylesheet" href="../src/css/components/pageHeader.css">
-  <link rel="stylesheet" href="../src/css/components/footer.css">
-  <link rel="stylesheet" href="../src/css/components/buttons.css">
-  <link rel="stylesheet" href="../src/css/components/forms.css">
+  <link rel="stylesheet" href="../../src/css/components/baseLayout.css">
+  <link rel="stylesheet" href="../../src/css/components/header.css">
+  <link rel="stylesheet" href="../../src/css/components/footer.css">
+  <link rel="stylesheet" href="../../src/css/components/buttons.css">
+  <link rel="stylesheet" href="../../src/css/components/forms.css">
 
-  <!-- Page CSS -->
-  <link rel="stylesheet" href="../src/css/pages/crear-partida.css">
+  <link rel="stylesheet" href="../../src/css/style.css">
+
+  <!-- Reutilizamos estilos de crear-partida y jugadorPerfilAdmin -->
+  <link rel="stylesheet" href="../../src/css/pages/crear-partida.css">
+  <link rel="stylesheet" href="../../src/css/pages/admin/jugadorPerfilAdmin.css">
+
+  <style>
+    /* Estilos base de layout admin (reimpresos para asegurar consistencia si jugadorPerfilAdmin.css cambia) */
+    body {
+      margin: 0;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .admin-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .admin-header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .admin-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    /* Ajustes específicos para el formulario en contexto admin */
+    .create-match-form {
+      margin-top: 0;
+      background: rgba(30, 41, 59, 0.7);
+      /* Similar a jugadorPerfilAdmin */
+      border: 1px solid var(--color-gray-700);
+      padding: 2rem;
+      border-radius: 1rem;
+    }
+
+    main {
+      padding-inline: var(--spacing-md);
+    }
+  </style>
 </head>
 
-
-<body aria-label="crear-partida">
-
-  <!-- ========================= HEADER ========================= -->
+<body aria-label="admin-page">
+  <!-- Header -->
   <header>
     <div class="return-link__container">
-      <a href="../index.html" aria-label="volver al inicio de PadelHub">
-        <img src="../assets/img/icons/icons8-volver-48.png" class="return-icon" alt="Home Icon" loading="lazy"
+      <a href="partidasAdmin.html" aria-label="volver a gestión de partidas">
+        <img src="../../assets/img/icons/icons8-volver-48.png" class="return-icon" alt="Volver" loading="lazy"
           decoding="async">
       </a>
     </div>
     <div class="brand-container">
       <!-- Logo PadelHub -->
-      <img src="../assets/img/icons/logo.png" alt="PadelHub Logo" loading="lazy" decoding="async" class="brand-icon">
+      <img src="../../assets/img/icons/logo.png" alt="PadelHub Logo" loading="lazy" decoding="async" class="brand-icon">
       <span class="brand-name">PADEL<span class="brand-highlight">Hub</span></span>
     </div>
-    <!-- Avatar del usuario logeado -->
-    <div class="user-badge"></div>
+    <div class="user-badge">
+      <div class="user-avatar" aria-label="Avatar de Samu Coach" title="Ver mi perfil" style="cursor: pointer;">👨🏻
+      </div><span class="admin-badge" aria-label="Administrador" title="Usuario Administrador">👑</span>
+    </div>
   </header>
 
-  <!-- ========================= MAIN ========================= -->
-  <main>
-    <!-- Background -->
+  <main class="landing-page">
     <div class="background-wrapper">
       <div class="background-overlay"></div>
       <div class="background-blur"></div>
     </div>
 
-    <!-- Título de la página -->
-    <section class="page-header">
-      <h1 class="page-title">Crear Partida</h1>
-      <p class="page-description">Crea una nueva partida para jugar</p>
-    </section>
+    <div class="content-container admin-container">
+      <section class="admin-header">
+        <h1 class="admin-title">Editar Partida</h1>
+      </section>
 
-    <!-- Botón que despliega el formulario -->
-    <section class="form-toggle-section">
-      <button type="button" id="toggleFormBtn" data-action="open-form" aria-expanded="false"
-        aria-controls="crearPartidaSection" class="btn btn-gradient btn-lg">
-        Crear partida nueva
-      </button>
-    </section>
-
-    <!-- ============= FORMULARIO (oculto inicialmente) ============= -->
-    <section id="crearPartidaSection" class="form-section" data-section="crear-partida" hidden aria-hidden="true">
-      <!--  añadirlo a arriba una vez se acabe de estilar -->
-
-
-      <form id="crearPartidaForm" class="create-match-form" aria-describedby="formHelp">
-        <p id="formHelp" class="form-help-text">Rellena los datos para crear una nueva partida. Puedes crearla
-          incompleta.</p>
-        <!-- Número partida (generado automáticamente) -->
+      <!-- Formulario clonado de crear-partida.html -->
+      <form id="editarPartidaForm" class="create-match-form">
+        <!-- Número partida (readonly) -->
         <fieldset class="fieldset-readonly">
           <legend>Número de partida</legend>
           <div class="match-number-display">
@@ -183,22 +198,31 @@
 
         <!-- Botones confirmar y cancelar -->
         <div class="form-buttons-container">
-          <button class="btn btn-success btn-lg" type="submit" id="confirmarPartidaBtn" data-action="confirmar">
-            CONFIRMAR
+          <button class="btn btn-success btn-lg" type="submit" id="guardarCambiosBtn">
+            GUARDAR
           </button>
-          <button class="btn btn-danger btn-lg" type="button" id="cancelarPartidaBtn" data-action="cancelar">
+          <button class="btn btn-danger btn-lg" type="button" id="cancelarEdicionBtn">
             CANCELAR
           </button>
         </div>
       </form>
-    </section>
+    </div>
   </main>
-  <!-- ========================= FOOTER ========================= -->
-  <footer class="footer">
+
+  <!-- Footer -->
+  <footer>
     <p class="footer-text">PadelHub 2026 &copy; by ocp2k</p>
     <p class="footer-text">Todos los derechos reservados</p>
   </footer>
-  <script src="../src/js/pages/crearPartida.js" type="module" defer></script>
+
+  <!-- Script principal -->
+  <script type="module" src="../../src/js/pages/admin/partidaEdicionAdmin.js"></script>
+  <script type="module">
+    import { initializeUserSession } from '../../src/js/utils/auth.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeUserSession('.user-badge');
+    });
+  </script>
 </body>
 
 </html>

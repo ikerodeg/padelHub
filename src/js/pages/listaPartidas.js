@@ -32,28 +32,7 @@ const ICONS = {
   </svg>`
 };
 
-// Función auxiliar para generar botones de admin
-function generateAdminButtons(formattedId) {
-  const editLabel = `Editar partida ${formattedId}`;
-  const deleteLabel = `Eliminar partida ${formattedId}`;
 
-  return `<div class="partida-actions" data-admin-only aria-hidden="true" style="display: none;">
-      <button type="button" class="btn btn-admin" data-action="editar" aria-label="${editLabel}">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-          <path d="m14.5 2.5 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-        </svg>
-      </button>
-      <button type="button" class="btn btn-admin btn-danger" data-action="eliminar" aria-label="${deleteLabel}">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M3 6h18"/>
-          <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-          <path d="M10 11v6"/>
-          <path d="M14 11v6"/>
-        </svg>
-      </button>
-    </div>`;
-}
 
 /**
  * Recupera todas las partidas y datos relacionados desde la cache
@@ -108,7 +87,7 @@ function generateOpenMatchHTML(match, players) {
           <span class="number-label">Partida</span>
           <span class="number-value">#${formattedId}</span>
         </div>
-        ${generateAdminButtons(formattedId)}
+
         <span class="partida-status status-${match.status[0]}">Abierta</span>
       </header>
 
@@ -207,7 +186,7 @@ function generateCompleteMatchHTML(match, players) {
           <span class="number-label">Partida</span>
           <span class="number-value">#${formattedId}</span>
         </div>
-         ${generateAdminButtons(formattedId)}
+
         <span class="partida-status status-${match.status[0]}">Completa</span>
       </header>
 
@@ -596,129 +575,7 @@ function initializeJoinFunctionality(matches, players) {
   console.log(`✅ ${joinButtons.length} botones de "Unirse" inicializados`);
 }
 
-/**
- * Elimina una partida del localStorage
- * @param {number} matchId - ID de la partida a eliminar
- */
-function deleteMatchFromStorage(matchId) {
-  console.log(`🗑️ Eliminando partida #${matchId} del almacenamiento...`);
-  
-  try {
-    const allData = getItem('allDataObject');
-    if (!allData) return;
 
-    const initialLength = allData.matches.length;
-    allData.matches = allData.matches.filter(m => m.id !== matchId);
-    
-    if (allData.matches.length < initialLength) {
-      setItem('allDataObject', allData);
-      console.log('✅ Partida eliminada correctamente');
-    } else {
-      console.warn('⚠️ No se encontró la partida para eliminar');
-    }
-  } catch (error) {
-    console.error('❌ Error al eliminar partida:', error);
-  }
-}
-
-/**
- * Maneja la eliminación de una partida
- * @param {Event} event - Evento del click
- * @param {Object} data - Objeto con matches y players para recargar
- */
-function handleDeleteMatch(event) {
-  event.preventDefault(); // Evitar comportamientos por defecto
-  
-  const button = event.currentTarget;
-  const matchCard = button.closest('.partida-card');
-  const matchId = parseInt(matchCard.getAttribute('data-partida-id'));
-
-  if (confirm(`¿Estás seguro de que quieres eliminar la partida #${matchId}?\n\nEsta acción no se puede deshacer.`)) {
-    deleteMatchFromStorage(matchId);
-    
-    // Recargar y renderizar
-    getAllData().then(({ matches, players }) => {
-      renderMatches(matches, players);
-      showNotification(`Partida #${matchId} eliminada correctamente.`, 'success');
-    }).catch(err => console.error(err));
-  }
-}
-
-/**
- * Maneja la edición de una partida (redirección)
- * @param {Event} event - Evento del click
- */
-function handleEditMatch(event) {
-  event.preventDefault();
-  
-  const button = event.currentTarget;
-  const matchCard = button.closest('.partida-card');
-  const matchId = matchCard.getAttribute('data-partida-id');
-  
-  // Convertir a número para limpiar ceros a la izquierda
-  const rawId = parseInt(matchId, 10);
-
-  console.log(`✏️ Redirigiendo a edición de partida #${rawId}`);
-  
-  // Redireccionar a crear-partida.html con parámetro edit
-  window.location.href = `crear-partida.html?edit=${rawId}`;
-}
-
-/**
- * Inicializa los listeners para las acciones de administrador (editar/eliminar)
- * @param {Array} matches - Array de partidas
- * @param {Array} players - Array de jugadores
- */
-function initializeAdminActions(matches, players) {
-  const userData = getCachedUserData();
-  if (!userData || !userData.isAdmin) return;
-
-  // Botones de eliminar
-  const deleteButtons = document.querySelectorAll('.btn-admin[data-action="eliminar"]');
-  deleteButtons.forEach(btn => {
-    // Clonar y reemplazar para evitar duplicar listeners si se llama múltiples veces
-    const newBtn = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newBtn, btn);
-    newBtn.addEventListener('click', handleDeleteMatch);
-  });
-
-  // Botones de editar
-  const editButtons = document.querySelectorAll('.btn-admin[data-action="editar"]');
-  editButtons.forEach(btn => {
-    // Clonar y reemplazar para evitar duplicar listeners
-    const newBtn = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newBtn, btn);
-    newBtn.addEventListener('click', handleEditMatch);
-  });
-  
-  console.log(`⚡ Inicializados admin actions: ${deleteButtons.length} eliminar, ${editButtons.length} editar`);
-}
-
-/**
- * Muestra los botones de administrador si el usuario actual es admin
- * Los botones están ocultos por defecto con style="display: none"
- */
-function showAdminButtons() {
-  // Obtener datos del usuario actual
-  const userData = getCachedUserData();
-  
-  if (!userData || !userData.isAdmin) {
-    console.log('👤 Usuario no es administrador, botones de admin ocultos');
-    return;
-  }
-  
-  console.log('👑 Usuario es administrador, mostrando botones de admin...');
-  
-  // Seleccionar todos los contenedores de botones de admin
-  const adminButtonContainers = document.querySelectorAll('[data-admin-only]');
-  
-  adminButtonContainers.forEach(container => {
-    container.style.display = 'flex';
-    container.setAttribute('aria-hidden', 'false');
-  });
-  
-  console.log(`✅ ${adminButtonContainers.length} grupos de botones de admin activados`);
-}
 
 /**
  * Renderiza todas las partidas en el DOM (excluyendo las pendientes y finalizadas)
@@ -744,11 +601,7 @@ function renderMatches(matches, players) {
   // Inicializar funcionalidad para unirse a partidas (después de cada renderizado)
   initializeJoinFunctionality(matches, players);
 
-  // Inicializar acciones de admin (editar/eliminar)
-  initializeAdminActions(matches, players);
 
-  // Mostrar botones de admin si el usuario es administrador
-  showAdminButtons();
 }
 
 /**

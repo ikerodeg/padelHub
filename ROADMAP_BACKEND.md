@@ -1,4 +1,4 @@
-# 🗺️ Roadmap Backend: PadelSamu API (v3 - "The Bun Native Stack")
+# 🗺️ Roadmap Backend: PadelHub API (v3 - "The Bun Native Stack")
 
 Este es el roadmap definitivo, optimizado para aprovechar al máximo la velocidad de **Bun** y las capacidades "Todo en Uno" de **Supabase**.
 
@@ -39,7 +39,7 @@ Objetivo: Tener la infraestructura de datos lista en la nube.
 
 1.  [ ] **Crear Proyecto Supabase**:
     *   Registrarse en supabase.com.
-    *   Crear nuevo proyecto "PadelSamu".
+    *   Crear nuevo proyecto "PadelHub".
     *   Guardar la `SUPABASE_URL` y `SUPABASE_ANON_KEY`.
 2.  [ ] **Diseñar Tablas en Supabase (Editor SQL)**:
     *   Ejecutar script para tabla `profiles` (vinculada a usuarios auth).

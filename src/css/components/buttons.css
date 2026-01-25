@@ -79,7 +79,7 @@
   color: var(--color-blue-400);
 }
 
-/* Éxito — Lime  (útil para confirmar reservas en PadelSamu) */
+/* Éxito — Lime  (útil para confirmar reservas en PadelHub) */
 .btn-success {
   background-color: var(--color-lime-400);
   color: var(--color-gray-950);

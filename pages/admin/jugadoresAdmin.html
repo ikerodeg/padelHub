@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión Jugadores | PadelHub</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <!-- Reset y variables -->
+  <link rel="stylesheet" href="../../src/css/normalize.css">
+  <link rel="stylesheet" href="../../src/css/variables.css">
+
+  <!-- Componentes -->
+  <link rel="stylesheet" href="../../src/css/components/baseLayout.css">
+  <link rel="stylesheet" href="../../src/css/components/header.css">
+  <link rel="stylesheet" href="../../src/css/components/footer.css">
+  <link rel="stylesheet" href="../../src/css/components/buttons.css">
+  <link rel="stylesheet" href="../../src/css/components/forms.css">
+
+  <!-- Estilos específicos de esta página -->
+  <link rel="stylesheet" href="../../src/css/pages/admin/jugadoresAdmin.css">
+
+  <!-- Reutilizamos estilos de landing para el menú (si fuera necesario) -->
+  <link rel="stylesheet" href="../../src/css/style.css">
+
+  <style>
+    /* Estilos específicos inline por ahora */
+    body {
+      margin: 0;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .admin-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1rem;
+      max-width: 1200px;
+      /* Mas ancho para el grid */
+      margin: 0 auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .admin-header {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .admin-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    /* Ensure main doesn't overflow */
+    main {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      padding-inline: var(--spacing-md);
+    }
+  </style>
+</head>
+
+<body aria-label="admin-page">
+  <!-- Header -->
+  <header>
+    <div class="return-link__container">
+      <a href="admin.html" aria-label="volver al panel de administración">
+        <img src="../../assets/img/icons/icons8-volver-48.png" class="return-icon" alt="Volver" loading="lazy"
+          decoding="async">
+      </a>
+    </div>
+    <div class="brand-container">
+      <!-- Logo PadelHub -->
+      <img src="../../assets/img/icons/logo.png" alt="PadelHub Logo" loading="lazy" decoding="async" class="brand-icon">
+      <span class="brand-name">PADEL<span class="brand-highlight">Hub</span></span>
+    </div>
+    <!-- Avatar del usuario logeado -->
+    <div class="user-badge">
+      <div class="user-avatar" aria-label="Avatar de Samu Coach" title="Ver mi perfil" style="cursor: pointer;">👨🏻
+      </div><span class="admin-badge" aria-label="Administrador" title="Usuario Administrador">👑</span>
+    </div>
+  </header>
+
+  <main class="landing-page"> <!-- Reutilizando clase para background -->
+    <!-- Background -->
+    <div class="background-wrapper">
+      <div class="background-overlay"></div>
+      <div class="background-blur"></div>
+    </div>
+
+    <div class="content-container admin-container">
+      <section class="admin-header">
+        <h1 class="admin-title">Gestión de Jugadores</h1>
+        <p style="color: var(--text-secondary);">Añade, edita o elimina jugadores de la liga.</p>
+      </section>
+
+      <div class="actions-bar">
+        <a href="jugadorPerfilAdmin.html" class="btn btn-gradient btn-lg"
+          style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; max-width: 400px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Añadir Jugador
+        </a>
+      </div>
+
+      <!-- Grid de Jugadores -->
+      <div id="playersGrid" class="players-grid">
+        <!-- Las tarjetas se generan dinámicamente aquí -->
+        <p class="loading-text">Cargando jugadores...</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Modal Formulario Jugador -->
+  <dialog id="playerDialog" class="modal-dialog">
+    <div class="modal-content">
+      <header class="modal-header">
+        <h2 id="modalTitle">Añadir Jugador</h2>
+        <button id="closeModalBtn" class="close-btn" aria-label="Cerrar modal">&times;</button>
+      </header>
+
+      <form id="playerForm" class="player-form">
+        <input type="hidden" id="playerId" name="id">
+
+        <div class="form-group half">
+          <label for="playerName">Nombre *</label>
+          <input type="text" id="playerName" name="name" required placeholder="Ej: Juan Pérez">
+        </div>
+
+        <div class="form-group half">
+          <label for="playerAvatar">Avatar (Emoji/Iniciales) *</label>
+          <input type="text" id="playerAvatar" name="avatar" required placeholder="Ej: JP o 🧔🏻‍♂️" maxlength="4">
+        </div>
+
+        <div class="form-group">
+          <label for="playerProfileImg">Foto de Perfil (URL)</label>
+          <input type="text" id="playerProfileImg" name="profileImg" placeholder="https://...">
+          <small style="color: var(--text-secondary); font-size: 0.8em;">Opcional. Deja vacío si no tiene.</small>
+        </div>
+
+        <div class="form-group half">
+          <label for="playerPosition">Posición *</label>
+          <select id="playerPosition" name="position" required>
+            <option value="drive">Drive</option>
+            <option value="reves">Revés</option>
+          </select>
+        </div>
+
+        <div class="form-group half">
+          <label for="playerPoints">Puntos Iniciales</label>
+          <input type="number" id="playerPoints" name="points" value="0" min="0">
+        </div>
+
+        <div class="form-group">
+          <label for="playerRacket">Pala (Raqueta)</label>
+          <input type="text" id="playerRacket" name="racket" placeholder="Ej: Bullpadel Vertex 04">
+        </div>
+
+        <div class="form-group">
+          <label for="playerAvailability">Disponibilidad</label>
+          <textarea id="playerAvailability" name="availability" rows="2"
+            placeholder="Ej: Lunes y Miércoles a partir de las 19:00"></textarea>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" id="cancelBtn" class="btn btn-danger">Cancelar</button>
+          <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Footer -->
+  <footer>
+    <p class="footer-text">PadelHub 2026 &copy; by ocp2k</p>
+    <p class="footer-text">Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Script principal -->
+  <script type="module" src="../../src/js/pages/admin/jugadoresAdmin.js"></script>
+  <script type="module">
+    import { initializeUserSession } from '../../src/js/utils/auth.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeUserSession('.user-badge');
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+/* ===========================================
+   ESTILOS DE /pages/admin/jugadorPerfilAdmin.html
+============================================ */
+
+/* Reutilizando lógica de formularios de crear-partida.css */
+
+/* =================================
+   FORMULARIO
+================================ */
+.create-match-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+/* Fieldsets */
+fieldset {
+  border: 1px solid var(--color-gray-700);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  background-color: var(--color-gray-900-alpha-60);
+  backdrop-filter: blur(var(--blur-md));
+  transition: border-color var(--duration-normal) var(--easing-out);
+  margin: 0;
+  min-width: 0;
+
+  &:hover {
+    border-color: var(--color-gray-600);
+  }
+
+  &:focus-within {
+    border-color: var(--color-blue-400);
+  }
+}
+
+legend {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  color: var(--color-white);
+  letter-spacing: var(--letter-spacing-tight);
+  padding-inline: var(--spacing-sm);
+}
+
+label {
+  display: block;
+  margin-block-end: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-gray-300);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-top: var(--spacing-md);
+}
+
+label:first-of-type {
+  margin-top: 0;
+}
+
+/* Inputs y Selects */
+fieldset input,
+fieldset select,
+fieldset textarea {
+  inline-size: 100%;
+  padding-block: var(--spacing-sm);
+  padding-inline: var(--spacing-md);
+  background-color: var(--color-gray-800-alpha-50);
+  color: var(--color-white);
+  border: 1px solid var(--color-gray-700);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-normal);
+
+  /* Reset box sizing */
+  box-sizing: border-box;
+
+  /* Transiciones */
+  transition:
+    border-color var(--duration-normal) var(--easing-out),
+    background-color var(--duration-normal) var(--easing-out),
+    box-shadow var(--duration-normal) var(--easing-out);
+
+  /* Hover */
+  &:hover {
+    border-color: var(--color-gray-600);
+  }
+
+  /* Focus */
+  &:focus {
+    outline: none;
+    border-color: var(--color-blue-400);
+    background-color: var(--color-gray-800);
+    box-shadow: 0 0 0 3px var(--color-blue-500-alpha-20);
+  }
+
+  /* Placeholder */
+  &::placeholder {
+    color: var(--color-gray-600);
+  }
+}
+
+/* Image Preview Section */
+.image-preview-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border: 1px dashed var(--color-gray-700);
+  border-radius: var(--radius-md);
+  background: var(--color-gray-900-alpha-60);
+}
+
+.preview-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--brand-color, var(--color-blue-400));
+  background-color: var(--color-gray-800);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.file-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-gray-800);
+  color: var(--text-primary, white);
+  border: 1px solid var(--color-gray-600);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  margin: 0;
+  /* Override label margin */
+}
+
+.file-upload-btn:hover {
+  background-color: var(--color-gray-700);
+  border-color: var(--color-blue-400);
+  transform: translateY(-2px);
+}
+
+/* Botones */
+.form-buttons-container {
+  display: flex;
+  justify-content: center;
+  /* Centrado */
+  gap: 2rem;
+  /* Separación */
+  margin-top: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.form-buttons-container button {
+  min-width: 140px;
+}
