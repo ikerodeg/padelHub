@@ -1,0 +1,216 @@
+/* ===================================
+   LOGIN PAGE — ESTILOS ESPECÍFICOS
+   =================================== */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-container {
+    inline-size: calc(100% - var(--spacing-xl));
+    max-inline-size: var(--max-width-sm);
+    z-index: var(--z-content);
+    background: var(--color-gray-900-alpha-60);
+    backdrop-filter: blur(var(--blur-md));
+    -webkit-backdrop-filter: blur(var(--blur-md));
+    border: 1px solid var(--color-gray-800);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-card);
+    animation: fadeIn 0.8s ease-out;
+    box-sizing: border-box;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+}
+
+.login-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--spacing-lg);
+    filter: drop-shadow(0 0 10px var(--color-lime-500));
+}
+
+.login-title {
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-black);
+    letter-spacing: var(--letter-spacing-tighter);
+    color: var(--color-white);
+    margin: 0;
+}
+
+.login-title .highlight {
+    color: var(--color-lime-400);
+}
+
+.login-subtitle {
+    color: var(--color-gray-400);
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-xs);
+}
+
+/* Selección de Jugador (Dropdown) */
+#player-selection-view .form-group {
+    margin-top: var(--spacing-xl);
+}
+
+/* Vista de Contraseña */
+.password-view {
+    animation: fadeIn 0.4s ease-out;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+}
+
+.selected-user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-3xl);
+    /* Más espacio desde el nombre */
+}
+
+.player-login-avatar {
+    width: 64px;
+    height: 64px;
+    background: var(--color-lime-500);
+    color: var(--color-gray-950);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-sm);
+    box-shadow: 0 0 20px -5px var(--color-lime-500);
+}
+
+.selected-user-name {
+    color: var(--color-white);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+}
+
+.password-input-group {
+    margin-bottom: var(--spacing-2xl);
+    /* Espacio antes de los botones */
+    width: 100%;
+}
+
+/* Input de Contraseña y Ojo */
+.password-wrapper {
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: var(--spacing-sm);
+    /* Separación del label */
+}
+
+.toggle-password-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--color-gray-500);
+    cursor: pointer;
+    padding: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--duration-fast);
+    z-index: 10;
+}
+
+.toggle-password-btn:hover {
+    color: var(--color-lime-400);
+}
+
+.toggle-password-btn.active {
+    color: var(--color-lime-400);
+}
+
+.password-error-msg {
+    color: var(--color-red-400);
+    font-size: var(--font-size-xs);
+    margin-top: var(--spacing-sm);
+    text-align: center;
+}
+
+/* Acciones */
+.password-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    /* Más espacio entre botones */
+    width: 100%;
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error-shake {
+    animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* Sobreescrituras de componentes globales para el login */
+.login-container .input {
+    background-color: var(--color-gray-950);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-container .select {
+    cursor: pointer;
+}

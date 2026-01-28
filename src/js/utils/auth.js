@@ -33,26 +33,16 @@ export function getCurrentUser() {
 export function initializeCurrentUser() {
   console.log('⚙️ Ejecutando initializeCurrentUser()...');
   
-  // Guarda en una variable la sesión existente en localStorage
+  // Obtener sesión existente
   const existingSession = getCurrentUser();
 
-  // Si existe sesión, devolverla
   if (existingSession) {
-    console.log(`✅ Sesión encontrada: Usuario ID ${existingSession.id} - Rol: ${existingSession.isAdmin ? 'Administrador' : 'Usuario'}`);
+    console.log(`✅ Sesión encontrada: Usuario ID ${existingSession.id}`);
     return existingSession;
   }
   
-  // Si no existe, crear sesión simulada (Samu Coach - Admin)
-  const simulatedSession = {
-    id: 1,          // Samu Coach (existe en players.json)
-    isAdmin: true   // Rol de administrador
-  };
-  
-  // Guardar en localStorage usando nuestro wrapper
-  setItem('currentUser', simulatedSession);
-  console.log('✅ Sesión creada: Usuario ID 1 (Samu Coach) - Rol: Administrador');
-  
-  return simulatedSession;
+  console.log('⚠️ No hay sesión activa.');
+  return null;
 }
 
 /**
@@ -72,13 +62,13 @@ export function getUserData() {
   // Obtener el objeto JSON completo cacheado
   const allDataObjectCached = getItem('allDataObject');
   
-  // Guardamos los jugadores en una variable  
-  const players = allDataObjectCached.players;
-  
-  if (!players) {
-    console.error('❌ No se encontraron datos de jugadores en localStorage');
+  if (!allDataObjectCached || !allDataObjectCached.players) {
+    console.error('❌ No se encontraron datos de jugadores en localStorage (cache vacío)');
     return null;
   }
+  
+  // Guardamos los jugadores en una variable  
+  const players = allDataObjectCached.players;
   
   // Buscar jugador por ID
   const player = players.find(p => p.id === session.id);
@@ -206,15 +196,17 @@ function renderBadgeContent(container, userData) {
     });
 
     container.appendChild(avatar);
+    console.log(`📦 Avatar añadido al contenedor. Hijos: ${container.children.length}`);
 
     // Añadir nombre solo en landing page
     if (document.body.getAttribute('aria-label') === 'landing-page') {
       const userName = document.createElement('span');
       userName.className = 'user-name';
-      userName.textContent = userData.name;
+      userName.textContent = userData.name || 'Usuario';
       userName.setAttribute('aria-label', `Usuario: ${userData.name}`);
 
       container.appendChild(userName);
+      console.log(`📦 Nombre añadido al contenedor. Hijos: ${container.children.length}`);
     }
 
     // Añadir badge de admin solo si es admin
@@ -226,6 +218,7 @@ function renderBadgeContent(container, userData) {
       adminBadge.setAttribute('title', 'Usuario Administrador');
 
       container.appendChild(adminBadge);
+      console.log(`📦 Badge admin añadido al contenedor. Hijos: ${container.children.length}`);
       
       // Añadir botón de admin solo en landing page
       if (document.body.getAttribute('aria-label') === 'landing-page') {
@@ -256,7 +249,7 @@ function renderBadgeContent(container, userData) {
       console.log('👑 Badge de administrador añadido');
     }
 
-    console.log(`✅ Badge renderizado: ${userData.name} (clickeable)`);
+    console.log(`✅ Badge renderizado final completo para: ${userData.name}. Hijos totales: ${container.children.length}`);
     return true;
 
   } catch (error) {
@@ -351,8 +344,98 @@ export async function initializeUserSession(containerSelector) {
 
   } catch (error) {
     console.error('❌ Error al inicializar sesión de usuario:', error.message);
-    throw error;
+    // Si falla la inicialización (ej: no hay sesión), redirigir al login si no estamos ya allí
+    checkAuthAndRedirect();
+    return null;
   }
+}
+
+/**
+ * Verifica si el usuario tiene sesión activa
+ * Si no la tiene, redirige a la página de login
+ * Esta función debe llamarse al inicio de cada página protegida
+ */
+export function checkAuthAndRedirect() {
+  const session = getCurrentUser();
+  const isLoginPage = window.location.pathname.includes('login.html');
+
+  if (!session && !isLoginPage) {
+    console.warn('🛑 Acceso denegado: No hay sesión. Redirigiendo a login...');
+    
+    // Calcular ruta al login basándose en la ubicación actual
+    const currentPath = window.location.pathname;
+    let loginUrl = 'pages/login.html';
+    
+    if (currentPath.includes('/pages/')) {
+        loginUrl = 'login.html';
+        if (currentPath.includes('/admin/')) {
+            loginUrl = '../login.html';
+        }
+    }
+    
+    window.location.href = loginUrl;
+    return false;
+  }
+  
+  return true;
+}
+
+/**
+ * Inicia sesión para un usuario específico
+ * @param {number} userId - ID del jugador
+ * @param {boolean} isAdmin - Si el usuario es administrador
+ */
+export function login(userId, isAdmin = false) {
+    console.log(`🚀 Iniciando sesión para usuario ID: ${userId}...`);
+    
+    const session = {
+        id: userId,
+        isAdmin: isAdmin
+    };
+    
+    setItem('currentUser', session);
+    
+    // Forzamos el cacheo de datos del usuario inmediatamente
+    cacheUserData();
+    
+    console.log('✅ Login exitoso. Redirigiendo al dashboard...');
+    
+    // Redirigir al index (raíz)
+    const currentPath = window.location.pathname;
+    let targetUrl = '../index.html';
+    
+    if (currentPath.includes('/pages/')) {
+        targetUrl = '../index.html';
+        if (currentPath.includes('/admin/')) {
+            targetUrl = '../../index.html';
+        }
+    } else {
+        targetUrl = 'index.html';
+    }
+    
+    window.location.href = targetUrl;
+}
+
+/**
+ * Cierra la sesión activa
+ */
+export function logout() {
+    console.log('🚪 Cerrando sesión...');
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('cachedUserData');
+    
+    // Redirigir a login
+    const currentPath = window.location.pathname;
+    let loginUrl = 'pages/login.html';
+    
+    if (currentPath.includes('/pages/')) {
+        loginUrl = 'login.html';
+        if (currentPath.includes('/admin/')) {
+            loginUrl = '../login.html';
+        }
+    }
+    
+    window.location.href = loginUrl;
 }
 
 

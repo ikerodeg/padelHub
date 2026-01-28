@@ -10,6 +10,19 @@ import { setItem, getItem } from './storage.js';
 console.log("🚪 → 📁 dataLoader.js");
 
 /**
+ * Calcula el prefijo de ruta necesario basándose en la ubicación actual
+ * Permite que los scripts funcionen desde / o desde /pages/ o /pages/admin/
+ */
+function getPathPrefix() {
+    const path = window.location.pathname;
+    if (path.includes('/pages/admin/')) return '../../';
+    if (path.includes('/pages/')) return '../';
+    return './';
+}
+
+const PREFIX = getPathPrefix();
+
+/**
  * Carga un archivo JSON desde una URL
  * @param {string} url - Ruta al archivo JSON (ej: 'data/players.json')
  * @returns {Promise<any>} - Datos del JSON parseados
@@ -54,10 +67,10 @@ async function loadAllData() {
   try {
     // Cargar todos los JSON en paralelo con Promise.all
     const [players, clubs, matches, results] = await Promise.all([
-      loadJSON('data/players.json'),
-      loadJSON('data/clubs.json'),
-      loadJSON('data/matches.json'),
-      loadJSON('data/results.json')
+      loadJSON(`${PREFIX}data/players.json`),
+      loadJSON(`${PREFIX}data/clubs.json`),
+      loadJSON(`${PREFIX}data/matches.json`),
+      loadJSON(`${PREFIX}data/results.json`)
     ]);
     
     // Validar que todos los datos se cargaron

@@ -16,16 +16,11 @@ La interfaz es funcionalmente completa en local.
 
 ## 🚀 Estrategia de Evolución
 
-### 🧹 Fase 0: Rebranding & Limpieza (Inmediato)
-*Antes de avanzar, aseguramos la identidad del proyecto.*
-- [ ] **Renombrado Global**: Buscar y reemplazar "PadelSamu" por "**PadelHub**" en todo el código (`index.html`, `README.md`, `manifest`, textos, etc.).
-- [ ] **Limpieza**: Asegurar que no quedan referencias a antiguas funcionalidades descartadas.
-
 ### 📱 Fase 1: PWA (App Nativa)
 *Preparar la web para instalarse como app en iOS/Android.*
-- [ ] **Manifest.json**: Configuración completa (Nombre: PadelHub, Iconos, `standalone`).
+- [x] **Manifest.json**: Configuración completa (Nombre: PadelHub, Iconos, `standalone`).
 - [ ] **Service Worker**: Caché básica y configuración offline.
-- [ ] **Compatibilidad iOS**: Meta tags específicos para Safari (`apple-touch-icon`).
+- [x] **Compatibilidad iOS**: Meta tags específicos para Safari (`apple-touch-icon`).
 
 ### ⚙️ Fase 2: Backend Core (El Motor)
 *Sustituir localStorage por base de datos real en la nube.*
