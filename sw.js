@@ -4,7 +4,7 @@
  * @description Gestión de cache y modo offline para el proyecto PadelHub.
  */
 
-const CACHE_NAME = 'padelhub-v3';
+const CACHE_NAME = 'padelhub-v4';
 
 /**
  * Manejador global de errores no capturados
@@ -198,14 +198,17 @@ self.addEventListener('fetch', (event) => {
   
   try {
     const url = new URL(request.url);
+    
+    // Solo manejar peticiones GET y protocolos HTTP/HTTPS
+    if (request.method !== 'GET' || !url.protocol.startsWith('http')) return;
 
-    // Solo manejar peticiones GET de nuestro propio dominio (o relativas)
-    if (request.method !== 'GET') return;
+    // Solo manejar peticiones a nuestro propio dominio
+    if (url.origin !== self.location.origin) return;
 
     // Estrategia según el tipo de recurso
     if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {
-      // 1. HTML: Network First
-      event.respondWith(networkFirst(request));
+      // 1. HTML: Stale While Revalidate (Fixes white screen flash)
+      event.respondWith(staleWhileRevalidate(request));
     } else if (url.pathname.endsWith('.json')) {
       // 2. Data JSON: Network First
       event.respondWith(networkFirst(request));
@@ -243,7 +246,7 @@ self.addEventListener('fetch', (event) => {
 async function networkFirst(request) {
   const cache = await caches.open(CACHE_NAME);
   try {
-    const response = await fetch(request);
+    const response = await fetch(request.clone());
     if (response.ok) {
       cache.put(request, response.clone()).catch(err => {
         console.warn('[SW] ⚠️ No se pudo cachear:', request.url, err);
@@ -251,7 +254,7 @@ async function networkFirst(request) {
     }
     return response;
   } catch (error) {
-    console.warn('[SW] 🔌 Red no disponible para:', request.url);
+    console.warn('[SW] 🔌 Red no disponible (fetch failed):', request.url, error);
     const cachedResponse = await cache.match(request);
     if (cachedResponse) {
       console.log('[SW] ✅ Sirviendo desde cache:', request.url);
@@ -265,8 +268,9 @@ async function networkFirst(request) {
       return offlinePage || new Response('Offline', { status: 503 });
     }
 
-    console.error('[SW] ❌ No se pudo servir:', request.url);
-    return new Response('Network error', { status: 503, statusText: 'Service Unavailable' });
+    console.error('[SW] ❌ No se pudo servir (Red y Cache fallaron):', request.url, error);
+    // En lugar de 503, intentamos un fetch directo sin SW si es posible, o retornamos error
+    return fetch(request);
   }
 }
 
@@ -293,7 +297,7 @@ async function cacheFirst(request) {
   }
 
   try {
-    const networkResponse = await fetch(request);
+    const networkResponse = await fetch(request.clone());
     if (networkResponse.ok) {
       cache.put(request, networkResponse.clone()).catch(err => {
         console.warn('[SW] ⚠️ No se pudo cachear:', request.url, err);
@@ -301,8 +305,9 @@ async function cacheFirst(request) {
     }
     return networkResponse;
   } catch (error) {
-    console.warn('[SW] 🔌 Error de red para:', request.url);
-    return new Response('Network error', { status: 503, statusText: 'Service Unavailable' });
+    console.warn('[SW] 🔌 Error de red para:', request.url, error);
+    // Si falla todo, intentamos fetch normal para que el navegador maneje el error
+    return fetch(request);
   }
 }
 
@@ -314,7 +319,7 @@ async function staleWhileRevalidate(request) {
   const cache = await caches.open(CACHE_NAME);
   const cachedResponse = await cache.match(request);
 
-  const networkFetch = fetch(request)
+  const networkFetch = fetch(request.clone())
     .then((networkResponse) => {
       if (networkResponse.ok) {
         cache.put(request, networkResponse.clone()).catch(err => {
@@ -324,9 +329,9 @@ async function staleWhileRevalidate(request) {
       return networkResponse;
     })
     .catch(error => {
-      console.warn('[SW] 🔌 Error al revalidar:', request.url);
-      // Si falla la red, retornar el cache si existe
-      return cachedResponse || new Response('Network error', { status: 503 });
+      console.warn('[SW] 🔌 Error al revalidar:', request.url, error);
+      // Si falla la red y hay cache, retornamos cache. Si no, intentamos fetch directo.
+      return cachedResponse || fetch(request);
     });
 
   return cachedResponse || networkFetch;

@@ -48,53 +48,97 @@ Diseñada desde cero para ser **100% móvil**, PadelHub centraliza toda la gesti
 ¡Tu carrera deportiva empieza aquí!
 
 *   **🔑 Acceso Personal**: Sistema de autenticación para ver tu perfil y estadísticas.
-*   **🏆 Ranking en Tiempo Real**: Consulta quién es el número 1 de la temporada (+3 puntos ganar, +1 jugar).
+*   **🏆 Ranking en Tiempo Real**: Consulta quién es el número 1 de la temporada.
 *   **📅 Agenda Personal**: Tu perfil muestra tus próximas partidas y tu historial reciente.
 *   **⚡ Acción Rápida**: Únete a partidas abiertas con un solo toque.
+*   **✅ Validación de Resultados**: Cierra las partidas y asigna los ganadores. Reparto de puntos automático.
 *   **🏅 Insignias**: Desbloquea logros únicos (MVP, Muralla, Francotirador...) que lucen en tu perfil.
 
-### 👑 **Para el Administrador (Samu Coach)**
-Control total sobre la competición.
+### 👑 **Para el Administrador**
+Control total sobre la app.
 
-*   **📝 Gestión de Partidas**: Crea encuentros en segundos (Fecha, Hora, Club, Pista).
+*   **⚙️ Panel de Control**: Interfaz exclusiva para la gestión avanzada de la app.
+*   **📝 Gestión de Partidas**: Modifica y borra partidas.
 *   **👥 Control de Jugadores**: Gestiona el alta de nuevos miembros y edita sus perfiles.
-*   **✅ Validación de Resultados**: Cierra las partidas y asigna los ganadores. Reparto de puntos automático.
-*   **⚙️ Panel de Control**: Interfaz exclusiva para la gestión avanzada del club.
 
 ---
 
 ## 🛠 Tecnología
 
+### Frontend (PWA)
 PadelHub es una **Progressive Web App (PWA)** de alto rendimiento.
 
-*   **📦 PWA Full Stack**: Manifest, Service Workers y Precaching para una experiencia fluida.
-*   **📶 Soporte Offline**: Página personalizada de "Sin Conexión" para que nunca te quedes fuera.
-*   **📱 Optimizada para iOS/Android**: Incluye Splash Screens y iconos adaptativos para todas las pantallas.
-*   **⚡ Vanilla JS**: Velocidad pura sin dependencias externas pesadas.
-*   **🔐 Auth System**: Gestión de sesiones de usuario integrada.
+*   **📦 PWA Full Stack**: Manifest, Service Workers y precarga inteligente para una experiencia fluida.
+*   **📶 Soporte Offline Premium**: Página de desvío personalizada (`offline.html`) y acceso a datos cacheados.
+*   **📱 Optimización Nativa**: Splash Screens dinámicos para iOS y carga instantánea (Stale-While-Revalidate).
+*   **⚡ Vanilla JS & Power**: Rendimiento extremo sin frameworks pesados.
+*   **🔐 Auth System**: Sistema de login por usuario integrado.
+
+### Backend (API)
+Backend ultrarrápido construido con tecnologías de última generación.
+
+*   **🍙 Bun Runtime**: JavaScript/TypeScript 3x más rápido que Node.js
+*   **🦊 Elysia.js**: Framework web de alto rendimiento con type-safety end-to-end
+*   **⚡ Supabase**: PostgreSQL managed con autenticación integrada
+*   **📚 Swagger/OpenAPI**: Documentación automática de la API
+*   **🔥 Hot-reload**: Desarrollo ágil con recarga instantánea
+
+> **Estado**: ✅ Fase 1 completada - Servidor corriendo con documentación automática
 
 ---
 
-## 🗺 Roadmap (El Futuro)
+## 🗺 Roadmap
 
-Estamos trabajando constantemente para mejorar. Esto es lo que viene:
+### ✅ **Fase 1: Backend Setup (Completada)**
+- [x] **Entorno Bun + Elysia**: Servidor de alto rendimiento configurado
+- [x] **Swagger UI**: Documentación automática en `/swagger`
+- [x] **Health Check**: Endpoint `/health/ping` operativo
+- [x] **Variables de Entorno**: Configuración segura con `.env`
+- [x] **Hot-reload**: Desarrollo rápido con `bun run dev`
 
-### 🌟 **Fase 1: Experiencia "Pro" (Completada)**
-- [x] Gestión completa de partidas y jugadores.
-- [x] Ranking automático.
-- [x] **PWA**: Instalación nativa y soporte offline.
-- [x] **Sistema de Login**: Acceso seguro por usuario.
+### 🔄 **Fase 2: Supabase Integration (En Progreso)**
+- [ ] **Proyecto Supabase**: Base de datos PostgreSQL en la nube
+- [ ] **Schema de DB**: Tablas `profiles`, `matches`, `match_players`
+- [ ] **Row Level Security**: Políticas de seguridad a nivel de fila
+- [ ] **Cliente Supabase**: Integración con Elysia
+- [ ] **Auth Endpoints**: Registro y login con JWT
 
-### ☁️ **Fase 2: Conexión Total (En curso)**
-- [ ] **Sincronización en la Nube**: Migración de LocalStorage a base de datos (Supabase).
-- [ ] **Telegram**: Botón "Copiar Invitación" para compartir partidas fácilmente.
+### 📋 **Fase 3: API CRUD**
+- [ ] **Endpoints de Partidas**: GET/POST/PUT/DELETE `/matches`
+- [ ] **Gestión de Jugadores**: Inscripciones y salidas de partidas
+- [ ] **Conexión Frontend**: Migrar de localStorage a API real
 
-### 🤖 **Fase 3: Automatización**
-- [ ] **Bot de Telegram**: Notificaciones automáticas de nuevas partidas y cierres.
+### 🤖 **Fase 4: Automatización Telegram**
+- [ ] **Bot de Telegram**: Notificaciones automáticas de nuevas partidas
+- [ ] **Webhooks**: Actualizaciones en tiempo real al grupo
+
+---
+
+## 🧑‍💻 Desarrollo Local
+
+### Frontend (PWA)
+```bash
+# Abrir con Live Server o directamente en navegador
+open index.html
+```
+
+### Backend (API)
+```bash
+cd backend
+bun install
+bun run dev
+
+# Servidor: http://localhost:3000
+# Docs: http://localhost:3000/swagger
+```
+
+Ver [backend/README.md](backend/README.md) para más detalles.
+
+---
 
 ---
 
 <div align="center">
   <p><strong>PadelHub 2026</strong></p>
-  <p><em>Season 2026 - v1.6</em></p>
+  <p><em>Season 2026 - v1.7</em></p>
 </div>
