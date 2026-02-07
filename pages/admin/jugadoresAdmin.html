@@ -38,57 +38,14 @@
   <link rel="stylesheet" href="../../src/css/components/buttons.css">
   <link rel="stylesheet" href="../../src/css/components/forms.css">
 
-  <!-- Estilos específicos de esta página -->
-  <link rel="stylesheet" href="../../src/css/pages/admin/jugadoresAdmin.css">
-
   <!-- Reutilizamos estilos de landing para el menú (si fuera necesario) -->
   <link rel="stylesheet" href="../../src/css/style.css">
 
-  <style>
-    /* Estilos específicos inline por ahora */
-    body {
-      margin: 0;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    .admin-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding: 1rem;
-      max-width: 1200px;
-      /* Mas ancho para el grid */
-      margin: 0 auto;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    .admin-header {
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-
-    .admin-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin: 0;
-    }
-
-    /* Ensure main doesn't overflow */
-    main {
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      padding-inline: var(--spacing-md);
-    }
-  </style>
+  <!-- Estilos específicos de esta página -->
+  <link rel="stylesheet" href="../../src/css/pages/admin/jugadoresAdmin.css">
 </head>
 
-<body aria-label="admin-page">
+<body aria-label="admin-players-page">
   <!-- Header -->
   <header>
     <div class="return-link__container">
@@ -109,7 +66,7 @@
     </div>
   </header>
 
-  <main class="landing-page"> <!-- Reutilizando clase para background -->
+  <main class="landing-page">
     <!-- Background -->
     <div class="background-wrapper">
       <div class="background-overlay"></div>
@@ -217,7 +174,7 @@
       initializeUserSession('.user-badge');
     });
   </script>
-  
+
   <!-- Service Worker Update Handler -->
   <script type="module">
     import { initServiceWorkerUpdateHandler } from '../../src/js/utils/swUpdateHandler.js';

@@ -2,6 +2,45 @@
    ESTILOS DE /pages/admin/jugadoresAdmin.html
 ============================================ */
 
+.admin-players-page {
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-block-size: 100vh;
+  overflow-x: hidden;
+}
+
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  max-inline-size: 1200px;
+  /* Mas ancho para el grid */
+  margin: 0 auto;
+  inline-size: 100%;
+  box-sizing: border-box;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.admin-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.landing-page {
+  inline-size: 100%;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+  padding-inline: var(--spacing-md);
+}
+
 /* ACCIONES PRINCIPALES */
 .actions-bar {
   display: flex;
@@ -20,7 +59,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--spacing-lg);
-  width: 100%;
+  inline-size: 100%;
 }
 
 .loading-text {
@@ -55,8 +94,8 @@
 }
 
 .player-avatar {
-  width: 48px;
-  height: 48px;
+  inline-size: 48px;
+  block-size: 48px;
   border-radius: 50%;
   background: var(--color-gray-800);
   display: flex;
@@ -68,8 +107,8 @@
 }
 
 .player-avatar img {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
 }
 
@@ -156,9 +195,9 @@
   border: none;
   border-radius: var(--radius-lg);
   background: transparent;
-  width: 90%;
-  max-width: 500px;
-  max-height: 90vh;
+  inline-size: 90%;
+  max-inline-size: 500px;
+  max-block-size: 90vh;
   /* Para scroll */
 }
 
@@ -226,21 +265,21 @@
 
 /* Layout de dos columnas para campos cortos */
 .form-group.half {
-  width: 100%;
+  inline-size: 100%;
 }
 
-@media (min-width: 480px) {
+@media (min-inline-size: 480px) {
   .player-form {
     flex-direction: row;
     flex-wrap: wrap;
   }
 
   .form-group {
-    width: 100%;
+    inline-size: 100%;
   }
 
   .form-group.half {
-    width: calc(50% - 0.5rem);
+    inline-size: calc(50% - 0.5rem);
   }
 }
 
