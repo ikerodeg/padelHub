@@ -4,7 +4,7 @@
  * @description Gestión de cache y modo offline para el proyecto PadelHub.
  */
 
-const CACHE_NAME = 'padelhub-v7';
+const CACHE_NAME = 'padelhub-v8';
 
 /**
  * Manejador global de errores no capturados

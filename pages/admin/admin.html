@@ -38,59 +38,9 @@
   <link rel="stylesheet" href="../../src/css/components/footer.css">
   <link rel="stylesheet" href="../../src/css/components/buttons.css">
 
-  <!-- Reutilizamos estilos de landing para el menú -->
+  <!-- Estilos de admin reutilizando estilos de landing -->
   <link rel="stylesheet" href="../../src/css/style.css">
-
-  <style>
-    /* Estilos específicos inline por ahora */
-    body {
-      margin: 0;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    .admin-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding: 1rem;
-      max-width: 600px;
-      margin: 0 auto;
-      width: 100%;
-      box-sizing: border-box;
-      /* Fix horizontal scroll */
-    }
-
-    .admin-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .admin-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin: 0;
-    }
-
-    /* Ajuste para que el menú se vea bien aquí */
-    .menu-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-    }
-
-    /* Ensure main doesn't overflow */
-    main {
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      padding-inline: var(--spacing-md);
-    }
-  </style>
+  <link rel="stylesheet" href="../../src/css/pages/admin/admin.css">
 </head>
 
 <body aria-label="admin-page">
@@ -114,13 +64,14 @@
     </div>
   </header>
 
-  <main class="landing-page"> <!-- Reutilizando clase para background -->
+  <main class="landing-page">
     <!-- Background -->
     <div class="background-wrapper">
       <div class="background-overlay"></div>
       <div class="background-blur"></div>
     </div>
 
+    <!-- Contenedor principal -->
     <div class="content-container admin-container">
       <section class="admin-header">
         <h1 class="admin-title">Panel de Administración</h1>
@@ -196,7 +147,7 @@
       initializeUserSession('.user-badge');
     });
   </script>
-  
+
   <!-- Service Worker Update Handler -->
   <script type="module">
     import { initServiceWorkerUpdateHandler } from '../../src/js/utils/swUpdateHandler.js';
