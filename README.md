@@ -96,14 +96,15 @@ Backend ultrarrápido construido con tecnologías de última generación.
 - [x] **Variables de Entorno**: Configuración segura con `.env`
 - [x] **Hot-reload**: Desarrollo rápido con `bun run dev`
 
-### 🔄 **Fase 2: Supabase Integration (En Progreso)**
-- [ ] **Proyecto Supabase**: Base de datos PostgreSQL en la nube
-- [ ] **Schema de DB**: Tablas `profiles`, `matches`, `match_players`
-- [ ] **Row Level Security**: Políticas de seguridad a nivel de fila
-- [ ] **Cliente Supabase**: Integración con Elysia
-- [ ] **Auth Endpoints**: Registro y login con JWT
+### ✅ **Fase 2: Supabase Integration (Completada)**
+- [x] **Proyecto Supabase**: Base de datos PostgreSQL en la nube
+- [x] **Schema de DB**: Tablas `profiles`, `matches`, `match_players`
+- [x] **Row Level Security**: Políticas de seguridad a nivel de fila
+- [x] **Cliente Supabase**: Integración con Elysia
+- [x] **Auth Config**: Sistema de autenticación configurado
 
-### 📋 **Fase 3: API CRUD**
+### 🔄 **Fase 3: API CRUD**
+- [ ] **Auth Endpoints**: Registro y login con JWT
 - [ ] **Endpoints de Partidas**: GET/POST/PUT/DELETE `/matches`
 - [ ] **Gestión de Jugadores**: Inscripciones y salidas de partidas
 - [ ] **Conexión Frontend**: Migrar de localStorage a API real

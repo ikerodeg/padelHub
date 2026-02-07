@@ -4,7 +4,7 @@
  * @description Gestión de cache y modo offline para el proyecto PadelHub.
  */
 
-const CACHE_NAME = 'padelhub-v4';
+const CACHE_NAME = 'padelhub-v7';
 
 /**
  * Manejador global de errores no capturados
@@ -79,6 +79,7 @@ const PRECACHE_ASSETS = [
   './src/js/utils/storage.js',
   './src/js/utils/errores.js',
   './src/js/utils/statusHelper.js',
+  './src/js/utils/swUpdateHandler.js',
   
   // JS - Components
   './src/js/components/notification.js',

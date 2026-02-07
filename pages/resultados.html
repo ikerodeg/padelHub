@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <!-- PWA Manifest -->
   <link rel="manifest" href="../manifest.json">
@@ -136,6 +136,12 @@
   </footer>
 
   <script src="../src/js/pages/resultados.js" type="module" defer></script>
+  
+  <!-- Service Worker Update Handler -->
+  <script type="module">
+    import { initServiceWorkerUpdateHandler } from '../src/js/utils/swUpdateHandler.js';
+    initServiceWorkerUpdateHandler();
+  </script>
 </body>
 
 </html>
