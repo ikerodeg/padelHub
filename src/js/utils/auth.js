@@ -165,10 +165,28 @@ function renderBadgeContent(container, userData) {
     container.innerHTML = '';
 
     // Crear elementos del badge
+    // Crear elementos del badge
     const avatar = document.createElement('div');
     avatar.className = 'user-avatar';
-    avatar.textContent = userData.avatar; // Iniciales del jugador (ej: "SC")
-    avatar.setAttribute('aria-label', `Avatar de ${userData.name}`);
+    
+    // Si tiene imagen de perfil, usarla
+    if (userData.profileImg) {
+      avatar.innerHTML = `<img src="${userData.profileImg}" alt="${userData.name}">`;
+      // Ajustar rutas relativas si estamos en pages/ o admin/
+      const currentPath = window.location.pathname;
+      if (currentPath.includes('/pages/') && !userData.profileImg.startsWith('../')) {
+         const img = avatar.querySelector('img');
+         img.src = `../${userData.profileImg}`;
+      }
+      if (currentPath.includes('/admin/') && !userData.profileImg.startsWith('../../')) {
+         const img = avatar.querySelector('img');
+         img.src = `../../${userData.profileImg.replace('../', '')}`;
+      }
+    } else {
+      avatar.textContent = userData.avatar; // Iniciales del jugador (ej: "SC")
+    }
+    
+    avatar.setAttribute('aria-label', `Avatar de ${userData.name}`); // (ej: "SC")
     avatar.style.cursor = 'pointer';
     avatar.setAttribute('title', 'Ver mi perfil');
 
@@ -180,14 +198,14 @@ function renderBadgeContent(container, userData) {
       const currentPath = window.location.pathname;
       let targetUrl;
       
-      if (currentPath.includes('index.html') || currentPath.endsWith('/')) {
-        // Desde index.html (raíz)
-        targetUrl = `pages/perfil.html?id=${userId}`;
+      if (currentPath.includes('/pages/admin/') || currentPath.includes('/admin/')) {
+        // Desde administración (/pages/admin/...)
+        targetUrl = `../perfil.html?id=${userId}`;
       } else if (currentPath.includes('/pages/')) {
-        // Desde cualquier página dentro de /pages/
+        // Desde cualquier otra página dentro de /pages/
         targetUrl = `perfil.html?id=${userId}`;
       } else {
-        // Fallback genérico
+        // Desde la raíz (index.html)
         targetUrl = `pages/perfil.html?id=${userId}`;
       }
       
@@ -227,12 +245,6 @@ function renderBadgeContent(container, userData) {
         adminLink.className = 'admin-settings-btn';
         adminLink.setAttribute('aria-label', 'Ir a Administración');
         adminLink.setAttribute('title', 'Panel de Administración');
-        adminLink.style.display = 'flex';
-        adminLink.style.alignItems = 'center';
-        adminLink.style.justifyContent = 'center';
-        adminLink.style.marginLeft = '0.5rem';
-        adminLink.style.color = 'var(--text-primary)';
-        adminLink.style.textDecoration = 'none';
         
         // Icono de engranaje (Settings)
         adminLink.innerHTML = `

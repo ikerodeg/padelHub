@@ -106,11 +106,21 @@ function createPlayerCard(player) {
   const positionClass = player.position === 'drive' ? 'badge-drive' : 'badge-reves';
   const positionText = player.position === 'drive' ? 'Drive' : 'Revés';
   
-  // Obtener iniciales del avatar
-  const avatar = getPlayerInitials(player);
+  // Determinar contenido del avatar (Imagen o Iniciales)
+  let avatarContent;
+  let avatarStyle = '';
+
+  if (player.profileImg) {
+    // Si tiene imagen, la mostramos
+    avatarContent = `<img src="${player.profileImg}" alt="${player.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">`;
+    avatarStyle = 'padding: 0; overflow: hidden;';
+  } else {
+    // Si no, mostramos iniciales
+    avatarContent = getPlayerInitials(player);
+  }
   
   card.innerHTML = `
-    <div class="player-avatar">${avatar}</div>
+    <div class="player-avatar" style="${avatarStyle}">${avatarContent}</div>
     <div class="player-info">
       <span class="player-name">${player.name}</span>
       <span class="position-badge ${positionClass}">${positionText}</span>

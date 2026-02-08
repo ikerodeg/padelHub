@@ -88,9 +88,9 @@
 
 /* Contenedor del avatar seleccionado */
 .player-login-avatar {
-  width: 128px;
-  height: 128px;
-  background: var(--color-lime-500);
+  inline-size: 128px;
+  block-size: 128px;
+  border-color: var(--color-lime-500);
   color: var(--color-gray-950);
   border-radius: 50%;
   display: flex;
@@ -100,13 +100,23 @@
   font-size: 6rem;
   box-shadow: 0 0 20px -5px var(--color-lime-500);
   margin-block-end: var(--spacing-lg);
+  overflow: hidden;
+  /* Para recortar la imagen */
+}
+
+.player-login-avatar img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Nombre jugador seleccionado */
 .selected-user-name {
-  color: var(--color-white);
+  color: var(--color-lime-500);
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 10px var(--color-lime-400);
   margin: 0;
 }
 

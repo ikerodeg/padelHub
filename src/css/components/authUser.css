@@ -7,38 +7,72 @@
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-sm);
-  padding-block: var(--spacing-xs);
-  padding-inline: var(--spacing-md);
+  padding: var(--spacing-xs);
   border-radius: var(--radius-pill);
   background-color: var(--color-gray-900-alpha-60);
   backdrop-filter: blur(var(--blur-md));
   border: 1px solid var(--color-gray-700);
   transition: all var(--duration-normal) var(--easing-default);
-  margin-block-end: var(--spacing-xl);
+}
+
+/* Especial para el index donde sí queremos margen */
+.branding-section .user-badge {
+  margin-block-end: var(--spacing-lg);
+  padding-inline: var(--spacing-md);
+}
+
+/* Especial para el header donde queremos que sea invisible el fondo */
+header .user-badge {
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  padding: 0;
+  gap: var(--spacing-xs);
 }
 
 .user-avatar {
   display: flex;
   align-items: center;
   justify-content: center;
-  inline-size: 2rem;
-  block-size: 2rem;
-  border-radius: var(--radius-pill);
-  background: linear-gradient(135deg, var(--color-blue-500), var(--color-lime-500));
+  inline-size: 2.2rem;
+  block-size: 2.2rem;
+  border-radius: 50%;
+  /* background: linear-gradient(135deg, var(--color-blue-500), var(--color-lime-500)); */
   color: var(--color-white);
-  font-size: var(--font-size-lg);
-  box-shadow: 0 0 0 2px var(--color-gray-900), 0 0 12px var(--color-blue-500-alpha-20);
+  font-size: 1rem;
+  box-shadow: 0 0 0 2px var(--color-gray-900), 0 0 8px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.user-avatar img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
 }
 
 .user-name {
   color: var(--color-gray-300);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
-  letter-spacing: var(--letter-spacing-wide);
 }
 
 .admin-badge {
-  font-size: var(--font-size-md);
-  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
-  animation: pulse-glow 2s ease-in-out infinite;
+  font-size: 1rem;
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.5));
+}
+
+.admin-settings-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray-300);
+  text-decoration: none;
+  transition: all var(--duration-fast) var(--easing-default);
+}
+
+.admin-settings-btn:hover {
+  color: var(--color-white);
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 4px oklch(100% 0.00011 271.152 / 0.5));
 }

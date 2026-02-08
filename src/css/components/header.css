@@ -59,15 +59,3 @@ header {
   align-items: center;
   gap: var(--spacing-xs);
 }
-
-.user-avatar {
-  font-size: 1.2rem;
-}
-
-.user-name {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.admin-badge {
-  font-size: 1.2rem;
-}

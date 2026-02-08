@@ -99,7 +99,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     function showPasswordView(player) {
         selectedPlayer = player;
         selectedUserName.textContent = player.name;
-        selectedUserAvatar.textContent = player.avatar;
+        
+        // Si tiene imagen de perfil, mostrarla
+        if (player.profileImg) {
+            selectedUserAvatar.innerHTML = `<img src="${player.profileImg}" alt="${player.name}" class="avatar-img">`;
+            selectedUserAvatar.style.padding = '0'; // Eliminar padding si hay imagen
+            selectedUserAvatar.style.overflow = 'hidden'; // Asegurar recorte circular
+        } else {
+            selectedUserAvatar.textContent = player.avatar;
+            selectedUserAvatar.style.padding = ''; // Restaurar padding
+            selectedUserAvatar.style.overflow = '';
+        }
         
         // Animación de entrada (CSS fadeIn)
         playerSelectionView.style.display = 'none';
