@@ -1,20 +1,41 @@
 /* ================================
           LAYOUT BASE
 ================================ */
-header,
-body,
-footer {
-  max-inline-size: var(--max-width-md);
-}
 
 body {
-  background-color: darkslategrey;
-  min-block-size: 100vh;
-  font-family: var(--font-family-base);
-  background-color: var(--color-gray-950);
-  color: var(--color-gray-300);
+  inline-size: 100%;
+  box-sizing: border-box;
+  min-block-size: 100lvh;
   margin-inline: auto;
+  display: grid;
+  grid-template-areas: "header" "main" "footer";
+  position: relative;
   overflow-x: hidden;
+  max-inline-size: var(--max-width-lg);
+  font-family: var(--font-family-base);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--color-black);
+  background-image: url("../../../assets/img/bg/court-bg-mobile.jpeg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+header,
+main,
+footer {
+  margin-inline: auto;
+  inline-size: 100%;
+  max-inline-size: var(--max-width-lg);
+  box-sizing: border-box;
 }
 
 /* ===================================
@@ -22,47 +43,15 @@ MAIN CONTAINER
 ================================ */
 
 main {
+  grid-area: main;
   display: flex;
   position: relative;
-  margin-inline: auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow-y: auto;
-  padding-inline: var(--spacing-xl);
+  overflow: hidden;
   padding-block: var(--spacing-2xl);
-}
-
-/* ===================================
-   FONDO E IMÁGENES
-   ================================ */
-
-.background-wrapper {
-  background-image: url("../../../assets/img/bg/court-bg-mobile.jpeg");
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-}
-
-.background-blur {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  -webkit-backdrop-filter: blur(2px);
-  backdrop-filter: blur(2px);
-}
-
-.background-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(to bottom,
-      hsl(240 10% 3% / 0.450),
-      hsl(240 10% 3% / 0.450)),
-    hsla(240, 7%, 3%, 0.450);
+  padding-inline: var(--spacing-sm);
+  margin-block-end: var(--spacing-4xl);
+  color: var(--color-gray-300);
 }

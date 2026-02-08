@@ -186,6 +186,10 @@
   .number-value {
     color: var(--color-gray-400);
   }
+
+  .resultado-matchup {
+    padding-block-end: var(--spacing-md);
+  }
 }
 
 /* ===================================

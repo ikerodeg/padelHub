@@ -2,13 +2,15 @@
    HEADER - BRAND LOGO
    ================================ */
 header {
+  grid-area: header;
+  block-size: var(--header-height-xs);
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 100;
   position: sticky;
   inset-block-start: 0;
-  padding-block: var(--spacing-sm);
+  /* padding-block: var(--spacing-sm); */
   padding-inline: var(--spacing-md);
   background-color: var(--color-gray-900);
   border-block-end: 1px solid var(--color-gray-800);
